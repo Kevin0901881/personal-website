@@ -19,7 +19,7 @@ class App extends Component {
       <div className="App">
           <Logo />
           {/* <Welcome /> */}
-          <About />
+          <About height={ window.innerHeight } width={ window.innerWidth } />
           <Menu />
       </div>
     );

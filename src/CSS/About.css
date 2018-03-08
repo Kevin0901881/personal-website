@@ -10,11 +10,12 @@
   -moz-border-radius: 250px;
   border-radius: 250px;
   position: fixed;
+  transform: translate(-50%, -50%);
   background: linear-gradient(to bottom, #ff00fc 0%, #000000 100%);
   z-index: -1;
 }
 
 .portrait {
-  height: 450px;
+  height: 460px;
   position: relative;
 }
