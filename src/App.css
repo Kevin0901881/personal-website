@@ -1,0 +1,76 @@
+@font-face {
+  font-family: 'Montserrat';
+  font-style: light;
+  font-weight: 300;
+  src: local('Montserrat-Light'), local('Montserrat-Light'),
+       url('./Fonts/Montserrat-Light.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Montserrat-Regular'), local('Montserrat-Regular'),
+       url('./Fonts/Montserrat-Regular.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Montserrat';
+  font-style: medium;
+  font-weight: 500;
+  src: local('Montserrat-Medium'), local('Montserrat-Medium'),
+       url('./Fonts/Montserrat-Medium.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Montserrat';
+  font-style: semibold;
+  font-weight: 600;
+  src: local('Montserrat-SemiBold'), local('Montserrat-SemiBold'),
+       url('./Fonts/Montserrat-SemiBold.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Montserrat';
+  font-style: bold;
+  font-weight: 700;
+  src: local('Montserrat-Bold'), local('Montserrat-Bold'),
+       url('./Fonts/Montserrat-Bold.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Montserrat';
+  font-style: black;
+  font-weight: 800;
+  src: local('Montserrat-Black'), local('Montserrat-Black'),
+       url('./Fonts/Montserrat-Black.ttf') format('truetype');
+}
+
+html, body, #root, .App {
+  width: 100%;
+  height: 100%;
+}
+
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  animation: App-logo-spin infinite 20s linear;
+  height: 80px;
+}
+
+.App-header {
+  background-color: #222;
+  height: 150px;
+  padding: 20px;
+  color: white;
+}
+
+.App-title {
+  font-size: 1.5em;
+}
+
+.App-intro {
+  font-size: large;
+}
