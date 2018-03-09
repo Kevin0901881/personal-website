@@ -9,15 +9,15 @@ class About extends Component {
       topCircle: '50%',
       leftCircle: '50%',
       topPortrait: this.props.height * 0.144 + 'px',
-      leftPortrait: '-' + this.props.width * 0.074 + 'px'
+      leftPortrait: '-' + this.props.width * 0.05 + 'px'
     };
   }
 
   parallax(e, windowHeight, circleHeight, windowWidth) {
-    this.setState({ topCircle: (windowHeight) - (e.clientY * 6 / (windowHeight * 2)) + 'px',
-                    leftCircle: (windowWidth) - (e.clientX * 6 / (windowWidth * 2)) + 'px',
-                    topPortrait: (this.props.height * 0.144) - (e.clientY * 12 / (windowHeight * 2)) + 'px',
-                    leftPortrait: (-(this.props.width * 0.073)) - (e.clientX * 12 / (windowWidth * 2)) + 'px' });
+    this.setState({ topCircle: (windowHeight) - (e.clientY * 4 / (windowHeight * 2)) + 'px',
+                    leftCircle: (windowWidth) - (e.clientX * 4 / (windowWidth * 2)) + 'px',
+                    topPortrait: (this.props.height * 0.144) - (e.clientY * 8 / (windowHeight * 2)) + 'px',
+                    leftPortrait: (-(this.props.width * 0.05)) - (e.clientX * 8 / (windowWidth * 2)) + 'px' });
   }
 
   render() {

@@ -1,10 +1,11 @@
 .Menu {
   position: absolute;
-  bottom: 35px;
-  right: 35px;
+  bottom: 25px;
+  right: 25px;
   text-align: right;
   color: #292929;
   cursor: default;
+  padding: 10px;
   -webkit-touch-callout: none;
   -webkit-user-select: none;
   -moz-user-select: none;
@@ -16,6 +17,7 @@
   font-family: Montserrat;
   font-weight: 700;
   letter-spacing: 3px;
+  transition: opacity 0.2s ease-out, transform 0.2s ease-out;
 }
 
 .menuItem {
@@ -25,7 +27,7 @@
   letter-spacing: 4px;
   margin-top: 15px;
   cursor: pointer;
-  transition: color 0.15s;
+  transition: color 0.15s ease-out, opacity 0.2s ease-out, transform 0.2s ease-out;
 }
 
 .menuItem:hover {
