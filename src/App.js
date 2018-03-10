@@ -20,7 +20,7 @@ class App extends Component {
           <Logo />
           {/* <Welcome /> */}
           <About height={ window.innerHeight } width={ window.innerWidth } />
-          <Menu />
+          <Menu page="2"/>
       </div>
     );
   }

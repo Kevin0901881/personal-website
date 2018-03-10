@@ -46,6 +46,14 @@
        url('./Fonts/Montserrat-Black.ttf') format('truetype');
 }
 
+@font-face {
+  font-family: 'Catamaran';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Catamaran-Regular'), local('Catamaran-Regular'),
+       url('./Fonts/Catamaran-Regular.ttf') format('truetype');
+}
+
 html, body, #root, .App {
   width: 100%;
   height: 100%;
@@ -75,4 +83,21 @@ html, body, #root, .App {
 
 .App-intro {
   font-size: large;
+}
+
+.scrollDown {
+  color: #FFFFFF;
+  font-family: Montserrat;
+  font-weight: 300;
+  font-size: 11px;
+  letter-spacing: 1px;
+  position: absolute;
+  bottom: 35px;
+  left: 50%;
+  transform: translateX(-50%);
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  animation: pulse 3s ease-out infinite;
 }
