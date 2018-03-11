@@ -1,5 +1,9 @@
 import React, { Component } from 'react';
+// import * as Scroll from 'react-scroll';
+// import { Link, DirectLink, Element , Events, animateScroll as scroll, scrollSpy, scroller } from 'react-scroll'
+import ReactDOM from 'react-dom';
 import '../CSS/About.css';
+import Resume from './Resume.js'
 import portrait from '../Images/portrait_1080p.png'
 import rightArrow from '../Images/right_arrow.png'
 import rightArrowDark from '../Images/right_arrow_dark.png'
@@ -17,31 +21,66 @@ class About extends Component {
       bodyWidth: this.props.width * 0.5625 + 'px',
       colWidth: this.props.width * 0.2656 + 'px',
       shiftArrow: 'translateX(0px)',
-      arrowOpacity: '0'
+      arrowOpacity: '0',
+      paddingRight: window.offsetWidth - window.clientWidth + 'px'
     };
   }
+
+  componentDidMount() {
+    // window.addEventListener('scroll', this.handleScroll, true);
+    // Events.scrollEvent.register('begin', function(to, element) {
+    //   console.log("begin", arguments);
+    // });
+    //
+    // Events.scrollEvent.register('end', function(to, element) {
+    //   console.log("end", arguments);
+    // });
+    //
+    // scrollSpy.update();
+  }
+
+  componentWillUnmount() {
+    // window.removeEventListener('scroll', this.handleScroll);
+    // Events.scrollEvent.remove('begin');
+    // Events.scrollEvent.remove('end');
+  }
+
+  // scrollMore() {
+  //   scroll.scrollMore(100);
+  // }
 
   parallax(e, windowHeight, circleHeight, windowWidth) {
     this.setState({ topCircle: (windowHeight) - (e.clientY * 4 / (windowHeight * 2)) + 'px',
                     leftCircle: (windowWidth / 2) - (e.clientX * 4 / (windowWidth * 2)) + 'px',
                     topPortrait: (this.props.height * 0.144) - (e.clientY * 8 / (windowHeight * 2)) + 'px',
                     leftPortrait: (-(this.props.width * 0.05)) - (e.clientX * 8 / (windowWidth * 2)) + 'px'
-                    // topText: (-(this.props.height * 0.45)) + (e.clientY * 4 / (windowHeight * 2)) + 'px',
-                    // leftText: (this.props.width * 0.25) + (e.clientX * 4 / (windowWidth * 2)) + 'px'
+                    // topText: (this.props.height * 0.31) + (e.clientY * 3 / (windowHeight * 2)) + 'px',
+                    // leftText: (this.props.width * 0.345) + (e.clientX * 3 / (windowWidth * 2)) + 'px'
                    });
   }
 
+  handleScroll(e) {
+    if (e.deltaY < 0) { // scroll up
+
+    }
+    if (e.deltaY > 0) { // scroll down
+
+    }
+  }
+
   render() {
-    console.log(this.props.width);
     return (
-      <div className="About"
-        onMouseMove={(e) => { this.parallax(e, window.innerHeight / 2, this.refs.circle.clientHeight / 2, window.innerWidth / 2) }}>
+      <div className="About" ref="about" style={{ paddingRight: '50px' }} onWheel={this.handleScroll}
+           onMouseMove={(e) => { this.parallax(e, window.innerHeight / 2, this.refs.circle.clientHeight / 2, window.innerWidth / 2) }}>
           <div className="circle" ref="circle" style={{ top: this.state.topCircle, left: this.state.leftCircle, transform: this.state.transformCircle }}>
             <img src={portrait} className="portrait" style={{ top: this.state.topPortrait, left: this.state.leftPortrait  }}/>
           </div>
-          <div className="text" style={{ top: this.state.topText, left: this.state.leftText }}>
+          <div className="resume" style={{ top: this.props.height * 0.2 + 'px', left: this.state.leftText, marginBottom: this.props.height * 0.285 + 'px' }}>
+              <Resume width={this.props.width} />
+          </div>
+          {/* <div className="text" style={{ top: this.state.topText, left: this.state.leftText }}>
             <div className="title">STUDENT - DEVELOPER - DESIGNER</div>
-            <div className="body">
+            <div className="body" style={{ width: this.state.bodyWidth }}>
                 <div className="left" style={{ width: this.state.colWidth }}>
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
                     labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
@@ -57,8 +96,8 @@ class About extends Component {
                     voluptatem.
                 </div>
             </div>
-            <div className="resume" onMouseEnter={() => { this.setState({ shiftArrow: 'translateX(8px)', arrowOpacity: '1' }) }}
-                 onMouseLeave={() => { this.setState({ shiftArrow: 'translateX(0px)', arrowOpacity: '0' }) }} >
+            <div className="resumeButton" onMouseEnter={() => { this.setState({ shiftArrow: 'translateX(8px)', arrowOpacity: '1' }) }}
+                 onMouseLeave={() => { this.setState({ shiftArrow: 'translateX(0px)', arrowOpacity: '0' }) }}>
                 VIEW RESUME
                 <img src={rightArrow} className="rightArrow" style={{ transform: this.state.shiftArrow }} />
                 <img src={rightArrowDark} className="rightArrowDark" style={{ transform: this.state.shiftArrow, opacity: this.state.arrowOpacity }} />
@@ -66,7 +105,7 @@ class About extends Component {
           </div>
           <div className="scrollDown">
               SCROLL DOWN
-          </div>
+          </div> */}
       </div>
     );
   }

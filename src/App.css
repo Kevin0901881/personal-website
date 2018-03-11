@@ -85,6 +85,10 @@ html, body, #root, .App {
   font-size: large;
 }
 
+.logo {
+  z-index: -1;
+}
+
 .scrollDown {
   color: #FFFFFF;
   font-family: Montserrat;

@@ -43,7 +43,7 @@ class Menu extends Component {
 
   render() {
     return (
-      <div className="Menu" onMouseEnter={() => { this.hoverOn() }} onMouseLeave={() => { this.hoverOff() }} >
+      <div className="Menu" onMouseEnter={() => { this.hoverOn() }} onMouseLeave={() => { this.hoverOff() }}>
           <div className="menuTitle" style={{ opacity: this.state.opacityMenu, transform: this.state.translate }}>MENU</div>
           <div>
               <div id="welcome" className="menuItem" onMouseEnter={() => this.setState({ welcome: this.state.color })}

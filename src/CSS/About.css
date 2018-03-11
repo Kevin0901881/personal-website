@@ -1,6 +1,8 @@
 .About {
   width: 100%;
   height: 100%;
+  overflow-y: auto;
+  overflow-x: hidden;
 }
 
 .circle {
@@ -78,6 +80,10 @@
 }
 
 .resume {
+  position: relative;
+}
+
+.resumeButton {
   width: 200px;
   height: 20px;
   font-family: Montserrat;
@@ -94,7 +100,7 @@
   transition: color 0.2s;
 }
 
-.resume:hover {
+.resumeButton:hover {
   color: #777;
 }
 

@@ -17,7 +17,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-          <Logo />
+          <Logo className="logo" />
           {/* <Welcome /> */}
           <About height={ window.innerHeight } width={ window.innerWidth } />
           <Menu page="2"/>
