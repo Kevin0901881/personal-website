@@ -78,17 +78,17 @@ class About extends Component {
           <div className="resume" style={{ top: this.props.height * 0.2 + 'px', left: this.state.leftText, marginBottom: this.props.height * 0.285 + 'px' }}>
               <Resume width={this.props.width} />
           </div>
-          {/* <div className="text" style={{ top: this.state.topText, left: this.state.leftText }}>
-            <div className="title">STUDENT - DEVELOPER - DESIGNER</div>
-            <div className="body" style={{ width: this.state.bodyWidth }}>
-                <div className="left" style={{ width: this.state.colWidth }}>
+          {/* <div className="textAbout" style={{ top: this.state.topText, left: this.state.leftText }}>
+            <div className="titleAbout">STUDENT - DEVELOPER - DESIGNER</div>
+            <div className="bodyAbout" style={{ width: this.state.bodyWidth }}>
+                <div className="leftColumn" style={{ width: this.state.colWidth }}>
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
                     labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
                     nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit
                     esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt
                     in culpa qui officia deserunt mollit anim id est.
                 </div>
-                <div className="right" style={{ width: this.state.colWidth }}>
+                <div className="rightColumn" style={{ width: this.state.colWidth }}>
                     Et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas
                     sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem
                     sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci

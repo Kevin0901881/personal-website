@@ -1,21 +1,9 @@
-@keyframes pulse {
-  0% {
-    color: #111111;
-  }
-  80% {
-    color: #666666;
-  }
-  100% {
-    color: #111111;
-  }
-}
-
 .Welcome {
   width: 100%;
   height: 100%;
 }
 
-.title {
+.kevin {
   color: white;
   font-family: Montserrat;
   font-weight: 800;
@@ -27,7 +15,7 @@
   transform: translate(-50%, -50%);
   -webkit-background-clip: text;
   background-clip: text;
-  color:transparent;
+  color: transparent;
   cursor: default;
   -webkit-touch-callout: none;
   -webkit-user-select: none;

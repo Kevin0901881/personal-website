@@ -13,8 +13,8 @@ class Welcome extends Component {
   render() {
     return (
       <div className="Welcome" onMouseMove={(e) => {this.setState({
-        pos: 73 + (e.clientY * 8/window.innerHeight), background: "linear-gradient(to bottom, #5cd9b1 0%, #000000 " + this.state.pos + "%)" })}}>
-          <div className="title" style={{ backgroundImage: this.state.background }}>
+        pos: 73 + (e.clientY * 8 / window.innerHeight), background: "linear-gradient(to bottom, #5cd9b1 0%, #000000 " + this.state.pos + "%)" })}}>
+          <div className="kevin" style={{ backgroundImage: this.state.background }}>
               KEVIN
           </div>
           <div className="scrollDown">

@@ -30,8 +30,8 @@ class Logo extends Component {
   render() {
     return (
       <div className="Logo">
-          <img src={logoWholeAbout} className="logoWhole" />
-          <img src={logoPieceAbout} className="logoPiece" />
+          <img src={logoWholePortfolio1} className="logoWhole" />
+          <img src={logoPiecePortfolio1} className="logoPiece" />
       </div>
     );
   }

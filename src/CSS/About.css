@@ -6,11 +6,11 @@
 }
 
 .circle {
-  width: 500px;
-  height: 500px;
-  -webkit-border-radius: 250px;
-  -moz-border-radius: 250px;
-  border-radius: 250px;
+  width: 480px;
+  height: 480px;
+  -webkit-border-radius: 240px;
+  -moz-border-radius: 240px;
+  border-radius: 240px;
   position: fixed;
   transform: translate(-50%, -50%);
   background: linear-gradient(to bottom, #ff00fc 0%, #000000 100%);
@@ -27,7 +27,7 @@
   -ms-user-select: none;
 }
 
-.text {
+.textAbout {
   width: 900px;
   height: auto;
   color: #ffffff;
@@ -35,7 +35,7 @@
   position: absolute;
 }
 
-.title {
+.titleAbout {
   position: relative;
   top: 0;
   width: 900px;
@@ -46,7 +46,7 @@
   color: inherit;
 }
 
-.body {
+.bodyAbout {
   width: 900px;
   height: auto;
   position: relative;
@@ -69,12 +69,12 @@
   hyphens: auto; */
 }
 
-.left {
+.leftColumn {
   width: 425px;
   float: left;
 }
 
-.right {
+.rightColumn {
   width: 425px;
   float: right;
 }
