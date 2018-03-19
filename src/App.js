@@ -7,21 +7,86 @@ import About from './Components/About.js';
 import Portfolio from './Components/Portfolio.js';
 
 class App extends Component {
+  constructor() {
+    super();
+
+    this.scrollNext = 0;
+    this.scrollPrev = 0;
+    this.currentTime = 0;
+    this.state = {
+      page: 5,
+      currentPage: 5
+    }
+    this.handleScroll = this.handleScroll.bind(this);
+  }
+
   componentWillMount() {
-    document.body.style.backgroundColor = "black";
+    document.body.style.backgroundColor = '#000000';
+  }
+
+  componentDidMount() {
+    window.addEventListener("wheel", this.handleScroll);
   }
 
   componentWillUnmount() {
     document.body.style.backgroundColor = null;
+    window.removeEventListener("wheel", this.handleScroll);
+  }
+
+  handleScroll(e) {
+    if (e.deltaY < 0 && this.state.page >= 6) { // scroll up (prev)
+      if (this.state.page > 5) this.scrollPrev++;
+      if (this.scrollPrev > 1) {
+        setTimeout( function() {
+          this.scrollPrev--;
+          this.currentTime = Date.now();
+          this.setState({ currentPage: this.state.currentPage - 1 });
+          this.refs.portfolio.updateScene();
+          this.refs.logo.updateLogo(false);
+        }.bind(this), 200 * (this.scrollPrev - 1) - (Date.now() - this.currentTime));
+      } else {
+        this.currentTime = Date.now();
+        this.setState({ currentPage: this.state.currentPage - 1 });
+        this.refs.portfolio.updateScene();
+        this.refs.logo.updateLogo(false);
+        setTimeout( function() {
+          this.scrollPrev--;
+        }.bind(this), 200);
+      }
+      this.setState({ page: this.state.page - 1 });
+      this.refs.portfolio.updatePage();
+    }
+    if (e.deltaY > 0 && this.state.page <= 10) { // scroll down (next)
+      if (this.state.page < 11) this.scrollNext++;
+      if (this.scrollNext > 1) {
+        setTimeout( function() {
+          this.scrollNext--;
+          this.currentTime = Date.now();
+          this.setState({ currentPage: this.state.currentPage + 1 });
+          this.refs.portfolio.updateScene();
+          this.refs.logo.updateLogo(true);
+        }.bind(this), 200 * (this.scrollNext - 1) - (Date.now() - this.currentTime));
+      } else {
+        this.currentTime = Date.now();
+        this.setState({ currentPage: this.state.currentPage + 1 });
+        this.refs.portfolio.updateScene();
+        this.refs.logo.updateLogo(true);
+        setTimeout( function() {
+          this.scrollNext--;
+        }.bind(this), 200);
+      }
+      this.setState({ page: this.state.page + 1 });
+      this.refs.portfolio.updatePage();
+    }
   }
 
   render() {
     return (
       <div className="App">
-          <Logo className="logo" />
+          <Logo className="logo" page={this.state.currentPage} ref="logo"/>
           {/* <Welcome /> */}
           {/* <About height={ window.innerHeight } width={ window.innerWidth } /> */}
-          <Portfolio />
+          <Portfolio page={this.state.page} currentPage={this.state.currentPage} ref="portfolio"/>
           <Menu page="3"/>
       </div>
     );

@@ -13,6 +13,7 @@
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
+  transition: opacity 0.2s linear;
 }
 
 .logoPiece {
@@ -23,4 +24,27 @@
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
+  transition: opacity 0.2s linear;
+}
+
+.logoWhole2 {
+  height: 30px;
+  width: auto;
+  position: absolute;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  transition: opacity 0.2s linear;
+}
+
+.logoPiece2 {
+  height: 30px;
+  width: auto;
+  position: absolute;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  transition: opacity 0.2s linear;
 }

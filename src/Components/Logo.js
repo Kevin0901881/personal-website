@@ -23,15 +23,94 @@ class Logo extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      page: 1
+      page: this.props.page,
+      logoWhole: logoWholePortfolio1,
+      logoPiece: logoPiecePortfolio1,
+      logoWhole2: logoWholePortfolio1,
+      logoPiece2: logoPiecePortfolio1,
+      opacity: 1,
+      opacity2: 0
+    }
+  }
+
+  updateLogo(next) {
+    this.setState({ page: this.props.page });
+    if (next) {
+      switch (this.state.page) {
+        case 6:
+          this.setState({ logoWhole: logoWholePortfolio1, logoPiece: logoPiecePortfolio1,
+                          logoWhole2: logoWholePortfolio2, logoPiece2: logoPiecePortfolio2,
+                          opacity: 0, opacity2: 1 });
+          break;
+        case 7:
+          this.setState({ logoWhole: logoWholePortfolio3, logoPiece: logoPiecePortfolio3,
+                          logoWhole2: logoWholePortfolio2, logoPiece2: logoPiecePortfolio2,
+                          opacity: 1, opacity2: 0 });
+          break;
+        case 8:
+          this.setState({ logoWhole: logoWholePortfolio3, logoPiece: logoPiecePortfolio3,
+                          logoWhole2: logoWholePortfolio4, logoPiece2: logoPiecePortfolio4,
+                          opacity: 0, opacity2: 1 });
+          break;
+        case 9:
+          this.setState({ logoWhole: logoWholePortfolio5, logoPiece: logoPiecePortfolio5,
+                          logoWhole2: logoWholePortfolio4, logoPiece2: logoPiecePortfolio4,
+                          opacity: 1, opacity2: 0 });
+          break;
+        case 10:
+          this.setState({ logoWhole: logoWholePortfolio5, logoPiece: logoPiecePortfolio5,
+                          logoWhole2: logoWholePortfolio6, logoPiece2: logoPiecePortfolio6,
+                          opacity: 0, opacity2: 1 });
+          break;
+        case 11:
+          this.setState({ logoWhole: logoWholePortfolio7, logoPiece: logoPiecePortfolio7,
+                          logoWhole2: logoWholePortfolio6, logoPiece2: logoPiecePortfolio6,
+                          opacity: 1, opacity2: 0 });
+          break;
+      }
+    } else {
+      switch (this.state.page) {
+        case 5:
+          this.setState({ logoWhole: logoWholePortfolio1, logoPiece: logoPiecePortfolio1,
+                          logoWhole2: logoWholePortfolio2, logoPiece2: logoPiecePortfolio2,
+                          opacity: 1, opacity2: 0 });
+          break;
+        case 6:
+          this.setState({ logoWhole: logoWholePortfolio3, logoPiece: logoPiecePortfolio3,
+                          logoWhole2: logoWholePortfolio2, logoPiece2: logoPiecePortfolio2,
+                          opacity: 0, opacity2: 1 });
+          break;
+        case 7:
+          this.setState({ logoWhole: logoWholePortfolio3, logoPiece: logoPiecePortfolio3,
+                          logoWhole2: logoWholePortfolio4, logoPiece2: logoPiecePortfolio4,
+                          opacity: 1, opacity2: 0 });
+          break;
+        case 8:
+          this.setState({ logoWhole: logoWholePortfolio5, logoPiece: logoPiecePortfolio5,
+                          logoWhole2: logoWholePortfolio4, logoPiece2: logoPiecePortfolio4,
+                          opacity: 0, opacity2: 1 });
+          break;
+        case 9:
+          this.setState({ logoWhole: logoWholePortfolio5, logoPiece: logoPiecePortfolio5,
+                          logoWhole2: logoWholePortfolio6, logoPiece2: logoPiecePortfolio6,
+                          opacity: 1, opacity2: 0 });
+          break;
+        case 10:
+          this.setState({ logoWhole: logoWholePortfolio7, logoPiece: logoPiecePortfolio7,
+                          logoWhole2: logoWholePortfolio6, logoPiece2: logoPiecePortfolio6,
+                          opacity: 0, opacity2: 1 });
+          break;
+      }
     }
   }
 
   render() {
     return (
       <div className="Logo">
-          <img src={logoWholePortfolio1} className="logoWhole" />
-          <img src={logoPiecePortfolio1} className="logoPiece" />
+          <img src={this.state.logoWhole2} className="logoWhole2" style={{ opacity: this.state.opacity2 }} />
+          <img src={this.state.logoPiece2} className="logoPiece2" style={{ opacity: this.state.opacity2 }} />
+          <img src={this.state.logoWhole} className="logoWhole" style={{ opacity: this.state.opacity }} />
+          <img src={this.state.logoPiece} className="logoPiece" style={{ opacity: this.state.opacity }} />
       </div>
     );
   }
