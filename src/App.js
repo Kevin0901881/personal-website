@@ -14,8 +14,8 @@ class App extends Component {
     this.scrollPrev = 0;
     this.currentTime = 0;
     this.state = {
-      page: 5,
-      currentPage: 5
+      page: 4,
+      currentPage: 4
     }
     this.handleScroll = this.handleScroll.bind(this);
   }
@@ -34,21 +34,25 @@ class App extends Component {
   }
 
   handleScroll(e) {
-    if (e.deltaY < 0 && this.state.page >= 6) { // scroll up (prev)
-      if (this.state.page > 5) this.scrollPrev++;
+    if (e.deltaY < 0 && this.state.page >= 5) { // scroll up (prev)
+      this.scrollPrev++;
       if (this.scrollPrev > 1) {
         setTimeout( function() {
           this.scrollPrev--;
           this.currentTime = Date.now();
           this.setState({ currentPage: this.state.currentPage - 1 });
           this.refs.portfolio.updateScene();
+          this.refs.menu.updatePage();
           this.refs.logo.updateLogo(false);
+          this.refs.portfolio.changeArrows(false);
         }.bind(this), 200 * (this.scrollPrev - 1) - (Date.now() - this.currentTime));
       } else {
         this.currentTime = Date.now();
         this.setState({ currentPage: this.state.currentPage - 1 });
         this.refs.portfolio.updateScene();
+        this.refs.menu.updatePage();
         this.refs.logo.updateLogo(false);
+        this.refs.portfolio.changeArrows(false);
         setTimeout( function() {
           this.scrollPrev--;
         }.bind(this), 200);
@@ -56,21 +60,25 @@ class App extends Component {
       this.setState({ page: this.state.page - 1 });
       this.refs.portfolio.updatePage();
     }
-    if (e.deltaY > 0 && this.state.page <= 10) { // scroll down (next)
-      if (this.state.page < 11) this.scrollNext++;
+    if (e.deltaY > 0 && this.state.page <= 9) { // scroll down (next)
+      this.scrollNext++;
       if (this.scrollNext > 1) {
         setTimeout( function() {
           this.scrollNext--;
           this.currentTime = Date.now();
           this.setState({ currentPage: this.state.currentPage + 1 });
           this.refs.portfolio.updateScene();
+          this.refs.menu.updatePage();
           this.refs.logo.updateLogo(true);
+          this.refs.portfolio.changeArrows(true);
         }.bind(this), 200 * (this.scrollNext - 1) - (Date.now() - this.currentTime));
       } else {
         this.currentTime = Date.now();
         this.setState({ currentPage: this.state.currentPage + 1 });
         this.refs.portfolio.updateScene();
+        this.refs.menu.updatePage();
         this.refs.logo.updateLogo(true);
+        this.refs.portfolio.changeArrows(true);
         setTimeout( function() {
           this.scrollNext--;
         }.bind(this), 200);
@@ -83,11 +91,11 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-          <Logo className="logo" page={this.state.currentPage} ref="logo"/>
+          <Logo className="logo" page={this.state.currentPage} ref="logo" />
           {/* <Welcome /> */}
           {/* <About height={ window.innerHeight } width={ window.innerWidth } /> */}
-          <Portfolio page={this.state.page} currentPage={this.state.currentPage} ref="portfolio"/>
-          <Menu page="3"/>
+          <Portfolio page={this.state.page} currentPage={this.state.currentPage} ref="portfolio" />
+          <Menu page={this.state.currentPage} ref="menu" />
       </div>
     );
   }

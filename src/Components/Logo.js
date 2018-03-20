@@ -37,32 +37,32 @@ class Logo extends Component {
     this.setState({ page: this.props.page });
     if (next) {
       switch (this.state.page) {
-        case 6:
+        case 5:
           this.setState({ logoWhole: logoWholePortfolio1, logoPiece: logoPiecePortfolio1,
                           logoWhole2: logoWholePortfolio2, logoPiece2: logoPiecePortfolio2,
                           opacity: 0, opacity2: 1 });
           break;
-        case 7:
+        case 6:
           this.setState({ logoWhole: logoWholePortfolio3, logoPiece: logoPiecePortfolio3,
                           logoWhole2: logoWholePortfolio2, logoPiece2: logoPiecePortfolio2,
                           opacity: 1, opacity2: 0 });
           break;
-        case 8:
+        case 7:
           this.setState({ logoWhole: logoWholePortfolio3, logoPiece: logoPiecePortfolio3,
                           logoWhole2: logoWholePortfolio4, logoPiece2: logoPiecePortfolio4,
                           opacity: 0, opacity2: 1 });
           break;
-        case 9:
+        case 8:
           this.setState({ logoWhole: logoWholePortfolio5, logoPiece: logoPiecePortfolio5,
                           logoWhole2: logoWholePortfolio4, logoPiece2: logoPiecePortfolio4,
                           opacity: 1, opacity2: 0 });
           break;
-        case 10:
+        case 9:
           this.setState({ logoWhole: logoWholePortfolio5, logoPiece: logoPiecePortfolio5,
                           logoWhole2: logoWholePortfolio6, logoPiece2: logoPiecePortfolio6,
                           opacity: 0, opacity2: 1 });
           break;
-        case 11:
+        case 10:
           this.setState({ logoWhole: logoWholePortfolio7, logoPiece: logoPiecePortfolio7,
                           logoWhole2: logoWholePortfolio6, logoPiece2: logoPiecePortfolio6,
                           opacity: 1, opacity2: 0 });
@@ -70,32 +70,32 @@ class Logo extends Component {
       }
     } else {
       switch (this.state.page) {
-        case 5:
+        case 4:
           this.setState({ logoWhole: logoWholePortfolio1, logoPiece: logoPiecePortfolio1,
                           logoWhole2: logoWholePortfolio2, logoPiece2: logoPiecePortfolio2,
                           opacity: 1, opacity2: 0 });
           break;
-        case 6:
+        case 5:
           this.setState({ logoWhole: logoWholePortfolio3, logoPiece: logoPiecePortfolio3,
                           logoWhole2: logoWholePortfolio2, logoPiece2: logoPiecePortfolio2,
                           opacity: 0, opacity2: 1 });
           break;
-        case 7:
+        case 6:
           this.setState({ logoWhole: logoWholePortfolio3, logoPiece: logoPiecePortfolio3,
                           logoWhole2: logoWholePortfolio4, logoPiece2: logoPiecePortfolio4,
                           opacity: 1, opacity2: 0 });
           break;
-        case 8:
+        case 7:
           this.setState({ logoWhole: logoWholePortfolio5, logoPiece: logoPiecePortfolio5,
                           logoWhole2: logoWholePortfolio4, logoPiece2: logoPiecePortfolio4,
                           opacity: 0, opacity2: 1 });
           break;
-        case 9:
+        case 8:
           this.setState({ logoWhole: logoWholePortfolio5, logoPiece: logoPiecePortfolio5,
                           logoWhole2: logoWholePortfolio6, logoPiece2: logoPiecePortfolio6,
                           opacity: 1, opacity2: 0 });
           break;
-        case 10:
+        case 9:
           this.setState({ logoWhole: logoWholePortfolio7, logoPiece: logoPiecePortfolio7,
                           logoWhole2: logoWholePortfolio6, logoPiece2: logoPiecePortfolio6,
                           opacity: 0, opacity2: 1 });
