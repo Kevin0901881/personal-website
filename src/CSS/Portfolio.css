@@ -33,10 +33,7 @@
   width: 480px;
   height: 480px;
   position: fixed;
-  top: 50%;
-  left: 50%;
   transform: translate(-50%, -50%);
-  background: linear-gradient(to bottom, #FFFFFF 0%, #000000 100%);
   z-index: 0;
   -webkit-touch-callout: none;
   -webkit-user-select: none;

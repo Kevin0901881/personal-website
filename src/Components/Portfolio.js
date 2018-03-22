@@ -37,7 +37,15 @@ class Portfolio extends Component {
       progressBackground: '#1b1b1b',
       progressForeground: '#ffffff',
       backgroundColor: '#000000',
-      backgroundSquare: 'linear-gradient(to bottom, #FFFFFF 0%, rgba(255,0,0,0) 100%)'
+      backgroundSquare: 'linear-gradient(to bottom, #ffffff 0%, rgba(255,0,0,0) 100%)',
+      backgroundSquare2: 'linear-gradient(to bottom, #04307b 0%, rgba(255,0,0,0) 100%)',
+      opacitySquare: 1,
+      opacitySquare2: 0,
+      topSquare: '',
+      topSquare2: '',
+      leftSquare: '',
+      leftSquare2: '',
+      transition: ''
     }
     this.updateDimensions = this.updateDimensions.bind(this);
   }
@@ -45,6 +53,8 @@ class Portfolio extends Component {
   componentDidMount() {
     this.updateDimensions();
     window.addEventListener("resize", this.updateDimensions);
+    this.setState({ topSquare: 0.5 * window.innerHeight, topSquare2: 0.5 * window.innerHeight + this.refs.square2.clientHeight,
+                    leftSquare: 0.5 * window.innerWidth, leftSquare2: 0.5 * window.innerWidth + this.refs.square2.clientWidth });
   }
 
   componentWillUnmount() {
@@ -186,6 +196,97 @@ class Portfolio extends Component {
     }
   }
 
+  animateSquare(next) {
+    if (next) {
+      switch (this.state.currentPage) {
+        case 5:
+          this.setState({ opacitySquare: 0, topSquare: 0.5 * window.innerHeight + this.refs.square2.clientHeight / 3, leftSquare: 0.5 * window.innerWidth - this.refs.square2.clientWidth,
+                          opacitySquare2: 1, topSquare2: 0.5 * window.innerHeight, leftSquare2: 0.5 * window.innerWidth,
+                          backgroundSquare2: 'linear-gradient(to bottom, #04307b 0%, rgba(255,0,0,0) 100%)',
+                          transition: 'opacity 0.2s ease-in-out, top 0.2s ease-in-out, left 0.2s ease-in-out' });
+          break;
+        case 6:
+          this.setState({ transition: '', leftSquare: 0.5 * window.innerWidth + this.refs.square.clientWidth });
+          this.setState({ opacitySquare: 1, topSquare: 0.5 * window.innerHeight, leftSquare: 0.5 * window.innerWidth,
+                          opacitySquare2: 0, topSquare2: 0.5 * window.innerHeight + this.refs.square2.clientHeight / 3, leftSquare2: 0.5 * window.innerWidth - this.refs.square2.clientWidth,
+                          backgroundSquare: 'linear-gradient(to bottom, #321914 0%, rgba(255,0,0,0) 100%)',
+                          transition: 'opacity 0.2s ease-in-out, top 0.2s ease-in-out, left 0.2s ease-in-out' });
+          break;
+        case 7:
+          this.setState({ transition: '', leftSquare2: 0.5 * window.innerWidth + this.refs.square2.clientWidth });
+          this.setState({ opacitySquare: 0, topSquare: 0.5 * window.innerHeight + this.refs.square2.clientHeight / 2, leftSquare: 0.5 * window.innerWidth - this.refs.square2.clientWidth,
+                          opacitySquare2: 1, topSquare2: 0.5 * window.innerHeight, leftSquare2: 0.5 * window.innerWidth,
+                          backgroundSquare2: 'linear-gradient(to bottom, #e7bc53 0%, rgba(255,0,0,0) 100%)',
+                          transition: 'opacity 0.2s ease-in-out, top 0.2s ease-in-out, left 0.2s ease-in-out' });
+          break;
+        case 8:
+          this.setState({ transition: '', leftSquare: 0.5 * window.innerWidth + this.refs.square.clientWidth });
+          this.setState({ opacitySquare: 1, topSquare: 0.5 * window.innerHeight, leftSquare: 0.5 * window.innerWidth,
+                          opacitySquare2: 0, topSquare2: 0.5 * window.innerHeight + this.refs.square2.clientHeight / 3, leftSquare2: 0.5 * window.innerWidth - this.refs.square2.clientWidth,
+                          backgroundSquare: 'linear-gradient(to bottom, #000000 0%, rgba(255,0,0,0) 100%)',
+                          transition: 'opacity 0.2s ease-in-out, top 0.2s ease-in-out, left 0.2s ease-in-out' });
+          break;
+        case 9:
+          this.setState({ transition: '', leftSquare2: 0.5 * window.innerWidth + this.refs.square2.clientWidth });
+          this.setState({ opacitySquare: 0, topSquare: 0.5 * window.innerHeight + this.refs.square2.clientHeight / 3, leftSquare: 0.5 * window.innerWidth - this.refs.square2.clientWidth,
+                          opacitySquare2: 1, topSquare2: 0.5 * window.innerHeight, leftSquare2: 0.5 * window.innerWidth,
+                          backgroundSquare2: 'linear-gradient(to bottom, #e4e4f0 0%, rgba(255,0,0,0) 100%)',
+                          transition: 'opacity 0.2s ease-in-out, top 0.2s ease-in-out, left 0.2s ease-in-out' });
+          break;
+        case 10:
+          this.setState({ transition: '', leftSquare: 0.5 * window.innerWidth + this.refs.square.clientWidth });
+          this.setState({ opacitySquare: 1, topSquare: 0.5 * window.innerHeight, leftSquare: 0.5 * window.innerWidth,
+                          opacitySquare2: 0, topSquare2: 0.5 * window.innerHeight + this.refs.square2.clientHeight / 3, leftSquare2: 0.5 * window.innerWidth - this.refs.square2.clientWidth,
+                          backgroundSquare: 'linear-gradient(to bottom, #faad55 0%, rgba(255,0,0,0) 100%)',
+                          transition: 'opacity 0.2s ease-in-out, top 0.2s ease-in-out, left 0.2s ease-in-out' });
+          break;
+      }
+    } else {
+      switch (this.state.currentPage) {
+        case 4:
+          this.setState({ transition: '', leftSquare: 0.5 * window.innerWidth - this.refs.square.clientWidth });
+          this.setState({ opacitySquare: 1, topSquare: 0.5 * window.innerHeight, leftSquare: 0.5 * window.innerWidth,
+                          opacitySquare2: 0, topSquare2: 0.5 * window.innerHeight + this.refs.square2.clientHeight / 3, leftSquare2: 0.5 * window.innerWidth + this.refs.square2.clientWidth,
+                          backgroundSquare: 'linear-gradient(to bottom, #ffffff 0%, rgba(255,0,0,0) 100%)',
+                          transition: 'opacity 0.2s ease-in-out, top 0.2s ease-in-out, left 0.2s ease-in-out' });
+          break;
+        case 5:
+          this.setState({ transition: '', leftSquare2: 0.5 * window.innerWidth - this.refs.square2.clientWidth });
+          this.setState({ opacitySquare: 0, topSquare: 0.5 * window.innerHeight + this.refs.square2.clientHeight / 3, leftSquare: 0.5 * window.innerWidth + this.refs.square2.clientWidth,
+                          opacitySquare2: 1, topSquare2: 0.5 * window.innerHeight, leftSquare2: 0.5 * window.innerWidth,
+                          backgroundSquare2: 'linear-gradient(to bottom, #04307b 0%, rgba(255,0,0,0) 100%)',
+                          transition: 'opacity 0.2s ease-in-out, top 0.2s ease-in-out, left 0.2s ease-in-out' });
+          break;
+        case 6:
+          this.setState({ transition: '', leftSquare: 0.5 * window.innerWidth - this.refs.square.clientWidth });
+          this.setState({ opacitySquare: 1, topSquare: 0.5 * window.innerHeight, leftSquare: 0.5 * window.innerWidth,
+                          opacitySquare2: 0, topSquare2: 0.5 * window.innerHeight + this.refs.square2.clientHeight / 3, leftSquare2: 0.5 * window.innerWidth + this.refs.square2.clientWidth,
+                          backgroundSquare: 'linear-gradient(to bottom, #321914 0%, rgba(255,0,0,0) 100%)',
+                          transition: 'opacity 0.2s ease-in-out, top 0.2s ease-in-out, left 0.2s ease-in-out' });
+          break;
+        case 7:
+          this.setState({ transition: '', leftSquare2: 0.5 * window.innerWidth - this.refs.square2.clientWidth });
+          this.setState({ opacitySquare: 0, topSquare: 0.5 * window.innerHeight + this.refs.square2.clientHeight / 3, leftSquare: 0.5 * window.innerWidth + this.refs.square2.clientWidth,
+                          opacitySquare2: 1, topSquare2: 0.5 * window.innerHeight, leftSquare2: 0.5 * window.innerWidth,
+                          backgroundSquare2: 'linear-gradient(to bottom, #e7bc53 0%, rgba(255,0,0,0) 100%)',
+                          transition: 'opacity 0.2s ease-in-out, top 0.2s ease-in-out, left 0.2s ease-in-out' });
+          break;
+        case 8:
+          this.setState({ transition: '', leftSquare: 0.5 * window.innerWidth - this.refs.square.clientWidth });
+          this.setState({ opacitySquare: 1, topSquare: 0.5 * window.innerHeight, leftSquare: 0.5 * window.innerWidth,
+                          opacitySquare2: 0, topSquare2: 0.5 * window.innerHeight + this.refs.square2.clientHeight / 3, leftSquare2: 0.5 * window.innerWidth + this.refs.square2.clientWidth,
+                          backgroundSquare: 'linear-gradient(to bottom, #000000 0%, rgba(255,0,0,0) 100%)',
+                          transition: 'opacity 0.2s ease-in-out, top 0.2s ease-in-out, left 0.2s ease-in-out' });
+          break;
+        case 9:
+          this.setState({ opacitySquare: 0, topSquare: 0.5 * window.innerHeight + this.refs.square2.clientHeight / 3, leftSquare: 0.5 * window.innerWidth + this.refs.square2.clientWidth,
+                          opacitySquare2: 1, topSquare2: 0.5 * window.innerHeight, leftSquare2: 0.5 * window.innerWidth,
+                          transition: 'opacity 0.2s ease-in-out, top 0.2s ease-in-out, left 0.2s ease-in-out' });
+          break;
+      }
+    }
+  }
+
   updateDimensions() {
     this.setState({ leftArrow: (window.innerWidth - this.refs.square.clientWidth) / 4 - (this.refs.prev.clientWidth / 2),
        bottomArrow: (window.innerHeight / 2) - (this.refs.prev.clientHeight / 2),
@@ -197,12 +298,17 @@ class Portfolio extends Component {
     return (
       <div className="Portfolio" ref="Portfolio" style={{ background: this.state.backgroundColor }}>
           <img src={this.state.arrowLeft2} className="prev" ref="prev2" style={{ left: this.state.leftArrow, bottom: this.state.bottomArrow, opacity: this.state.arrowOpacityLeft2 }} />
-          <img src={this.state.arrowLeft} className="prev" ref="prev" style={{ left: this.state.leftArrow, bottom: this.state.bottomArrow, opacity: this.state.arrowOpacityLeft }} />
+          <img src={this.state.arrowLeft} className="prev" ref="prev" style={{ left: this.state.leftArrow, bottom: this.state.bottomArrow, opacity: this.state.arrowOpacityLeft }}
+               onClick={this.props.handleArrow(false)} />
           {/* <div className="squareLeft" ref="squareLeft" style={{ background: this.state.backgroundSquareLeft }} /> */}
-          <div className="square" ref="square" style={{ background: this.state.backgroundSquare }} />
+          <div className="square" ref="square2" style={{ background: this.state.backgroundSquare2, opacity: this.state.opacitySquare2, top: this.state.topSquare2,
+                                                         left: this.state.leftSquare2, transition: this.state.transition }} />
+          <div className="square" ref="square" style={{ background: this.state.backgroundSquare, opacity: this.state.opacitySquare, top: this.state.topSquare,
+                                                        left: this.state.leftSquare, transition: this.state.transition }} />
           {/* <div className="squareRight" ref="squareRight" style={{ background: this.state.backgroundSquareRight }} /> */}
           <img src={this.state.arrowRight2} className="next" ref="next2" style={{ right: this.state.leftArrow, bottom: this.state.bottomArrow, opacity: this.state.arrowOpacityRight2 }} />
-          <img src={this.state.arrowRight} className="next" ref="next" style={{ right: this.state.leftArrow, bottom: this.state.bottomArrow, opacity: this.state.arrowOpacityRight }} />
+          <img src={this.state.arrowRight} className="next" ref="next" style={{ right: this.state.leftArrow, bottom: this.state.bottomArrow, opacity: this.state.arrowOpacityRight }}
+               onClick={this.props.handleArrow(true)} />
           <div className="progressBarBackground" style={{ bottom: this.state.bottomProgress, width: this.state.widthProgress, background: this.state.progressBackground }}>
                <div className="progressBarForeground" style={{ width: ((this.state.page - 4) * 100 / 6) + '%', background: this.state.progressForeground }}></div>
           </div>

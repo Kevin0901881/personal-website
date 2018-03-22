@@ -18,6 +18,7 @@ class App extends Component {
       currentPage: 4
     }
     this.handleScroll = this.handleScroll.bind(this);
+    this.handleArrow = this.handleScroll.bind(this);
   }
 
   componentWillMount() {
@@ -45,6 +46,7 @@ class App extends Component {
           this.refs.menu.updatePage();
           this.refs.logo.updateLogo(false);
           this.refs.portfolio.changeArrows(false);
+          this.refs.portfolio.animateSquare(false);
         }.bind(this), 200 * (this.scrollPrev - 1) - (Date.now() - this.currentTime));
       } else {
         this.currentTime = Date.now();
@@ -53,6 +55,7 @@ class App extends Component {
         this.refs.menu.updatePage();
         this.refs.logo.updateLogo(false);
         this.refs.portfolio.changeArrows(false);
+        this.refs.portfolio.animateSquare(false);
         setTimeout( function() {
           this.scrollPrev--;
         }.bind(this), 200);
@@ -71,6 +74,7 @@ class App extends Component {
           this.refs.menu.updatePage();
           this.refs.logo.updateLogo(true);
           this.refs.portfolio.changeArrows(true);
+          this.refs.portfolio.animateSquare(true);
         }.bind(this), 200 * (this.scrollNext - 1) - (Date.now() - this.currentTime));
       } else {
         this.currentTime = Date.now();
@@ -79,6 +83,67 @@ class App extends Component {
         this.refs.menu.updatePage();
         this.refs.logo.updateLogo(true);
         this.refs.portfolio.changeArrows(true);
+        this.refs.portfolio.animateSquare(true);
+        setTimeout( function() {
+          this.scrollNext--;
+        }.bind(this), 200);
+      }
+      this.setState({ page: this.state.page + 1 });
+      this.refs.portfolio.updatePage();
+    }
+  }
+
+  handleArrow(next) {
+    console.log("me");
+    if (next && this.state.page >= 5) { // scroll up (prev)
+      this.scrollPrev++;
+      if (this.scrollPrev > 1) {
+        setTimeout( function() {
+          this.scrollPrev--;
+          this.currentTime = Date.now();
+          this.setState({ currentPage: this.state.currentPage - 1 });
+          this.refs.portfolio.updateScene();
+          this.refs.menu.updatePage();
+          this.refs.logo.updateLogo(false);
+          this.refs.portfolio.changeArrows(false);
+          this.refs.portfolio.animateSquare(false);
+        }.bind(this), 200 * (this.scrollPrev - 1) - (Date.now() - this.currentTime));
+      } else {
+        this.currentTime = Date.now();
+        this.setState({ currentPage: this.state.currentPage - 1 });
+        this.refs.portfolio.updateScene();
+        this.refs.menu.updatePage();
+        this.refs.logo.updateLogo(false);
+        this.refs.portfolio.changeArrows(false);
+        this.refs.portfolio.animateSquare(false);
+        setTimeout( function() {
+          this.scrollPrev--;
+        }.bind(this), 200);
+      }
+      this.setState({ page: this.state.page - 1 });
+      this.refs.portfolio.updatePage();
+    }
+    if (this.state.page <= 9) { // scroll down (next)
+      this.scrollNext++;
+      if (this.scrollNext > 1) {
+        setTimeout( function() {
+          this.scrollNext--;
+          this.currentTime = Date.now();
+          this.setState({ currentPage: this.state.currentPage + 1 });
+          this.refs.portfolio.updateScene();
+          this.refs.menu.updatePage();
+          this.refs.logo.updateLogo(true);
+          this.refs.portfolio.changeArrows(true);
+          this.refs.portfolio.animateSquare(true);
+        }.bind(this), 200 * (this.scrollNext - 1) - (Date.now() - this.currentTime));
+      } else {
+        this.currentTime = Date.now();
+        this.setState({ currentPage: this.state.currentPage + 1 });
+        this.refs.portfolio.updateScene();
+        this.refs.menu.updatePage();
+        this.refs.logo.updateLogo(true);
+        this.refs.portfolio.changeArrows(true);
+        this.refs.portfolio.animateSquare(true);
         setTimeout( function() {
           this.scrollNext--;
         }.bind(this), 200);
@@ -94,7 +159,7 @@ class App extends Component {
           <Logo className="logo" page={this.state.currentPage} ref="logo" />
           {/* <Welcome /> */}
           {/* <About height={ window.innerHeight } width={ window.innerWidth } /> */}
-          <Portfolio page={this.state.page} currentPage={this.state.currentPage} ref="portfolio" />
+          <Portfolio page={this.state.page} currentPage={this.state.currentPage} handleArrow={this.handleArrow} ref="portfolio" />
           <Menu page={this.state.currentPage} ref="menu" />
       </div>
     );
