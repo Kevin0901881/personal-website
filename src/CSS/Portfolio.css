@@ -33,7 +33,7 @@
   width: 480px;
   height: 480px;
   position: fixed;
-  transform: translate(-50%, -50%);
+  transform: translatex(-50%);
   z-index: 0;
   -webkit-touch-callout: none;
   -webkit-user-select: none;
