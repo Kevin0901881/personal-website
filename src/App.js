@@ -42,26 +42,21 @@ class App extends Component {
           this.scrollPrev--;
           this.currentTime = Date.now();
           this.setState({ currentPage: this.state.currentPage - 1 });
-          this.refs.portfolio.updateScene();
-          this.refs.menu.updatePage();
+          this.refs.portfolio.updateScene(false);
+          this.refs.menu.updateMenu();
           this.refs.logo.updateLogo(false);
-          this.refs.portfolio.changeArrows(false);
-          this.refs.portfolio.animateSquare(false);
         }.bind(this), 200 * (this.scrollPrev - 1) - (Date.now() - this.currentTime));
       } else {
         this.currentTime = Date.now();
         this.setState({ currentPage: this.state.currentPage - 1 });
-        this.refs.portfolio.updateScene();
-        this.refs.menu.updatePage();
+        this.refs.portfolio.updateScene(false);
+        this.refs.menu.updateMenu();
         this.refs.logo.updateLogo(false);
-        this.refs.portfolio.changeArrows(false);
-        this.refs.portfolio.animateSquare(false);
         setTimeout( function() {
           this.scrollPrev--;
         }.bind(this), 200);
       }
       this.setState({ page: this.state.page - 1 });
-      this.refs.portfolio.updatePage();
     }
     if (e.deltaY > 0 && this.state.page <= 9) { // scroll down (next)
       this.scrollNext++;
@@ -70,88 +65,73 @@ class App extends Component {
           this.scrollNext--;
           this.currentTime = Date.now();
           this.setState({ currentPage: this.state.currentPage + 1 });
-          this.refs.portfolio.updateScene();
-          this.refs.menu.updatePage();
+          this.refs.portfolio.updateScene(true);
+          this.refs.menu.updateMenu();
           this.refs.logo.updateLogo(true);
-          this.refs.portfolio.changeArrows(true);
-          this.refs.portfolio.animateSquare(true);
         }.bind(this), 200 * (this.scrollNext - 1) - (Date.now() - this.currentTime));
       } else {
         this.currentTime = Date.now();
         this.setState({ currentPage: this.state.currentPage + 1 });
-        this.refs.portfolio.updateScene();
-        this.refs.menu.updatePage();
+        this.refs.portfolio.updateScene(true);
+        this.refs.menu.updateMenu();
         this.refs.logo.updateLogo(true);
-        this.refs.portfolio.changeArrows(true);
-        this.refs.portfolio.animateSquare(true);
         setTimeout( function() {
           this.scrollNext--;
         }.bind(this), 200);
       }
       this.setState({ page: this.state.page + 1 });
-      this.refs.portfolio.updatePage();
     }
   }
 
-  handleArrow(next) {
-    console.log("me");
-    if (next && this.state.page >= 5) { // scroll up (prev)
-      this.scrollPrev++;
-      if (this.scrollPrev > 1) {
-        setTimeout( function() {
-          this.scrollPrev--;
-          this.currentTime = Date.now();
-          this.setState({ currentPage: this.state.currentPage - 1 });
-          this.refs.portfolio.updateScene();
-          this.refs.menu.updatePage();
-          this.refs.logo.updateLogo(false);
-          this.refs.portfolio.changeArrows(false);
-          this.refs.portfolio.animateSquare(false);
-        }.bind(this), 200 * (this.scrollPrev - 1) - (Date.now() - this.currentTime));
-      } else {
-        this.currentTime = Date.now();
-        this.setState({ currentPage: this.state.currentPage - 1 });
-        this.refs.portfolio.updateScene();
-        this.refs.menu.updatePage();
-        this.refs.logo.updateLogo(false);
-        this.refs.portfolio.changeArrows(false);
-        this.refs.portfolio.animateSquare(false);
-        setTimeout( function() {
-          this.scrollPrev--;
-        }.bind(this), 200);
-      }
-      this.setState({ page: this.state.page - 1 });
-      this.refs.portfolio.updatePage();
-    }
-    if (this.state.page <= 9) { // scroll down (next)
-      this.scrollNext++;
-      if (this.scrollNext > 1) {
-        setTimeout( function() {
-          this.scrollNext--;
-          this.currentTime = Date.now();
-          this.setState({ currentPage: this.state.currentPage + 1 });
-          this.refs.portfolio.updateScene();
-          this.refs.menu.updatePage();
-          this.refs.logo.updateLogo(true);
-          this.refs.portfolio.changeArrows(true);
-          this.refs.portfolio.animateSquare(true);
-        }.bind(this), 200 * (this.scrollNext - 1) - (Date.now() - this.currentTime));
-      } else {
-        this.currentTime = Date.now();
-        this.setState({ currentPage: this.state.currentPage + 1 });
-        this.refs.portfolio.updateScene();
-        this.refs.menu.updatePage();
-        this.refs.logo.updateLogo(true);
-        this.refs.portfolio.changeArrows(true);
-        this.refs.portfolio.animateSquare(true);
-        setTimeout( function() {
-          this.scrollNext--;
-        }.bind(this), 200);
-      }
-      this.setState({ page: this.state.page + 1 });
-      this.refs.portfolio.updatePage();
-    }
-  }
+  // handleArrow(next) {
+  //   console.log("me");
+  //   if (next && this.state.page >= 5) { // scroll up (prev)
+  //     this.scrollPrev++;
+  //     if (this.scrollPrev > 1) {
+  //       setTimeout( function() {
+  //         this.scrollPrev--;
+  //         this.currentTime = Date.now();
+  //         this.setState({ currentPage: this.state.currentPage - 1 });
+  //         this.refs.portfolio.updateScene(false);
+  //         this.refs.menu.updateMenu();
+  //         this.refs.logo.updateLogo(false);
+  //       }.bind(this), 200 * (this.scrollPrev - 1) - (Date.now() - this.currentTime));
+  //     } else {
+  //       this.currentTime = Date.now();
+  //       this.setState({ currentPage: this.state.currentPage - 1 });
+  //       this.refs.portfolio.updateScene(false);
+  //       this.refs.menu.updateMenu();
+  //       this.refs.logo.updateLogo(false);
+  //       setTimeout( function() {
+  //         this.scrollPrev--;
+  //       }.bind(this), 200);
+  //     }
+  //     this.setState({ page: this.state.page - 1 });
+  //   }
+  //   if (this.state.page <= 9) { // scroll down (next)
+  //     this.scrollNext++;
+  //     if (this.scrollNext > 1) {
+  //       setTimeout( function() {
+  //         this.scrollNext--;
+  //         this.currentTime = Date.now();
+  //         this.setState({ currentPage: this.state.currentPage + 1 });
+  //         this.refs.portfolio.updateScene(true);
+  //         this.refs.menu.updateMenu();
+  //         this.refs.logo.updateLogo(true);
+  //       }.bind(this), 200 * (this.scrollNext - 1) - (Date.now() - this.currentTime));
+  //     } else {
+  //       this.currentTime = Date.now();
+  //       this.setState({ currentPage: this.state.currentPage + 1 });
+  //       this.refs.portfolio.updateScene(true);
+  //       this.refs.menu.updateMenu();
+  //       this.refs.logo.updateLogo(true);
+  //       setTimeout( function() {
+  //         this.scrollNext--;
+  //       }.bind(this), 200);
+  //     }
+  //     this.setState({ page: this.state.page + 1 });
+  //   }
+  // }
 
   render() {
     return (

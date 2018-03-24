@@ -10,7 +10,6 @@
 .prev {
   width: 10px;
   position: absolute;
-  cursor: pointer;
   -webkit-touch-callout: none;
   -webkit-user-select: none;
   -moz-user-select: none;
@@ -21,7 +20,6 @@
 .next {
   width: 10px;
   position: absolute;
-  cursor: pointer;
   -webkit-touch-callout: none;
   -webkit-user-select: none;
   -moz-user-select: none;

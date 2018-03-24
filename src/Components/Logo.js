@@ -23,7 +23,6 @@ class Logo extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      page: this.props.page,
       logoWhole: logoWholePortfolio1,
       logoPiece: logoPiecePortfolio1,
       logoWhole2: logoWholePortfolio1,
@@ -34,9 +33,8 @@ class Logo extends Component {
   }
 
   updateLogo(next) {
-    this.setState({ page: this.props.page });
     if (next) {
-      switch (this.state.page) {
+      switch (this.props.page) {
         case 5:
           this.setState({ logoWhole: logoWholePortfolio1, logoPiece: logoPiecePortfolio1,
                           logoWhole2: logoWholePortfolio2, logoPiece2: logoPiecePortfolio2,
@@ -69,7 +67,7 @@ class Logo extends Component {
           break;
       }
     } else {
-      switch (this.state.page) {
+      switch (this.props.page) {
         case 4:
           this.setState({ logoWhole: logoWholePortfolio1, logoPiece: logoPiecePortfolio1,
                           logoWhole2: logoWholePortfolio2, logoPiece2: logoPiecePortfolio2,
