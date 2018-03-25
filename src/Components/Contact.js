@@ -66,10 +66,18 @@ class Contact extends Component {
     return (
       <div className="Contact" style={{ height: this.state.heightBackground }}>
         <div className="logos">
-          <img src={linkedin} className="logo" style={{ opacity: this.state.opacityLinkedin, transform: this.state.translateLinkedin }} />
-          <img src={github} className="logo" style={{ opacity: this.state.opacityGithub, transform: this.state.translateGithub }} />
-          <img src={behance} className="logo" style={{ opacity: this.state.opacityBehance, transform: this.state.translateBehance }} />
-          <img src={email} className="logo" style={{ opacity: this.state.opacityEmail, transform: this.state.translateEmail }} />
+          <a href="https://www.linkedin.com/in/kevinli0123/" target="_blank" className="link">
+            <img src={linkedin} className="logo" style={{ opacity: this.state.opacityLinkedin, transform: this.state.translateLinkedin }} />
+          </a>
+          <a href="https://github.com/Kevin0901881" target="_blank" className="link">
+            <img src={github} className="logo" style={{ opacity: this.state.opacityGithub, transform: this.state.translateGithub }} />
+          </a>
+          <a href="https://www.behance.net/kevin09018a40a" target="_blank" className="link">
+            <img src={behance} className="logo" style={{ opacity: this.state.opacityBehance, transform: this.state.translateBehance }} />
+          </a>
+          <a className="link">
+            <img src={email} className="logo" style={{ opacity: this.state.opacityEmail, transform: this.state.translateEmail }} />
+          </a>
         </div>
       </div>
     );

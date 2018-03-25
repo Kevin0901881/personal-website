@@ -1,6 +1,6 @@
 .Contact {
   width: 100%;
-  background: linear-gradient(to bottom, rgba(255,0,0,0) 0%, #0336a1 75%);
+  background: linear-gradient(to bottom, rgba(255,0,0,0) 0%, #0336a1 80%);
   transition: height 0.4s cubic-bezier(0.770, 0.000, 0.175, 1.000);
   position: absolute;
   bottom: 0;
@@ -9,7 +9,7 @@
 
 .logos {
   position: absolute;
-  bottom: 15px;
+  bottom: 30px;
   left: 50%;
   transform: translateX(-50%);
   -webkit-touch-callout: none;
@@ -18,9 +18,12 @@
   -ms-user-select: none;
 }
 
-.logo {
+.link {
   margin: 30px;
-  transition: opacity 0.3s linear, transform 0.4s cubic-bezier(0.165, 0.840, 0.440, 1.000);
   cursor: pointer;
+}
+
+.logo {
+  transition: opacity 0.3s linear, transform 0.4s cubic-bezier(0.165, 0.840, 0.440, 1.000);
   width: 24px;
 }

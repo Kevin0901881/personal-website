@@ -68,128 +68,123 @@ class Portfolio extends Component {
   }
 
   updateScene(next) {
-    switch (this.props.currentPage) {
-      case 4:
-        this.setState({ progressBackground: '#1b1b1b', progressForeground: '#ffffff', backgroundColor: '#000000' });
-        break;
-      case 5:
-        this.setState({ progressBackground: '#b52948', progressForeground: '#04307b', backgroundColor: '#e3395e' });
-        break;
-      case 6:
-        this.setState({ progressBackground: '#b5b5b5', progressForeground: '#321914', backgroundColor: '#e0e0e0' });
-        break;
-      case 7:
-        this.setState({ progressBackground: '#a2192a', progressForeground: '#e7bc53', backgroundColor: '#cb1931' });
-        break;
-      case 8:
-        this.setState({ progressBackground: '#118f3d', progressForeground: '#000000', backgroundColor: '#15bf50' });
-        break;
-      case 9:
-        this.setState({ progressBackground: '#572933', progressForeground: '#e4e4f0', backgroundColor: '#7b3947' });
-        break;
-      case 10:
-        this.setState({ progressBackground: '#012165', progressForeground: '#faad55', backgroundColor: '#0336a1' });
-        break;
-    }
     if (next) {
       switch (this.props.currentPage) {
+        case 4:
+          this.setState({ progressBackground: '#1b1b1b', progressForeground: '#ffffff', backgroundColor: '#000000' });
+          break;
         case 5:
           this.setState({ transition: '', leftSquare2: 0.5 * window.innerWidth + this.width });
           this.setState({ arrowLeft: left1, arrowRight: right1, arrowLeft2: left2, arrowRight2: right2, arrowOpacityLeft: 0, arrowOpacityRight: 0, arrowOpacityLeft2: 1, arrowOpacityRight2: 1,
                           opacitySquare: 0, leftSquare: 0.5 * window.innerWidth - this.refs.square2.clientWidth, heightSquare: 0,
                           opacitySquare2: 1, leftSquare2: 0.5 * window.innerWidth, heightSquare2: this.height,
                           backgroundSquare2: 'linear-gradient(to bottom, #04307b 0%, rgba(255,0,0,0) 100%)',
-                          transition: 'opacity 0.3s ease-in-out, top 0.3s ease-in-out, left 0.3s ease-in-out, height 0.3s cubic-bezier(0.645, 0.045, 0.355, 1.000)' });
+                          transition: 'opacity 0.3s ease-in-out, top 0.3s ease-in-out, left 0.3s ease-in-out, height 0.3s cubic-bezier(0.645, 0.045, 0.355, 1.000)',
+                          progressBackground: '#b52948', progressForeground: '#04307b', backgroundColor: '#e3395e' });
           break;
         case 6:
           this.setState({ transition: '', leftSquare: 0.5 * window.innerWidth + this.width });
-          this.setState({ arrowLeft: left3, arrowRight: right3, arrowLeft2: left2, arrowRight2: right2, arrowOpacityLeft: 1, arrowOpacityRight: 1, arrowOpacityLeft2: 0, arrowOpacityRight2: 0,
+          this.setState({ arrowLeft: left3, arrowRight: right3, arrowOpacityLeft: 1, arrowOpacityRight: 1, arrowOpacityLeft2: 0, arrowOpacityRight2: 0,
                           opacitySquare: 1, leftSquare: 0.5 * window.innerWidth, heightSquare: this.height,
                           opacitySquare2: 0, leftSquare2: 0.5 * window.innerWidth - this.refs.square2.clientWidth, heightSquare2: 0,
                           backgroundSquare: 'linear-gradient(to bottom, #321914 0%, rgba(255,0,0,0) 100%)',
-                          transition: 'opacity 0.3s ease-in-out, top 0.3s ease-in-out, left 0.3s ease-in-out, height 0.3s cubic-bezier(0.645, 0.045, 0.355, 1.000)' });
+                          transition: 'opacity 0.3s ease-in-out, top 0.3s ease-in-out, left 0.3s ease-in-out, height 0.3s cubic-bezier(0.645, 0.045, 0.355, 1.000)',
+                          progressBackground: '#b5b5b5', progressForeground: '#321914', backgroundColor: '#e0e0e0' });
           break;
         case 7:
           this.setState({ transition: '', leftSquare2: 0.5 * window.innerWidth + this.refs.square2.clientWidth });
-          this.setState({ arrowLeft: left3, arrowRight: right3, arrowLeft2: left4, arrowRight2: right4, arrowOpacityLeft: 0, arrowOpacityRight: 0, arrowOpacityLeft2: 1, arrowOpacityRight2: 1,
+          this.setState({ arrowLeft2: left4, arrowRight2: right4, arrowOpacityLeft: 0, arrowOpacityRight: 0, arrowOpacityLeft2: 1, arrowOpacityRight2: 1,
                           opacitySquare: 0, leftSquare: 0.5 * window.innerWidth - this.refs.square2.clientWidth, heightSquare: 0,
                           opacitySquare2: 1, leftSquare2: 0.5 * window.innerWidth, heightSquare2: this.height,
                           backgroundSquare2: 'linear-gradient(to bottom, #e7bc53 0%, rgba(255,0,0,0) 100%)',
-                          transition: 'opacity 0.3s ease-in-out, top 0.3s ease-in-out, left 0.3s ease-in-out, height 0.3s cubic-bezier(0.645, 0.045, 0.355, 1.000)' });
+                          transition: 'opacity 0.3s ease-in-out, top 0.3s ease-in-out, left 0.3s ease-in-out, height 0.3s cubic-bezier(0.645, 0.045, 0.355, 1.000)',
+                          progressBackground: '#a2192a', progressForeground: '#e7bc53', backgroundColor: '#cb1931' });
           break;
         case 8:
           this.setState({ transition: '', leftSquare: 0.5 * window.innerWidth + this.width });
-          this.setState({ arrowLeft: left5, arrowRight: right5, arrowLeft2: left4, arrowRight2: right4, arrowOpacityLeft: 1, arrowOpacityRight: 1, arrowOpacityLeft2: 0, arrowOpacityRight2: 0,
+          this.setState({ arrowLeft: left5, arrowRight: right5, arrowOpacityLeft: 1, arrowOpacityRight: 1, arrowOpacityLeft2: 0, arrowOpacityRight2: 0,
                           opacitySquare: 1, leftSquare: 0.5 * window.innerWidth, heightSquare: this.height,
                           opacitySquare2: 0, leftSquare2: 0.5 * window.innerWidth - this.refs.square2.clientWidth, heightSquare2: 0,
                           backgroundSquare: 'linear-gradient(to bottom, #000000 0%, rgba(255,0,0,0) 100%)',
-                          transition: 'opacity 0.3s ease-in-out, top 0.3s ease-in-out, left 0.3s ease-in-out, height 0.3s cubic-bezier(0.645, 0.045, 0.355, 1.000)' });
+                          transition: 'opacity 0.3s ease-in-out, top 0.3s ease-in-out, left 0.3s ease-in-out, height 0.3s cubic-bezier(0.645, 0.045, 0.355, 1.000)',
+                          progressBackground: '#118f3d', progressForeground: '#000000', backgroundColor: '#15bf50' });
           break;
         case 9:
           this.setState({ transition: '', leftSquare2: 0.5 * window.innerWidth + this.refs.square2.clientWidth });
-          this.setState({ arrowLeft: left5, arrowRight: right5, arrowLeft2: left6, arrowRight2: right6, arrowOpacityLeft: 0, arrowOpacityRight: 0, arrowOpacityLeft2: 1, arrowOpacityRight2: 1,
+          this.setState({ arrowLeft2: left6, arrowRight2: right6, arrowOpacityLeft: 0, arrowOpacityRight: 0, arrowOpacityLeft2: 1, arrowOpacityRight2: 1,
                           opacitySquare: 0, leftSquare: 0.5 * window.innerWidth - this.refs.square2.clientWidth, heightSquare: 0,
                           opacitySquare2: 1, leftSquare2: 0.5 * window.innerWidth, heightSquare2: this.height,
                           backgroundSquare2: 'linear-gradient(to bottom, #e4e4f0 0%, rgba(255,0,0,0) 100%)',
-                          transition: 'opacity 0.3s ease-in-out, top 0.3s ease-in-out, left 0.3s ease-in-out, height 0.3s cubic-bezier(0.645, 0.045, 0.355, 1.000)' });
+                          transition: 'opacity 0.3s ease-in-out, top 0.3s ease-in-out, left 0.3s ease-in-out, height 0.3s cubic-bezier(0.645, 0.045, 0.355, 1.000)',
+                          progressBackground: '#572933', progressForeground: '#e4e4f0', backgroundColor: '#7b3947' });
           break;
         case 10:
           this.setState({ transition: '', leftSquare: 0.5 * window.innerWidth + this.width });
-          this.setState({ arrowLeft: left7, arrowRight: right7, arrowLeft2: left6, arrowRight2: right6, arrowOpacityLeft: 1, arrowOpacityRight: 0, arrowOpacityLeft2: 0, arrowOpacityRight2: 0,
+          this.setState({ arrowLeft: left7, arrowRight: right7, arrowOpacityLeft: 1, arrowOpacityRight: 0, arrowOpacityLeft2: 0, arrowOpacityRight2: 0,
                           opacitySquare: 1, leftSquare: 0.5 * window.innerWidth, heightSquare: this.height,
                           opacitySquare2: 0, leftSquare2: 0.5 * window.innerWidth - this.refs.square2.clientWidth, heightSquare2: 0,
                           backgroundSquare: 'linear-gradient(to bottom, #faad55 0%, rgba(255,0,0,0) 100%)',
-                          transition: 'opacity 0.3s ease-in-out, top 0.3s ease-in-out, left 0.3s ease-in-out, height 0.3s cubic-bezier(0.645, 0.045, 0.355, 1.000)' });
+                          transition: 'opacity 0.3s ease-in-out, top 0.3s ease-in-out, left 0.3s ease-in-out, height 0.3s cubic-bezier(0.645, 0.045, 0.355, 1.000)',
+                          progressBackground: '#012165', progressForeground: '#faad55', backgroundColor: '#0336a1' });
           break;
       }
     } else {
       switch (this.props.currentPage) {
         case 4:
           this.setState({ transition: '', leftSquare: 0.5 * window.innerWidth - this.width });
-          this.setState({ arrowLeft: left1, arrowRight: right1, arrowLeft2: left2, arrowRight2: right2, arrowOpacityLeft: 0, arrowOpacityRight: 1, arrowOpacityLeft2: 0, arrowOpacityRight2: 0,
+          this.setState({ arrowLeft: left1, arrowRight: right1, arrowOpacityLeft: 0, arrowOpacityRight: 1, arrowOpacityLeft2: 0, arrowOpacityRight2: 0,
                           opacitySquare: 1, leftSquare: 0.5 * window.innerWidth, heightSquare: this.height,
                           opacitySquare2: 0, leftSquare2: 0.5 * window.innerWidth + this.refs.square2.clientWidth, heightSquare2: 0,
                           backgroundSquare: 'linear-gradient(to bottom, #ffffff 0%, rgba(255,0,0,0) 100%)',
-                          transition: 'opacity 0.3s ease-in-out, top 0.3s ease-in-out, left 0.3s ease-in-out, height 0.3s cubic-bezier(0.645, 0.045, 0.355, 1.000)' });
+                          transition: 'opacity 0.3s ease-in-out, top 0.3s ease-in-out, left 0.3s ease-in-out, height 0.3s cubic-bezier(0.645, 0.045, 0.355, 1.000)',
+                          progressBackground: '#1b1b1b', progressForeground: '#ffffff', backgroundColor: '#000000' });
           break;
         case 5:
           this.setState({ transition: '', leftSquare2: 0.5 * window.innerWidth - this.refs.square2.clientWidth });
-          this.setState({ arrowLeft: left3, arrowRight: right3, arrowLeft2: left2, arrowRight2: right2, arrowOpacityLeft: 0, arrowOpacityRight: 0, arrowOpacityLeft2: 1, arrowOpacityRight2: 1,
+          this.setState({ arrowLeft2: left2, arrowRight2: right2, arrowOpacityLeft: 0, arrowOpacityRight: 0, arrowOpacityLeft2: 1, arrowOpacityRight2: 1,
                           opacitySquare: 0, leftSquare: 0.5 * window.innerWidth + this.refs.square2.clientWidth, heightSquare: 0,
                           opacitySquare2: 1, leftSquare2: 0.5 * window.innerWidth, heightSquare2: this.height,
                           backgroundSquare2: 'linear-gradient(to bottom, #04307b 0%, rgba(255,0,0,0) 100%)',
-                          transition: 'opacity 0.3s ease-in-out, top 0.3s ease-in-out, left 0.3s ease-in-out, height 0.3s cubic-bezier(0.645, 0.045, 0.355, 1.000)' });
+                          transition: 'opacity 0.3s ease-in-out, top 0.3s ease-in-out, left 0.3s ease-in-out, height 0.3s cubic-bezier(0.645, 0.045, 0.355, 1.000)',
+                          progressBackground: '#b52948', progressForeground: '#04307b', backgroundColor: '#e3395e' });
           break;
         case 6:
           this.setState({ transition: '', leftSquare: 0.5 * window.innerWidth - this.width });
-          this.setState({ arrowLeft: left3, arrowRight: right3, arrowLeft2: left4, arrowRight2: right4, arrowOpacityLeft: 1, arrowOpacityRight: 1, arrowOpacityLeft2: 0, arrowOpacityRight2: 0,
+          this.setState({ arrowLeft: left3, arrowRight: right3, arrowOpacityLeft: 1, arrowOpacityRight: 1, arrowOpacityLeft2: 0, arrowOpacityRight2: 0,
                           opacitySquare: 1, leftSquare: 0.5 * window.innerWidth, heightSquare: this.height,
                           opacitySquare2: 0, leftSquare2: 0.5 * window.innerWidth + this.refs.square2.clientWidth, heightSquare2: 0,
                           backgroundSquare: 'linear-gradient(to bottom, #321914 0%, rgba(255,0,0,0) 100%)',
-                          transition: 'opacity 0.3s ease-in-out, top 0.3s ease-in-out, left 0.3s ease-in-out, height 0.3s cubic-bezier(0.645, 0.045, 0.355, 1.000)' });
+                          transition: 'opacity 0.3s ease-in-out, top 0.3s ease-in-out, left 0.3s ease-in-out, height 0.3s cubic-bezier(0.645, 0.045, 0.355, 1.000)',
+                          progressBackground: '#b5b5b5', progressForeground: '#321914', backgroundColor: '#e0e0e0' });
           break;
         case 7:
           this.setState({ transition: '', leftSquare2: 0.5 * window.innerWidth - this.refs.square2.clientWidth });
-          this.setState({ arrowLeft: left5, arrowRight: right5, arrowLeft2: left4, arrowRight2: right4, arrowOpacityLeft: 0, arrowOpacityRight: 0, arrowOpacityLeft2: 1, arrowOpacityRight2: 1,
+          this.setState({ arrowLeft2: left4, arrowRight2: right4, arrowOpacityLeft: 0, arrowOpacityRight: 0, arrowOpacityLeft2: 1, arrowOpacityRight2: 1,
                           opacitySquare: 0, leftSquare: 0.5 * window.innerWidth + this.refs.square2.clientWidth, heightSquare: 0,
                           opacitySquare2: 1, leftSquare2: 0.5 * window.innerWidth, heightSquare2: this.height,
                           backgroundSquare2: 'linear-gradient(to bottom, #e7bc53 0%, rgba(255,0,0,0) 100%)',
-                          transition: 'opacity 0.3s ease-in-out, top 0.3s ease-in-out, left 0.3s ease-in-out, height 0.3s cubic-bezier(0.645, 0.045, 0.355, 1.000)' });
+                          transition: 'opacity 0.3s ease-in-out, top 0.3s ease-in-out, left 0.3s ease-in-out, height 0.3s cubic-bezier(0.645, 0.045, 0.355, 1.000)',
+                          progressBackground: '#a2192a', progressForeground: '#e7bc53', backgroundColor: '#cb1931' });
           break;
         case 8:
           this.setState({ transition: '', leftSquare: 0.5 * window.innerWidth - this.width });
-          this.setState({ arrowLeft: left5, arrowRight: right5, arrowLeft2: left6, arrowRight2: right6, arrowOpacityLeft: 1, arrowOpacityRight: 1, arrowOpacityLeft2: 0, arrowOpacityRight2: 0,
+          this.setState({ arrowLeft: left5, arrowRight: right5, arrowOpacityLeft: 1, arrowOpacityRight: 1, arrowOpacityLeft2: 0, arrowOpacityRight2: 0,
                           opacitySquare: 1, leftSquare: 0.5 * window.innerWidth, heightSquare: this.height,
                           opacitySquare2: 0, leftSquare2: 0.5 * window.innerWidth + this.refs.square2.clientWidth, heightSquare2: 0,
                           backgroundSquare: 'linear-gradient(to bottom, #000000 0%, rgba(255,0,0,0) 100%)',
-                          transition: 'opacity 0.3s ease-in-out, top 0.3s ease-in-out, left 0.3s ease-in-out, height 0.3s cubic-bezier(0.645, 0.045, 0.355, 1.000)' });
+                          transition: 'opacity 0.3s ease-in-out, top 0.3s ease-in-out, left 0.3s ease-in-out, height 0.3s cubic-bezier(0.645, 0.045, 0.355, 1.000)',
+                          progressBackground: '#118f3d', progressForeground: '#000000', backgroundColor: '#15bf50' });
           break;
         case 9:
           this.setState({ transition: '', leftSquare2: 0.5 * window.innerWidth - this.width });
-          this.setState({ arrowLeft: left7, arrowRight: right7, arrowLeft2: left6, arrowRight2: right6, arrowOpacityLeft: 0, arrowOpacityRight: 0, arrowOpacityLeft2: 1, arrowOpacityRight2: 1,
+          this.setState({ arrowLeft2: left6, arrowRight2: right6, arrowOpacityLeft: 0, arrowOpacityRight: 0, arrowOpacityLeft2: 1, arrowOpacityRight2: 1,
                           opacitySquare: 0, leftSquare: 0.5 * window.innerWidth + this.refs.square2.clientWidth, heightSquare: 0,
                           opacitySquare2: 1, leftSquare2: 0.5 * window.innerWidth, heightSquare2: this.height,
-                          transition: 'opacity 0.3s ease-in-out, top 0.3s ease-in-out, left 0.3s ease-in-out, height 0.3s cubic-bezier(0.645, 0.045, 0.355, 1.000)' });
+                          transition: 'opacity 0.3s ease-in-out, top 0.3s ease-in-out, left 0.3s ease-in-out, height 0.3s cubic-bezier(0.645, 0.045, 0.355, 1.000)',
+                          progressBackground: '#572933', progressForeground: '#e4e4f0', backgroundColor: '#7b3947' });
+          break;
+        case 10:
+          this.setState({ progressBackground: '#012165', progressForeground: '#faad55', backgroundColor: '#0336a1' });
           break;
       }
     }

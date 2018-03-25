@@ -26,16 +26,11 @@ class App extends Component {
     this.handleArrow = this.handleScroll.bind(this);
   }
 
-  componentWillMount() {
-    document.body.style.backgroundColor = '#000000';
-  }
-
   componentDidMount() {
     window.addEventListener("wheel", this.handleScroll);
   }
 
   componentWillUnmount() {
-    document.body.style.backgroundColor = null;
     window.removeEventListener("wheel", this.handleScroll);
   }
 

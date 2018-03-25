@@ -57,41 +57,33 @@ class Menu extends Component {
                         welcome: '#292929', about: '#292929', portfolio: '#292929', contact: '#292929', backgroundColor: '#292929', color: '#ffffff' });
         break;
       case 5:
-        this.setState({ opacityMenu: 0, opacityWelcome: 0, opacityAbout: 0, opacityPortfolio: 1, opacityContact: 0, translate: "translateY(34px)",
-                        welcome: '#b52948', about: '#b52948', portfolio: '#b52948', contact: '#b52948', backgroundColor: '#b52948', color: '#04307b' });
+        this.setState({ welcome: '#b52948', about: '#b52948', portfolio: '#b52948', contact: '#b52948', backgroundColor: '#b52948', color: '#04307b' });
         break;
       case 6:
-        this.setState({ opacityMenu: 0, opacityWelcome: 0, opacityAbout: 0, opacityPortfolio: 1, opacityContact: 0, translate: "translateY(34px)",
-                        welcome: '#b5b5b5', about: '#b5b5b5', portfolio: '#b5b5b5', contact: '#b5b5b5', backgroundColor: '#b5b5b5', color: '#321914' });
+        this.setState({ welcome: '#b5b5b5', about: '#b5b5b5', portfolio: '#b5b5b5', contact: '#b5b5b5', backgroundColor: '#b5b5b5', color: '#321914' });
         break;
       case 7:
-        this.setState({ opacityMenu: 0, opacityWelcome: 0, opacityAbout: 0, opacityPortfolio: 1, opacityContact: 0, translate: "translateY(34px)",
-                        welcome: '#a2192a', about: '#a2192a', portfolio: '#a2192a', contact: '#a2192a', backgroundColor: '#a2192a', color: '#e7bc53' });
+        this.setState({ welcome: '#a2192a', about: '#a2192a', portfolio: '#a2192a', contact: '#a2192a', backgroundColor: '#a2192a', color: '#e7bc53' });
         break;
       case 8:
-        this.setState({ opacityMenu: 0, opacityWelcome: 0, opacityAbout: 0, opacityPortfolio: 1, opacityContact: 0, translate: "translateY(34px)",
-                        welcome: '#118f3d', about: '#118f3d', portfolio: '#118f3d', contact: '#118f3d', backgroundColor: '#118f3d', color: '#000000' });
+        this.setState({ welcome: '#118f3d', about: '#118f3d', portfolio: '#118f3d', contact: '#118f3d', backgroundColor: '#118f3d', color: '#000000' });
         break;
       case 9:
-        this.setState({ opacityMenu: 0, opacityWelcome: 0, opacityAbout: 0, opacityPortfolio: 1, opacityContact: 0, translate: "translateY(34px)",
-                        welcome: '#572933', about: '#572933', portfolio: '#572933', contact: '#572933', backgroundColor: '#572933', color: '#e4e4f0' });
-        break;
-      case 10:
-        this.setState({ opacityMenu: 0, opacityWelcome: 0, opacityAbout: 0, opacityPortfolio: 1, opacityContact: 0, translate: "translateY(34px)",
-                        welcome: '#012165', about: '#012165', portfolio: '#012165', contact: '#012165', backgroundColor: '#012165', color: '#faad55' });
+        this.setState({ welcome: '#572933', about: '#572933', portfolio: '#572933', contact: '#572933', backgroundColor: '#572933', color: '#e4e4f0' });
         break;
     }
     if (next) {
       switch (this.props.page) {
+        case 10:
+          this.setState({ welcome: '#012165', about: '#012165', portfolio: '#012165', contact: '#012165', backgroundColor: '#012165', color: '#faad55' });
+          break;
         case 11:
-          this.setState({ opacityMenu: 0, opacityWelcome: 0, opacityAbout: 0, opacityPortfolio: 0, opacityContact: 1, translate: "translateY(0px)",
-                          welcome: '#012165', about: '#012165', portfolio: '#012165', contact: '#012165', backgroundColor: '#012165', color: '#faad55' });
+          this.setState({ opacityMenu: 0, opacityWelcome: 0, opacityAbout: 0, opacityPortfolio: 0, opacityContact: 1, translate: "translateY(0px)" });
       }
     } else {
       switch (this.props.page) {
         case 10:
-          this.setState({ opacityMenu: 0, opacityWelcome: 0, opacityAbout: 0, opacityPortfolio: 1, opacityContact: 0, translate: "translateY(34px)",
-                          welcome: '#012165', about: '#012165', portfolio: '#012165', contact: '#012165', backgroundColor: '#012165', color: '#faad55' });
+          this.setState({ opacityMenu: 0, opacityWelcome: 0, opacityAbout: 0, opacityPortfolio: 1, opacityContact: 0, translate: "translateY(34px)" });
       }
     }
   }
