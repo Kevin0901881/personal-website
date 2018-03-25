@@ -3,7 +3,7 @@
   height: 100%;
   overflow-y: auto;
   overflow-x: hidden;
-  transition: background 0.2s linear;
+  transition: background 0.3s linear;
   z-index: -2;
 }
 
@@ -14,7 +14,7 @@
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
-  transition: opacity 0.2s linear;
+  transition: opacity 0.3s linear;
 }
 
 .next {
@@ -24,7 +24,7 @@
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
-  transition: opacity 0.2s linear;
+  transition: opacity 0.3s linear;
 }
 
 .square {
@@ -44,12 +44,12 @@
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
-  transition: background 0.2s linear;
+  transition: background 0.3s linear;
 }
 
 .progressBarForeground {
   height: inherit;
   position: relative;
   left: 0px;
-  transition: width 0.2s ease-in-out, background 0.2s linear;
+  transition: width 0.3s ease-in-out, background 0.3s linear;
 }

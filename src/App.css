@@ -74,6 +74,7 @@ html, body, #root, .App {
 }
 
 .App {
+  position: relative;
   text-align: center;
 }
 
@@ -95,6 +96,12 @@ html, body, #root, .App {
 
 .App-intro {
   font-size: large;
+}
+
+.contact {
+  position: absolute;
+  top: 0;
+  z-index: 0;
 }
 
 .logo {

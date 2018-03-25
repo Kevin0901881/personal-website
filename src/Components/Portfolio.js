@@ -99,7 +99,7 @@ class Portfolio extends Component {
                           opacitySquare: 0, leftSquare: 0.5 * window.innerWidth - this.refs.square2.clientWidth, heightSquare: 0,
                           opacitySquare2: 1, leftSquare2: 0.5 * window.innerWidth, heightSquare2: this.height,
                           backgroundSquare2: 'linear-gradient(to bottom, #04307b 0%, rgba(255,0,0,0) 100%)',
-                          transition: 'opacity 0.25s ease-in-out, top 0.25s ease-in-out, left 0.25s ease-in-out, height 0.25s cubic-bezier(0.645, 0.045, 0.355, 1.000)' });
+                          transition: 'opacity 0.3s ease-in-out, top 0.3s ease-in-out, left 0.3s ease-in-out, height 0.3s cubic-bezier(0.645, 0.045, 0.355, 1.000)' });
           break;
         case 6:
           this.setState({ transition: '', leftSquare: 0.5 * window.innerWidth + this.width });
@@ -107,7 +107,7 @@ class Portfolio extends Component {
                           opacitySquare: 1, leftSquare: 0.5 * window.innerWidth, heightSquare: this.height,
                           opacitySquare2: 0, leftSquare2: 0.5 * window.innerWidth - this.refs.square2.clientWidth, heightSquare2: 0,
                           backgroundSquare: 'linear-gradient(to bottom, #321914 0%, rgba(255,0,0,0) 100%)',
-                          transition: 'opacity 0.25s ease-in-out, top 0.25s ease-in-out, left 0.25s ease-in-out, height 0.25s cubic-bezier(0.645, 0.045, 0.355, 1.000)' });
+                          transition: 'opacity 0.3s ease-in-out, top 0.3s ease-in-out, left 0.3s ease-in-out, height 0.3s cubic-bezier(0.645, 0.045, 0.355, 1.000)' });
           break;
         case 7:
           this.setState({ transition: '', leftSquare2: 0.5 * window.innerWidth + this.refs.square2.clientWidth });
@@ -115,7 +115,7 @@ class Portfolio extends Component {
                           opacitySquare: 0, leftSquare: 0.5 * window.innerWidth - this.refs.square2.clientWidth, heightSquare: 0,
                           opacitySquare2: 1, leftSquare2: 0.5 * window.innerWidth, heightSquare2: this.height,
                           backgroundSquare2: 'linear-gradient(to bottom, #e7bc53 0%, rgba(255,0,0,0) 100%)',
-                          transition: 'opacity 0.25s ease-in-out, top 0.25s ease-in-out, left 0.25s ease-in-out, height 0.25s cubic-bezier(0.645, 0.045, 0.355, 1.000)' });
+                          transition: 'opacity 0.3s ease-in-out, top 0.3s ease-in-out, left 0.3s ease-in-out, height 0.3s cubic-bezier(0.645, 0.045, 0.355, 1.000)' });
           break;
         case 8:
           this.setState({ transition: '', leftSquare: 0.5 * window.innerWidth + this.width });
@@ -123,7 +123,7 @@ class Portfolio extends Component {
                           opacitySquare: 1, leftSquare: 0.5 * window.innerWidth, heightSquare: this.height,
                           opacitySquare2: 0, leftSquare2: 0.5 * window.innerWidth - this.refs.square2.clientWidth, heightSquare2: 0,
                           backgroundSquare: 'linear-gradient(to bottom, #000000 0%, rgba(255,0,0,0) 100%)',
-                          transition: 'opacity 0.25s ease-in-out, top 0.25s ease-in-out, left 0.25s ease-in-out, height 0.25s cubic-bezier(0.645, 0.045, 0.355, 1.000)' });
+                          transition: 'opacity 0.3s ease-in-out, top 0.3s ease-in-out, left 0.3s ease-in-out, height 0.3s cubic-bezier(0.645, 0.045, 0.355, 1.000)' });
           break;
         case 9:
           this.setState({ transition: '', leftSquare2: 0.5 * window.innerWidth + this.refs.square2.clientWidth });
@@ -131,7 +131,7 @@ class Portfolio extends Component {
                           opacitySquare: 0, leftSquare: 0.5 * window.innerWidth - this.refs.square2.clientWidth, heightSquare: 0,
                           opacitySquare2: 1, leftSquare2: 0.5 * window.innerWidth, heightSquare2: this.height,
                           backgroundSquare2: 'linear-gradient(to bottom, #e4e4f0 0%, rgba(255,0,0,0) 100%)',
-                          transition: 'opacity 0.25s ease-in-out, top 0.25s ease-in-out, left 0.25s ease-in-out, height 0.25s cubic-bezier(0.645, 0.045, 0.355, 1.000)' });
+                          transition: 'opacity 0.3s ease-in-out, top 0.3s ease-in-out, left 0.3s ease-in-out, height 0.3s cubic-bezier(0.645, 0.045, 0.355, 1.000)' });
           break;
         case 10:
           this.setState({ transition: '', leftSquare: 0.5 * window.innerWidth + this.width });
@@ -139,7 +139,7 @@ class Portfolio extends Component {
                           opacitySquare: 1, leftSquare: 0.5 * window.innerWidth, heightSquare: this.height,
                           opacitySquare2: 0, leftSquare2: 0.5 * window.innerWidth - this.refs.square2.clientWidth, heightSquare2: 0,
                           backgroundSquare: 'linear-gradient(to bottom, #faad55 0%, rgba(255,0,0,0) 100%)',
-                          transition: 'opacity 0.25s ease-in-out, top 0.25s ease-in-out, left 0.25s ease-in-out, height 0.25s cubic-bezier(0.645, 0.045, 0.355, 1.000)' });
+                          transition: 'opacity 0.3s ease-in-out, top 0.3s ease-in-out, left 0.3s ease-in-out, height 0.3s cubic-bezier(0.645, 0.045, 0.355, 1.000)' });
           break;
       }
     } else {
@@ -150,7 +150,7 @@ class Portfolio extends Component {
                           opacitySquare: 1, leftSquare: 0.5 * window.innerWidth, heightSquare: this.height,
                           opacitySquare2: 0, leftSquare2: 0.5 * window.innerWidth + this.refs.square2.clientWidth, heightSquare2: 0,
                           backgroundSquare: 'linear-gradient(to bottom, #ffffff 0%, rgba(255,0,0,0) 100%)',
-                          transition: 'opacity 0.25s ease-in-out, top 0.25s ease-in-out, left 0.25s ease-in-out, height 0.25s cubic-bezier(0.645, 0.045, 0.355, 1.000)' });
+                          transition: 'opacity 0.3s ease-in-out, top 0.3s ease-in-out, left 0.3s ease-in-out, height 0.3s cubic-bezier(0.645, 0.045, 0.355, 1.000)' });
           break;
         case 5:
           this.setState({ transition: '', leftSquare2: 0.5 * window.innerWidth - this.refs.square2.clientWidth });
@@ -158,7 +158,7 @@ class Portfolio extends Component {
                           opacitySquare: 0, leftSquare: 0.5 * window.innerWidth + this.refs.square2.clientWidth, heightSquare: 0,
                           opacitySquare2: 1, leftSquare2: 0.5 * window.innerWidth, heightSquare2: this.height,
                           backgroundSquare2: 'linear-gradient(to bottom, #04307b 0%, rgba(255,0,0,0) 100%)',
-                          transition: 'opacity 0.25s ease-in-out, top 0.25s ease-in-out, left 0.25s ease-in-out, height 0.25s cubic-bezier(0.645, 0.045, 0.355, 1.000)' });
+                          transition: 'opacity 0.3s ease-in-out, top 0.3s ease-in-out, left 0.3s ease-in-out, height 0.3s cubic-bezier(0.645, 0.045, 0.355, 1.000)' });
           break;
         case 6:
           this.setState({ transition: '', leftSquare: 0.5 * window.innerWidth - this.width });
@@ -166,7 +166,7 @@ class Portfolio extends Component {
                           opacitySquare: 1, leftSquare: 0.5 * window.innerWidth, heightSquare: this.height,
                           opacitySquare2: 0, leftSquare2: 0.5 * window.innerWidth + this.refs.square2.clientWidth, heightSquare2: 0,
                           backgroundSquare: 'linear-gradient(to bottom, #321914 0%, rgba(255,0,0,0) 100%)',
-                          transition: 'opacity 0.25s ease-in-out, top 0.25s ease-in-out, left 0.25s ease-in-out, height 0.25s cubic-bezier(0.645, 0.045, 0.355, 1.000)' });
+                          transition: 'opacity 0.3s ease-in-out, top 0.3s ease-in-out, left 0.3s ease-in-out, height 0.3s cubic-bezier(0.645, 0.045, 0.355, 1.000)' });
           break;
         case 7:
           this.setState({ transition: '', leftSquare2: 0.5 * window.innerWidth - this.refs.square2.clientWidth });
@@ -174,7 +174,7 @@ class Portfolio extends Component {
                           opacitySquare: 0, leftSquare: 0.5 * window.innerWidth + this.refs.square2.clientWidth, heightSquare: 0,
                           opacitySquare2: 1, leftSquare2: 0.5 * window.innerWidth, heightSquare2: this.height,
                           backgroundSquare2: 'linear-gradient(to bottom, #e7bc53 0%, rgba(255,0,0,0) 100%)',
-                          transition: 'opacity 0.25s ease-in-out, top 0.25s ease-in-out, left 0.25s ease-in-out, height 0.25s cubic-bezier(0.645, 0.045, 0.355, 1.000)' });
+                          transition: 'opacity 0.3s ease-in-out, top 0.3s ease-in-out, left 0.3s ease-in-out, height 0.3s cubic-bezier(0.645, 0.045, 0.355, 1.000)' });
           break;
         case 8:
           this.setState({ transition: '', leftSquare: 0.5 * window.innerWidth - this.width });
@@ -182,14 +182,14 @@ class Portfolio extends Component {
                           opacitySquare: 1, leftSquare: 0.5 * window.innerWidth, heightSquare: this.height,
                           opacitySquare2: 0, leftSquare2: 0.5 * window.innerWidth + this.refs.square2.clientWidth, heightSquare2: 0,
                           backgroundSquare: 'linear-gradient(to bottom, #000000 0%, rgba(255,0,0,0) 100%)',
-                          transition: 'opacity 0.25s ease-in-out, top 0.25s ease-in-out, left 0.25s ease-in-out, height 0.25s cubic-bezier(0.645, 0.045, 0.355, 1.000)' });
+                          transition: 'opacity 0.3s ease-in-out, top 0.3s ease-in-out, left 0.3s ease-in-out, height 0.3s cubic-bezier(0.645, 0.045, 0.355, 1.000)' });
           break;
         case 9:
           this.setState({ transition: '', leftSquare2: 0.5 * window.innerWidth - this.width });
           this.setState({ arrowLeft: left7, arrowRight: right7, arrowLeft2: left6, arrowRight2: right6, arrowOpacityLeft: 0, arrowOpacityRight: 0, arrowOpacityLeft2: 1, arrowOpacityRight2: 1,
                           opacitySquare: 0, leftSquare: 0.5 * window.innerWidth + this.refs.square2.clientWidth, heightSquare: 0,
                           opacitySquare2: 1, leftSquare2: 0.5 * window.innerWidth, heightSquare2: this.height,
-                          transition: 'opacity 0.25s ease-in-out, top 0.25s ease-in-out, left 0.25s ease-in-out, height 0.25s cubic-bezier(0.645, 0.045, 0.355, 1.000)' });
+                          transition: 'opacity 0.3s ease-in-out, top 0.3s ease-in-out, left 0.3s ease-in-out, height 0.3s cubic-bezier(0.645, 0.045, 0.355, 1.000)' });
           break;
       }
     }
@@ -210,8 +210,7 @@ class Portfolio extends Component {
     return (
       <div className="Portfolio" ref="Portfolio" style={{ background: this.state.backgroundColor }}>
           <img src={this.state.arrowLeft2} className="prev" ref="prev2" style={{ left: this.state.leftArrow, bottom: this.state.bottomArrow, opacity: this.state.arrowOpacityLeft2 }} />
-          <img src={this.state.arrowLeft} className="prev" ref="prev" style={{ left: this.state.leftArrow, bottom: this.state.bottomArrow, opacity: this.state.arrowOpacityLeft }}
-               onClick={this.props.handleArrow(false)} />
+          <img src={this.state.arrowLeft} className="prev" ref="prev" style={{ left: this.state.leftArrow, bottom: this.state.bottomArrow, opacity: this.state.arrowOpacityLeft }} />
           {/* <div className="squareLeft" ref="squareLeft" style={{ background: this.state.backgroundSquareLeft }} /> */}
           <div className="square" ref="square2" style={{ background: this.state.backgroundSquare2, opacity: this.state.opacitySquare2, bottom: this.state.bottomSquare,
                                                          left: this.state.leftSquare2, transition: this.state.transition, height: this.state.heightSquare2 }} />
@@ -219,10 +218,9 @@ class Portfolio extends Component {
                                                         left: this.state.leftSquare, transition: this.state.transition, height: this.state.heightSquare }} />
           {/* <div className="squareRight" ref="squareRight" style={{ background: this.state.backgroundSquareRight }} /> */}
           <img src={this.state.arrowRight2} className="next" ref="next2" style={{ right: this.state.leftArrow, bottom: this.state.bottomArrow, opacity: this.state.arrowOpacityRight2 }} />
-          <img src={this.state.arrowRight} className="next" ref="next" style={{ right: this.state.leftArrow, bottom: this.state.bottomArrow, opacity: this.state.arrowOpacityRight }}
-               onClick={this.props.handleArrow(true)} />
+          <img src={this.state.arrowRight} className="next" ref="next" style={{ right: this.state.leftArrow, bottom: this.state.bottomArrow, opacity: this.state.arrowOpacityRight }} />
           <div className="progressBarBackground" style={{ bottom: this.state.bottomProgress, width: this.state.widthProgress, background: this.state.progressBackground }}>
-               <div className="progressBarForeground" style={{ width: ((this.props.page - 4) * 100 / 6) + '%', background: this.state.progressForeground }}></div>
+               <div className="progressBarForeground" style={{ width: ((this.props.currentPage - 4) * 100 / 6) + '%', background: this.state.progressForeground }}></div>
           </div>
       </div>
     );
