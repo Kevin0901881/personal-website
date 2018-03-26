@@ -17,7 +17,7 @@ class Welcome extends Component {
   }
 
   out() {
-    this.setState({ translate: 'translate(-50%, -' + window.innerHeight / 2 + 'px)', opacity: 0 });
+    this.setState({ translate: 'translate(-50%, -' + 2 * window.innerHeight / 3 + 'px)', opacity: 0 });
   }
 
   render() {
@@ -25,7 +25,7 @@ class Welcome extends Component {
       <div className="Welcome" onMouseMove={(e) => {this.setState({
         pos: 73 + (e.clientY * 8 / window.innerHeight), background: "linear-gradient(to bottom, #5cd9b1 0%, #000000 " + this.state.pos + "%)" })}}
         style={{ display: this.props.display }}>
-          <div className="kevin" style={{ backgroundImage: this.state.background, transform: this.state.translate, opacity: this.state.opacity, transition: this.state.transition }}>
+          <div className="kevin" style={{ backgroundImage: this.state.background, transform: this.state.translate, opacity: this.state.opacity }}>
               KEVIN
           </div>
       </div>

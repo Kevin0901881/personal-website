@@ -11,22 +11,31 @@ class About extends Component {
     super(props);
     this.state = {
       topCircle: '50%',
-      leftCircle: '25%',
+      // leftCircle: '25%',
+      leftCircle: '50%',
       topPortrait: this.props.height * 0.144 + 'px',
       leftPortrait: '-' + this.props.width * 0.05 + 'px',
-      topText: this.props.height * 0.31 + 'px', // TODO: change to bottom
+      topText: this.props.height * 0.31 + 'px',
       leftText: this.props.width * 0.345 + 'px',
       bodyWidth: this.props.width * 0.5625 + 'px',
       colWidth: this.props.width * 0.2656 + 'px',
       shiftArrow: 'translateX(0px)',
       arrowOpacity: '0',
-      paddingRight: window.offsetWidth - window.clientWidth + 'px'
+      paddingRight: window.offsetWidth - window.clientWidth + 'px',
+      displayText: 'none',
+      displayResume: 'none',
+      opacityCircle: 0,
+      opacityText: 0,
+      opacityResume: 0,
+      transformCircle: 'translate(-50%, ' + 2 * window.innerHeight / 3 + 'px)',
+      transformPortrait: 'translate(0, 200px)'
     };
   }
 
   parallax(e, windowHeight, circleHeight, windowWidth) {
     this.setState({ topCircle: (windowHeight) - (e.clientY * 4 / (windowHeight * 2)) + 'px',
-                    leftCircle: (windowWidth / 2) - (e.clientX * 4 / (windowWidth * 2)) + 'px',
+                    // leftCircle: (windowWidth / 2) - (e.clientX * 4 / (windowWidth * 2)) + 'px',
+                    leftCircle: (windowWidth) - (e.clientX * 4 / (windowWidth * 2)) + 'px',
                     topPortrait: (this.props.height * 0.144) - (e.clientY * 8 / (windowHeight * 2)) + 'px',
                     leftPortrait: (-(this.props.width * 0.05)) - (e.clientX * 8 / (windowWidth * 2)) + 'px'
                     // topText: (this.props.height * 0.31) + (e.clientY * 3 / (windowHeight * 2)) + 'px',
@@ -34,17 +43,42 @@ class About extends Component {
                    });
   }
 
+  page1in() {
+    this.setState({ transformCircle: 'translate(-50%, -50%)', opacityCircle: 1, transformPortrait: 'translate(0, 0)' });
+  }
+
+  page1out() {
+
+  }
+
+  page1inPage2out() {
+
+  }
+
+  page2inPage1out() {
+
+  }
+
+  page2in() {
+
+  }
+
+  page2out() {
+
+  }
+
   render() {
     return (
       <div className="About" ref="about" style={{ paddingRight: '50px', display: this.props.display }} onWheel={this.handleScroll}
            onMouseMove={(e) => { this.parallax(e, window.innerHeight / 2, this.refs.circle.clientHeight / 2, window.innerWidth / 2) }}>
-          <div className="circle" ref="circle" style={{ top: this.state.topCircle, left: this.state.leftCircle, transform: this.state.transformCircle }}>
-            <img src={portrait} className="portrait" style={{ top: this.state.topPortrait, left: this.state.leftPortrait  }}/>
+          <div className="circle" ref="circle" style={{ top: this.state.topCircle, left: this.state.leftCircle, transform: this.state.transformCircle,
+                                                        opacity: this.state.opacityCircle }}>
+            <img src={portrait} className="portrait" style={{ top: this.state.topPortrait, left: this.state.leftPortrait, transform: this.state.transformPortrait }}/>
           </div>
-          {/* <div className="resume" style={{ top: this.props.height * 0.2 + 'px', left: this.state.leftText, marginBottom: this.props.height * 0.285 + 'px' }}>
+          <div className="resume" style={{ top: this.props.height * 0.2 + 'px', left: this.state.leftText, marginBottom: this.props.height * 0.285 + 'px', display: this.state.displayResume }}>
               <Resume width={this.props.width} />
-          </div> */}
-          {/* <div className="textAbout" style={{ top: this.state.topText, left: this.state.leftText }}>
+          </div>
+          <div className="textAbout" style={{ top: this.state.topText, left: this.state.leftText, display: this.state.displayText }}>
             <div className="titleAbout">STUDENT - DEVELOPER - DESIGNER</div>
             <div className="bodyAbout" style={{ width: this.state.bodyWidth }}>
                 <div className="leftColumn" style={{ width: this.state.colWidth }}>
@@ -69,9 +103,6 @@ class About extends Component {
                 <img src={rightArrowDark} className="rightArrowDark" style={{ transform: this.state.shiftArrow, opacity: this.state.arrowOpacity }} />
             </div>
           </div>
-          <div className="scrollDown">
-              SCROLL DOWN
-          </div> */}
       </div>
     );
   }
