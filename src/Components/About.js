@@ -1,6 +1,4 @@
 import React, { Component } from 'react';
-// import * as Scroll from 'react-scroll';
-// import { Link, DirectLink, Element , Events, animateScroll as scroll, scrollSpy, scroller } from 'react-scroll'
 import ReactDOM from 'react-dom';
 import '../CSS/About.css';
 import Resume from './Resume.js'
@@ -26,29 +24,6 @@ class About extends Component {
     };
   }
 
-  componentDidMount() {
-    // window.addEventListener('scroll', this.handleScroll, true);
-    // Events.scrollEvent.register('begin', function(to, element) {
-    //   console.log("begin", arguments);
-    // });
-    //
-    // Events.scrollEvent.register('end', function(to, element) {
-    //   console.log("end", arguments);
-    // });
-    //
-    // scrollSpy.update();
-  }
-
-  componentWillUnmount() {
-    // window.removeEventListener('scroll', this.handleScroll);
-    // Events.scrollEvent.remove('begin');
-    // Events.scrollEvent.remove('end');
-  }
-
-  // scrollMore() {
-  //   scroll.scrollMore(100);
-  // }
-
   parallax(e, windowHeight, circleHeight, windowWidth) {
     this.setState({ topCircle: (windowHeight) - (e.clientY * 4 / (windowHeight * 2)) + 'px',
                     leftCircle: (windowWidth / 2) - (e.clientX * 4 / (windowWidth * 2)) + 'px',
@@ -59,25 +34,16 @@ class About extends Component {
                    });
   }
 
-  handleScroll(e) {
-    if (e.deltaY < 0) { // scroll up
-
-    }
-    if (e.deltaY > 0) { // scroll down
-
-    }
-  }
-
   render() {
     return (
-      <div className="About" ref="about" style={{ paddingRight: '50px' }} onWheel={this.handleScroll}
+      <div className="About" ref="about" style={{ paddingRight: '50px', display: this.props.display }} onWheel={this.handleScroll}
            onMouseMove={(e) => { this.parallax(e, window.innerHeight / 2, this.refs.circle.clientHeight / 2, window.innerWidth / 2) }}>
           <div className="circle" ref="circle" style={{ top: this.state.topCircle, left: this.state.leftCircle, transform: this.state.transformCircle }}>
             <img src={portrait} className="portrait" style={{ top: this.state.topPortrait, left: this.state.leftPortrait  }}/>
           </div>
-          <div className="resume" style={{ top: this.props.height * 0.2 + 'px', left: this.state.leftText, marginBottom: this.props.height * 0.285 + 'px' }}>
+          {/* <div className="resume" style={{ top: this.props.height * 0.2 + 'px', left: this.state.leftText, marginBottom: this.props.height * 0.285 + 'px' }}>
               <Resume width={this.props.width} />
-          </div>
+          </div> */}
           {/* <div className="textAbout" style={{ top: this.state.topText, left: this.state.leftText }}>
             <div className="titleAbout">STUDENT - DEVELOPER - DESIGNER</div>
             <div className="bodyAbout" style={{ width: this.state.bodyWidth }}>

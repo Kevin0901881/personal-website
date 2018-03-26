@@ -23,10 +23,10 @@ class Logo extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      logoWhole: logoWholePortfolio1,
-      logoPiece: logoPiecePortfolio1,
-      logoWhole2: logoWholePortfolio1,
-      logoPiece2: logoPiecePortfolio1,
+      logoWhole: logoWholeWelcome,
+      logoPiece: logoPieceWelcome,
+      logoWhole2: logoWholeAbout,
+      logoPiece2: logoPieceAbout,
       opacity: 1,
       opacity2: 0
     }
@@ -35,6 +35,14 @@ class Logo extends Component {
   updateLogo(next) {
     if (next) {
       switch (this.props.page) {
+        case 2:
+          this.setState({ opacity: 0, opacity2: 1 });
+          break;
+        case 4:
+          this.setState({ logoWhole: logoWholePortfolio1, logoPiece: logoPiecePortfolio1,
+                          logoWhole2: logoWholeAbout, logoPiece2: logoPieceAbout,
+                          opacity: 1, opacity2: 0 });
+          break;
         case 5:
           this.setState({ logoWhole: logoWholePortfolio1, logoPiece: logoPiecePortfolio1,
                           logoWhole2: logoWholePortfolio2, logoPiece2: logoPiecePortfolio2,
@@ -68,6 +76,16 @@ class Logo extends Component {
       }
     } else {
       switch (this.props.page) {
+        case 1:
+          this.setState({ logoWhole: logoWholeWelcome, logoPiece: logoPieceWelcome,
+                          logoWhole2: logoWholeAbout, logoPiece2: logoPieceAbout,
+                          opacity: 1, opacity2: 0 });
+          break;
+        case 3:
+          this.setState({ logoWhole: logoWholePortfolio1, logoPiece: logoPiecePortfolio1,
+                          logoWhole2: logoWholeAbout, logoPiece2: logoPieceAbout,
+                          opacity: 0, opacity2: 1 });
+          break;
         case 4:
           this.setState({ logoWhole: logoWholePortfolio1, logoPiece: logoPiecePortfolio1,
                           logoWhole2: logoWholePortfolio2, logoPiece2: logoPiecePortfolio2,

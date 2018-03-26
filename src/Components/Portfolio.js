@@ -203,7 +203,7 @@ class Portfolio extends Component {
 
   render() {
     return (
-      <div className="Portfolio" ref="Portfolio" style={{ background: this.state.backgroundColor }}>
+      <div className="Portfolio" ref="Portfolio" style={{ background: this.state.backgroundColor, display: this.props.display }}>
           <img src={this.state.arrowLeft2} className="prev" ref="prev2" style={{ left: this.state.leftArrow, bottom: this.state.bottomArrow, opacity: this.state.arrowOpacityLeft2 }} />
           <img src={this.state.arrowLeft} className="prev" ref="prev" style={{ left: this.state.leftArrow, bottom: this.state.bottomArrow, opacity: this.state.arrowOpacityLeft }} />
           {/* <div className="squareLeft" ref="squareLeft" style={{ background: this.state.backgroundSquareLeft }} /> */}

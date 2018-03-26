@@ -6,33 +6,30 @@ class Menu extends Component {
     super(props);
 
     this.state = {
-      // opacityMenu: 1,
-      // opacityWelcome: 1,
-      // opacityAbout: 1,
-      // opacityPortfolio: 1,
-      // opacityContact: 1,
-      // translate: "translateY(0px)",
-      // welcome: '#5cd9b1',
-      // about: '#292929',
-      // portfolio: '#292929',
-      // contact: '#292929',
-      // color: '#5cd9b1',
-      // welcomeHover: false,
-      // aboutHover: false,
-      // portfolioHover: false,
-      // contactHover: false
-      opacityMenu: 0,
-      opacityWelcome: 0,
-      opacityAbout: 0,
+      opacityMenu: 1,
+      opacityWelcome: 1,
+      opacityAbout: 1,
       opacityPortfolio: 1,
-      opacityContact: 0,
-      translate: "translateY(34px)",
-      welcome: '#292929',
+      opacityContact: 1,
+      translate: "translateY(0px)",
+      welcome: '#5cd9b1',
       about: '#292929',
       portfolio: '#292929',
       contact: '#292929',
-      color: '#ffffff',
+      color: '#5cd9b1',
       backgroundColor: '#292929'
+      // opacityMenu: 0,
+      // opacityWelcome: 0,
+      // opacityAbout: 0,
+      // opacityPortfolio: 1,
+      // opacityContact: 0,
+      // translate: "translateY(34px)",
+      // welcome: '#292929',
+      // about: '#292929',
+      // portfolio: '#292929',
+      // contact: '#292929',
+      // color: '#ffffff',
+      // backgroundColor: '#292929'
     }
 
     this.updateMenu = this.updateMenu.bind(this);
@@ -40,18 +37,6 @@ class Menu extends Component {
 
   updateMenu(next) {
     switch (this.props.currentPage) {
-      case 1:
-        this.setState({ opacityMenu: 1, opacityWelcome: 1, opacityAbout: 1, opacityPortfolio: 1, opacityContact: 1, translate: "translateY(0px)",
-                        welcome: '#5cd9b1', about: '#292929', portfolio: '#292929', contact: '#292929', backgroundColor: '#292929', color: '#5cd9b1' });
-        break;
-      case 2:
-        this.setState({ opacityMenu: 0, opacityWelcome: 0, opacityAbout: 1, opacityPortfolio: 0, opacityContact: 1, translate: "translateY(69px)",
-                        welcome: '#292929', about: '#292929', portfolio: '#292929', contact: '#292929', backgroundColor: '#292929', color: '#e639e4' });
-        break;
-      case 3:
-        this.setState({ opacityMenu: 0, opacityWelcome: 0, opacityAbout: 1, opacityPortfolio: 0, opacityContact: 1, translate: "translateY(69px)",
-                        welcome: '#292929', about: '#292929', portfolio: '#292929', contact: '#292929', backgroundColor: '#292929', color: '#e639e4' });
-        break;
       case 4:
         this.setState({ opacityMenu: 0, opacityWelcome: 0, opacityAbout: 0, opacityPortfolio: 1, opacityContact: 0, translate: "translateY(34px)",
                         welcome: '#292929', about: '#292929', portfolio: '#292929', contact: '#292929', backgroundColor: '#292929', color: '#ffffff' });
@@ -74,6 +59,10 @@ class Menu extends Component {
     }
     if (next) {
       switch (this.props.page) {
+        case 2:
+          this.setState({ opacityMenu: 0, opacityWelcome: 0, opacityAbout: 1, opacityPortfolio: 0, opacityContact: 1, translate: "translateY(69px)",
+                          welcome: '#292929', about: '#292929', portfolio: '#292929', contact: '#292929', backgroundColor: '#292929', color: '#e639e4' });
+          break;
         case 10:
           this.setState({ welcome: '#012165', about: '#012165', portfolio: '#012165', contact: '#012165', backgroundColor: '#012165', color: '#faad55' });
           break;
@@ -82,6 +71,14 @@ class Menu extends Component {
       }
     } else {
       switch (this.props.page) {
+        case 1:
+          this.setState({ opacityMenu: 1, opacityWelcome: 1, opacityAbout: 1, opacityPortfolio: 1, opacityContact: 1, translate: "translateY(0px)",
+                          welcome: '#5cd9b1', about: '#292929', portfolio: '#292929', contact: '#292929', backgroundColor: '#292929', color: '#5cd9b1' });
+          break;
+        case 3:
+          this.setState({ opacityMenu: 0, opacityWelcome: 0, opacityAbout: 1, opacityPortfolio: 0, opacityContact: 1, translate: "translateY(69px)",
+                          welcome: '#292929', about: '#292929', portfolio: '#292929', contact: '#292929', backgroundColor: '#292929', color: '#e639e4' });
+          break;
         case 10:
           this.setState({ opacityMenu: 0, opacityWelcome: 0, opacityAbout: 0, opacityPortfolio: 1, opacityContact: 0, translate: "translateY(34px)" });
       }
