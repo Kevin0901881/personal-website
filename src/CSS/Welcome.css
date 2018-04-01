@@ -10,9 +10,9 @@
   font-size: 190px;
   letter-spacing: 60px;
   position: absolute;
-  top: 50%;
   left: 50%;
-  transition: transform 0.5s cubic-bezier(0.645, 0.045, 0.355, 1.000), opacity 0.4s linear;
+  transform: translate(-50%, -50%);
+  transition: top 0.8s cubic-bezier(0.645, 0.045, 0.355, 1.000), opacity 0.6s linear;
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;

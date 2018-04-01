@@ -60,7 +60,7 @@ class Menu extends Component {
     if (next) {
       switch (this.props.page) {
         case 2:
-          this.setState({ opacityMenu: 0, opacityWelcome: 0, opacityAbout: 1, opacityPortfolio: 0, opacityContact: 1, translate: "translateY(69px)",
+          this.setState({ opacityMenu: 0, opacityWelcome: 0, opacityAbout: 1, opacityPortfolio: 0, opacityContact: 0, translate: "translateY(69px)",
                           welcome: '#292929', about: '#292929', portfolio: '#292929', contact: '#292929', backgroundColor: '#292929', color: '#e639e4' });
           break;
         case 10:
@@ -76,7 +76,7 @@ class Menu extends Component {
                           welcome: '#5cd9b1', about: '#292929', portfolio: '#292929', contact: '#292929', backgroundColor: '#292929', color: '#5cd9b1' });
           break;
         case 3:
-          this.setState({ opacityMenu: 0, opacityWelcome: 0, opacityAbout: 1, opacityPortfolio: 0, opacityContact: 1, translate: "translateY(69px)",
+          this.setState({ opacityMenu: 0, opacityWelcome: 0, opacityAbout: 1, opacityPortfolio: 0, opacityContact: 0, translate: "translateY(69px)",
                           welcome: '#292929', about: '#292929', portfolio: '#292929', contact: '#292929', backgroundColor: '#292929', color: '#e639e4' });
           break;
         case 10:
@@ -180,7 +180,7 @@ class Menu extends Component {
                    onMouseLeave={() => {if (this.props.currentPage != '1') this.setState({ welcome: this.state.backgroundColor })}}
                    style={{ opacity: this.state.opacityWelcome, transform: this.state.translate, color: this.state.welcome }}>WELCOME</div>
               <div id="about" className="menuItem" onMouseEnter={() => this.setState({ about: this.state.color })}
-                   onMouseLeave={() => {if (this.props.currentPage != '2' || this.props.currentPage != '3') this.setState({ about: this.state.backgroundColor })}}
+                   onMouseLeave={() => {if (this.props.currentPage != '2' && this.props.currentPage != '3') this.setState({ about: this.state.backgroundColor })}}
                    style={{ opacity: this.state.opacityAbout, transform: this.state.translate, color: this.state.about }}>ABOUT</div>
               <div id="portfolio" className="menuItem" onMouseEnter={() => {if (this.props.currentPage == '1' || this.props.currentPage == '2' ||
                                                                                 this.props.currentPage == '3' || this.props.currentPage == '11') this.setState({ portfolio: this.state.color })}}

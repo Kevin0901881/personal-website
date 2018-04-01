@@ -7,17 +7,19 @@ class Welcome extends Component {
     this.state = {
       pos: 81,
       background: "linear-gradient(to bottom, #5cd9b1 0%, #000000 " + 81 + "%)",
-      translate: 'translate(-50%, -50%)',
+      top: '50%',
       opacity: 1
     };
   }
 
   in() {
-    this.setState({ translate: 'translate(-50%, -50%)', opacity: 1 });
+    setTimeout( function() {
+      this.setState({ top: '50%', opacity: 1 });
+    }.bind(this), 200);
   }
 
   out() {
-    this.setState({ translate: 'translate(-50%, -' + 2 * window.innerHeight / 3 + 'px)', opacity: 0 });
+    this.setState({ top: -this.refs.kevin.clientHeight + 'px', opacity: 0 });
   }
 
   render() {
@@ -25,8 +27,11 @@ class Welcome extends Component {
       <div className="Welcome" onMouseMove={(e) => {this.setState({
         pos: 73 + (e.clientY * 8 / window.innerHeight), background: "linear-gradient(to bottom, #5cd9b1 0%, #000000 " + this.state.pos + "%)" })}}
         style={{ display: this.props.display }}>
-          <div className="kevin" style={{ backgroundImage: this.state.background, transform: this.state.translate, opacity: this.state.opacity }}>
+          <div className="kevin" ref="kevin" style={{ backgroundImage: this.state.background, top: this.state.top, opacity: this.state.opacity }}>
               KEVIN
+          </div>
+          <div className="scrollDown">
+              SCROLL DOWN
           </div>
       </div>
     );
