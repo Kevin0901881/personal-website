@@ -91,7 +91,7 @@ class Contact extends Component {
             <img src={behance} className="logo" style={{ opacity: this.state.opacityBehance, transform: this.state.translateBehance }} />
             <img src={behanceDark} className="logo2" style={{ opacity: this.state.opacityBehanceDark, transform: this.state.translateBehance }} />
           </a>
-          <a className="link" onMouseEnter={ () => {this.setState({ opacityEmailDark: 1 })} }
+          <a href="mailto:kevin0901881@gmail.com?subject=What%27s%20Up%20Kev!" className="link" onMouseEnter={ () => {this.setState({ opacityEmailDark: 1 })} }
              onMouseOut={ () => {this.setState({ opacityEmailDark: 0 })}}>
             <img src={email} className="logo" style={{ opacity: this.state.opacityEmail, transform: this.state.translateEmail }} />
             <img src={emailDark} className="logo2" style={{ opacity: this.state.opacityEmailDark, transform: this.state.translateEmail }} />

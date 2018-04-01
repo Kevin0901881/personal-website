@@ -37,8 +37,13 @@ class About extends Component {
       transformCircle: 'translate(-50%, -50%)',
       transformPortrait: 'translate(0, -20px)',
       transitionCircle: '',
-      opacityAbout: 1
+      opacityAbout: 1,
+      opacityResume: 0,
+      topResume: '',
+      marginBottomResume: ''
     };
+
+    this.hideResume = this.hideResume.bind(this);
   }
 
   parallax(e) {
@@ -53,7 +58,8 @@ class About extends Component {
   page1in() {
     this.parallax(window.event);
     this.setState({ topCircle: this.height + this.refs.circle.clientHeight + 'px', leftPortrait: this.refs.circle.clientWidth / 3 - this.refs.portrait.clientWidth / 2 + 'px',
-                    topPortrait: this.refs.circle.clientHeight / 2 + 'px', transitionCircle: '', topText: this.height / 2 - 40 + 'px' });
+                    topPortrait: this.refs.circle.clientHeight / 2 + 'px', transitionCircle: '', topText: this.height / 2 - 40 + 'px',
+                    topResume: this.height + 'px', marginBottomResume: (this.height - this.refs.circle.clientHeight) / 2 + this.refs.circle.clientHeight / 6 + 'px' });
     setTimeout( function() {
       this.setState({ topCircle: '50%', topPortrait: this.refs.circle.clientHeight / 4 + 'px', opacityCircle: 1, transitionCircle: 'top 0.8s cubic-bezier(0.645, 0.045, 0.355, 1.000), left 0.8s cubic-bezier(0.645, 0.045, 0.355, 1.000), opacity 0.6s linear' });
     }.bind(this), 200);
@@ -104,6 +110,40 @@ class About extends Component {
                     topText: -this.refs.textAbout.clientHeight - this.refs.circle.clientHeight / 2 + 'px', opacityAbout: 0 });
   }
 
+  showResume() {
+    this.props.activateResume();
+    this.setState({ opacityTitle: 0, transformTitle: 'translateY(-50px)' });
+    setTimeout( function() {
+      this.setState({ opacityBody: 0, transformBody: 'translateY(-50px)' });
+    }.bind(this), 75);
+    setTimeout( function() {
+      this.setState({ opacityResumeButton: 0, transformResumeButton: 'translateY(-50px)' });
+    }.bind(this), 150);
+    setTimeout( function() {
+      this.setState({ displayText: 'none', displayResume: 'block' });
+    }.bind(this), 450);
+    setTimeout( function() {
+      this.setState({ opacityResume: 1, topResume: (this.height - this.refs.circle.clientHeight) / 2 + 'px' });
+    }.bind(this), 460);
+  }
+
+  hideResume() {
+    this.setState({ opacityResume: 0, topResume: this.height + 'px' });
+    setTimeout( function() {
+      this.setState({ displayText: 'block', displayResume: 'none' });
+    }.bind(this), 600);
+    setTimeout( function() {
+      this.setState({ opacityResumeButton: 1, transformResumeButton: 'translateY(0px)' });
+    }.bind(this), 610);
+    setTimeout( function() {
+      this.setState({ opacityBody: 1, transformBody: 'translateY(0px)' });
+    }.bind(this), 685);
+    setTimeout( function() {
+      this.setState({ opacityTitle: 1, transformTitle: 'translateY(0px)' });
+      this.props.activateResume();
+    }.bind(this), 760);
+  }
+
   render() {
     return (
       <div className="About" ref="about" style={{ paddingRight: '50px', display: this.props.display, opacity: this.state.opacityAbout }} onWheel={this.handleScroll}
@@ -111,8 +151,9 @@ class About extends Component {
           <div className="circle" ref="circle" style={{ top: this.state.topCircle, left: this.state.leftCircle, opacity: this.state.opacityCircle, transform: this.state.transformCircle, transition: this.state.transitionCircle }}>
             <img src={portrait} className="portrait" ref="portrait" style={{ top: this.state.topPortrait, left: this.state.leftPortrait, transform: this.state.transformPortrait }}/>
           </div>
-          <div className="resume" style={{ top: this.height * 0.2 + 'px', left: this.state.leftText, marginBottom: this.height * 0.285 + 'px', display: this.state.displayResume }}>
-              <Resume width={this.width} />
+          <div className="resume" style={{ top: this.state.topResume, left: this.state.leftText, marginBottom: this.state.marginBottomResume,
+                                           display: this.state.displayResume, opacity: this.state.opacityResume }}>
+              <Resume width={this.width} hideResume={this.hideResume} />
           </div>
           <div className="textAbout" ref="textAbout" style={{ top: this.state.topText, left: this.state.leftText, display: this.state.displayText }}>
             <div className="titleAbout" style={{ opacity: this.state.opacityTitle, transform: this.state.transformTitle }}>STUDENT - DEVELOPER - DESIGNER</div>
@@ -134,6 +175,7 @@ class About extends Component {
             </div>
             <div className="resumeButton" onMouseEnter={() => { this.setState({ shiftArrow: 'translateX(8px)', arrowOpacity: '1' }) }}
                  onMouseLeave={() => { this.setState({ shiftArrow: 'translateX(0px)', arrowOpacity: '0' }) }}
+                 onClick={() => { this.showResume() }}
                  style={{ opacity: this.state.opacityResumeButton, transform: this.state.transformResumeButton }}>
                 VIEW RESUME
                 <img src={rightArrow} className="rightArrow" style={{ transform: this.state.shiftArrow }} />

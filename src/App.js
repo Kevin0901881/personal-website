@@ -23,9 +23,11 @@ class App extends Component {
       displayWelcome: 'block',
       displayAbout: 'none',
       displayPortfolio: 'none',
-      displayContact: 'none'
+      displayContact: 'none',
+      resumeActivated: false
     }
     this.handleScroll = this.handleScroll.bind(this);
+    this.activateResume = this.activateResume.bind(this);
     // this.handleArrow = this.handleScroll.bind(this);
   }
 
@@ -50,7 +52,7 @@ class App extends Component {
           this.scrollPrev2 = 0;
           this.setState({ displayAbout: 'none' });
         }.bind(this), 800);
-      } else if (this.state.page == 3 && this.scrollPrev2 == 0) {
+      } else if (this.state.page == 3 && this.scrollPrev2 == 0 && !this.state.resumeActivated) {
         this.scrollPrev2 = 1;
         this.setState({ page: this.state.page - 1, currentPage: this.state.currentPage - 1 });
         this.refs.menu.updateMenu(false);
@@ -80,7 +82,7 @@ class App extends Component {
             this.refs.portfolio.updateScene(false);
             this.refs.menu.updateMenu(false);
             this.refs.logo.updateLogo(false);
-          }.bind(this), 300 * (this.scrollPrev - 1) - (Date.now() - this.currentTime));
+          }.bind(this), 200 * (this.scrollPrev - 1) - (Date.now() - this.currentTime));
         } else {
           this.currentTime = Date.now();
           this.setState({ currentPage: this.state.currentPage - 1, portfolioPage: this.state.portfolioPage - 1 });
@@ -89,7 +91,7 @@ class App extends Component {
           this.refs.logo.updateLogo(false);
           setTimeout( function() {
             this.scrollPrev--;
-          }.bind(this), 300);
+          }.bind(this), 200);
         }
       } else if (this.state.currentPage == 11 && this.scrollPrev2 == 0) {
        this.scrollPrev2 = 1;
@@ -121,7 +123,7 @@ class App extends Component {
        setTimeout( function() {
          this.scrollNext2 = 0;
        }.bind(this), 800);
-     } else if (this.state.page == 3 && this.scrollNext2 == 0) {
+     } else if (this.state.page == 3 && this.scrollNext2 == 0 && !this.state.resumeActivated) {
        this.scrollNext2 = 1;
        this.setState({ currentPage: this.state.currentPage + 1, displayPortfolio: 'block' });
        this.refs.menu.updateMenu(true);
@@ -143,7 +145,7 @@ class App extends Component {
            this.refs.portfolio.updateScene(true);
            this.refs.menu.updateMenu(true);
            this.refs.logo.updateLogo(true);
-         }.bind(this), 300 * (this.scrollNext - 1) - (Date.now() - this.currentTime));
+         }.bind(this), 200 * (this.scrollNext - 1) - (Date.now() - this.currentTime));
        } else {
          this.currentTime = Date.now();
          this.setState({ currentPage: this.state.currentPage + 1, portfolioPage: this.state.portfolioPage + 1 });
@@ -152,7 +154,7 @@ class App extends Component {
          this.refs.logo.updateLogo(true);
          setTimeout( function() {
            this.scrollNext--;
-         }.bind(this), 300);
+         }.bind(this), 200);
        }
      } else if (this.state.currentPage == 10 && this.scrollNext2 == 0) {
        this.scrollNext2 = 1;
@@ -164,6 +166,14 @@ class App extends Component {
          this.setState({ currentPage: this.state.currentPage + 1 });
        }.bind(this), 400);
      }
+    }
+  }
+
+  activateResume() {
+    if (this.state.resumeActivated == true) {
+      this.setState({ resumeActivated: false });
+    } else {
+      this.setState({ resumeActivated: true });
     }
   }
 
@@ -222,7 +232,7 @@ class App extends Component {
       <div className="App">
           <Logo className="logo" page={this.state.currentPage} ref="logo" />
           <Welcome className="welcome" display={this.state.displayWelcome} ref="welcome" />
-          <About className="about" display={this.state.displayAbout} ref="about" />
+          <About className="about" display={this.state.displayAbout} activateResume={this.activateResume} ref="about" />
           <Portfolio className="portfolio" page={this.state.page} currentPage={this.state.portfolioPage} display={this.state.displayPortfolio} ref="portfolio" />
           <Contact className="contact" ref="contact" display={this.state.displayContact} />
           <Menu className="menu" page={this.state.page} currentPage={this.state.currentPage} ref="menu" />

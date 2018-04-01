@@ -68,7 +68,7 @@ class Portfolio extends Component {
       this.setState({ transition: 'opacity 0.6s linear, height 0.6s cubic-bezier(0.645, 0.045, 0.355, 1.000)', opacitySquare: 1,
                       bottomSquare: 0.5 * (this.height - this.dimens) + 'px', bottomProgress: (this.height - this.dimens) / 4,
                       leftSquare: 0.5 * this.width, leftSquare2: 0.5 * this.width + this.dimens, heightSquare: this.dimens + 'px' });
-    }.bind(this), 200);
+    }.bind(this), 350);
     setTimeout( function() {
       this.setState({ arrowOpacityRight: 1, opacityProgress: 1 });
     }.bind(this), 700);
