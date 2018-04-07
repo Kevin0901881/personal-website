@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import '../CSS/Portfolio.css';
+import Constants from './Constants.js'
 import left1 from '../Images/portfolio1_left.png';
 import right1 from '../Images/portfolio1_right.png';
 import left2 from '../Images/portfolio2_left.png';
@@ -19,7 +20,7 @@ class Portfolio extends Component {
   constructor(props) {
     super(props);
 
-    this.dimens = 480;
+    this.dimens = Constants.CENTER_SHAPE_DIMENS;
     this.height = window.innerHeight;
     this.width = window.innerWidth;
     this.state = {
@@ -34,7 +35,7 @@ class Portfolio extends Component {
       leftArrow: '',
       bottomArrow: '',
       bottomProgress: '',
-      progressWidth: '',
+      widthProgress: '',
       progressBackground: '#1b1b1b',
       progressForeground: '#ffffff',
       backgroundColor: '#000000',

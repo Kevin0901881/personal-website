@@ -48,6 +48,10 @@
   letter-spacing: 5px;
   color: inherit;
   transition: opacity 0.25s linear, transform 0.3s cubic-bezier(0.645, 0.045, 0.355, 1.000);
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
 }
 
 .bodyAbout {
@@ -124,4 +128,8 @@
   margin-left: -8.5px;
   margin-bottom: 0.5px;
   transition: transform 0.2s ease-out, opacity 0.2s ease-out;
+}
+
+.scrollbar {
+  transition: opacity 0.3s linear;
 }

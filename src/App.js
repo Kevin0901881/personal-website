@@ -13,8 +13,7 @@ class App extends Component {
 
     this.scrollNext = 0;
     this.scrollPrev = 0;
-    this.scrollNext2 = 0;
-    this.scrollPrev2 = 0;
+    this.scroll2 = 0;
     this.currentTime = 0;
     this.state = {
       page: 1,
@@ -41,34 +40,34 @@ class App extends Component {
 
   handleScroll(e) {
     if (e.deltaY < 0) { // scroll up (prev)
-      if (this.state.page == 2 && this.scrollPrev2 == 0) {
-        this.scrollPrev2 = 1;
+      if (this.state.page == 2 && this.scroll2 == 0) {
+        this.scroll2 = 1;
         this.setState({ page: this.state.page - 1, currentPage: this.state.currentPage - 1, displayWelcome: 'block' });
         this.refs.menu.updateMenu(false);
         this.refs.about.page1out();
         this.refs.welcome.in();
         this.refs.logo.updateLogo(false);
         setTimeout( function() {
-          this.scrollPrev2 = 0;
+          this.scroll2 = 0;
           this.setState({ displayAbout: 'none' });
         }.bind(this), 800);
-      } else if (this.state.page == 3 && this.scrollPrev2 == 0 && !this.state.resumeActivated) {
-        this.scrollPrev2 = 1;
+      } else if (this.state.page == 3 && this.scroll2 == 0 && !this.state.resumeActivated) {
+        this.scroll2 = 1;
         this.setState({ page: this.state.page - 1, currentPage: this.state.currentPage - 1 });
         this.refs.menu.updateMenu(false);
         this.refs.about.page1inPage2out();
         setTimeout( function() {
-          this.scrollPrev2 = 0;
+          this.scroll2 = 0;
         }.bind(this), 800);
-      } else if (this.state.page == 4 && this.scrollPrev2 == 0 && this.scrollPrev == 0) {
-        this.scrollPrev2 = 1;
+      } else if (this.state.page == 4 && this.scroll2 == 0 && this.scrollPrev == 0) {
+        this.scroll2 = 1;
         this.setState({ page: this.state.page - 1, currentPage: this.state.currentPage - 1, displayAbout: 'block' });
         this.refs.menu.updateMenu(false);
         this.refs.about.page2in();
         this.refs.portfolio.out();
         this.refs.logo.updateLogo(false);
         setTimeout( function() {
-          this.scrollPrev2 = 0;
+          this.scroll2 = 0;
           this.setState({ displayPortfolio: 'none' });
         }.bind(this), 800);
       } else if (this.state.page >= 5 && this.state.page <= 10) {
@@ -93,45 +92,45 @@ class App extends Component {
             this.scrollPrev--;
           }.bind(this), 200);
         }
-      } else if (this.state.currentPage == 11 && this.scrollPrev2 == 0) {
-       this.scrollPrev2 = 1;
+      } else if (this.state.currentPage == 11 && this.scroll2 == 0) {
+       this.scroll2 = 1;
        this.setState({ page: this.state.page - 1, currentPage: this.state.currentPage - 1 });
        this.refs.menu.updateMenu(false);
        this.refs.contact.out();
        setTimeout( function() {
-         this.scrollPrev2 = 0;
+         this.scroll2 = 0;
          this.setState({ displayContact: 'none' });
        }.bind(this), 800);
      }
    } else if (e.deltaY > 0) { // scroll down (next)
-     if (this.state.page == 1 && this.scrollNext2 == 0) {
-       this.scrollNext2 = 1;
+     if (this.state.page == 1 && this.scroll2 == 0) {
+       this.scroll2 = 1;
        this.setState({ page: this.state.page + 1, currentPage: this.state.currentPage + 1, displayAbout: 'block' });
        this.refs.menu.updateMenu(true);
+       this.refs.logo.updateLogo(true);
        this.refs.about.page1in();
        this.refs.welcome.out();
-       this.refs.logo.updateLogo(true);
        setTimeout( function() {
-         this.scrollNext2 = 0;
+         this.scroll2 = 0;
          this.setState({ displayWelcome: 'none' });
        }.bind(this), 800);
-     } else if (this.state.page == 2 && this.scrollNext2 == 0) {
-       this.scrollNext2 = 1;
+     } else if (this.state.page == 2 && this.scroll2 == 0) {
+       this.scroll2 = 1;
        this.setState({ page: this.state.page + 1, currentPage: this.state.currentPage + 1 });
        this.refs.menu.updateMenu(true);
        this.refs.about.page2inPage1out();
        setTimeout( function() {
-         this.scrollNext2 = 0;
+         this.scroll2 = 0;
        }.bind(this), 800);
-     } else if (this.state.page == 3 && this.scrollNext2 == 0 && !this.state.resumeActivated) {
-       this.scrollNext2 = 1;
+     } else if (this.state.page == 3 && this.scroll2 == 0 && !this.state.resumeActivated) {
+       this.scroll2 = 1;
        this.setState({ currentPage: this.state.currentPage + 1, displayPortfolio: 'block' });
        this.refs.menu.updateMenu(true);
        this.refs.about.page2out();
        this.refs.portfolio.in();
        this.refs.logo.updateLogo(true);
        setTimeout( function() {
-         this.scrollNext2 = 0;
+         this.scroll2 = 0;
          this.setState({ displayAbout: 'none', page: this.state.page + 1 });
        }.bind(this), 800);
      } else if (this.state.page >= 4 && this.state.page <= 9) {
@@ -156,13 +155,13 @@ class App extends Component {
            this.scrollNext--;
          }.bind(this), 200);
        }
-     } else if (this.state.currentPage == 10 && this.scrollNext2 == 0) {
-       this.scrollNext2 = 1;
+     } else if (this.state.currentPage == 10 && this.scroll2 == 0) {
+       this.scroll2 = 1;
        this.setState({ page: this.state.page + 1, displayContact: 'block' });
        this.refs.menu.updateMenu(true);
        this.refs.contact.in();
        setTimeout( function() {
-         this.scrollNext2 = 0;
+         this.scroll2 = 0;
          this.setState({ currentPage: this.state.currentPage + 1 });
        }.bind(this), 400);
      }
@@ -176,6 +175,140 @@ class App extends Component {
       this.setState({ resumeActivated: true });
     }
   }
+
+  // toWelcome() {
+  //   this.refs.welcome.in();
+  //   if (this.state.page == 2 && this.scroll2 == 0) {
+  //     this.setState({ page: 1, currentPage: 1, displayWelcome: 'block' });
+  //     this.refs.menu.updateMenu(false);
+  //     this.refs.logo.updateLogo(false);
+  //     this.scroll2 = 1;
+  //     this.refs.about.page1out();
+  //     setTimeout( function() {
+  //       this.scroll2 = 0;
+  //       this.setState({ displayAbout: 'none' });
+  //     }.bind(this), 800);
+  //   } else if (this.state.page == 3 && this.scroll2 == 0) {
+  //     this.setState({ page: 1, currentPage: 1, displayWelcome: 'block' });
+  //     this.refs.menu.updateMenu(false);
+  //     this.refs.logo.updateLogo(false);
+  //     this.scroll2 = 1;
+  //     this.refs.about.page2out2();
+  //     setTimeout( function() {
+  //       this.scroll2 = 0;
+  //       this.setState({ displayAbout: 'none' });
+  //     }.bind(this), 800);
+  //   } else if (this.state.page >= 4 && this.state.page <= 10 && this.scroll2 == 0) {
+  //     this.setState({ page: 1, currentPage: 1, displayWelcome: 'block' });
+  //     this.refs.menu.updateMenu(false);
+  //     this.refs.logo.updateLogo(false);
+  //     this.scroll2 = 1;
+  //     this.refs.portfolio.out();
+  //     setTimeout( function() {
+  //       this.scroll2 = 0;
+  //       this.setState({ displayPortfolio: 'none' });
+  //     }.bind(this), 800);
+  //   } else if (this.state.page == 11 && this.scroll2 == 0) {
+  //     this.setState({ page: 1, currentPage: 1, displayWelcome: 'block' });
+  //     this.refs.menu.updateMenu(false);
+  //     this.refs.logo.updateLogo(false);
+  //     this.scroll2 = 1;
+  //     this.refs.contact.out();
+  //     this.refs.portfolio.out();
+  //     setTimeout( function() {
+  //       this.scroll2 = 0;
+  //       this.setState({ displayContact: 'none', displayPortfolio: 'none' });
+  //     }.bind(this), 800);
+  //   }
+  // }
+  //
+  // toAbout() {
+  //   if (this.state.page == 1 && this.scroll2 == 0) {
+  //     this.scroll2 = 1;
+  //     this.setState({ page: 2, currentPage: 2, displayAbout: 'block' });
+  //     this.refs.menu.updateMenu(true);
+  //     this.refs.logo.updateLogo(true);
+  //     this.refs.welcome.out();
+  //     this.refs.about.page1in();
+  //     setTimeout( function() {
+  //       this.scroll2 = 0;
+  //       this.setState({ displayWelcome: 'none' });
+  //     }.bind(this), 800);
+  //   } else if (this.state.page >= 4 && this.state.page <= 10 && this.scroll2 == 0) {
+  //     this.scroll2 = 1;
+  //     this.setState({ page: 2, currentPage: 2, displayAbout: 'block' });
+  //     this.refs.menu.updateMenu(false);
+  //     this.refs.logo.updateLogo(false);
+  //     this.refs.about.page1in2();
+  //     this.refs.portfolio.out();
+  //     setTimeout( function() {
+  //       this.scroll2 = 0;
+  //       this.setState({ displayPortfolio: 'none' });
+  //     }.bind(this), 800);
+  //   } else if (this.state.page == 11 && this.scroll2 == 0) {
+  //     this.scroll2 = 1;
+  //     this.setState({ page: 2, currentPage: 2, displayAbout: 'block' });
+  //     this.refs.menu.updateMenu(false);
+  //     this.refs.logo.updateLogo(false);
+  //     this.refs.about.page1in2();
+  //     this.refs.contact.out();
+  //     this.refs.portfolio.out();
+  //     setTimeout( function() {
+  //       this.scroll2 = 0;
+  //       this.setState({ displayContact: 'none', displayPortfolio: 'none' });
+  //     }.bind(this), 800);
+  //   }
+  // }
+  //
+  // toPortfolio() {
+  //   if (this.state.page == 1 && this.scroll2 == 0) {
+  //     this.scroll2 = 1;
+  //     this.setState({ page: 4, currentPage: 4, displayPortfolio: 'block' });
+  //     this.refs.menu.updateMenu(true);
+  //     this.refs.logo.updateLogo(true);
+  //     this.refs.welcome.out();
+  //     this.refs.portfolio.in();
+  //     setTimeout( function() {
+  //       this.scroll2 = 0;
+  //       this.setState({ displayWelcome: 'none' });
+  //     }.bind(this), 800);
+  //   } else if (this.state.page == 2 && this.scroll2 == 0) {
+  //     this.scroll2 = 1;
+  //     this.setState({ page: 4, currentPage: 4, displayPortfolio: 'block' });
+  //     this.refs.menu.updateMenu(true);
+  //     this.refs.logo.updateLogo(true);
+  //     this.refs.about.page1out2();
+  //     this.refs.portfolio.in();
+  //     setTimeout( function() {
+  //       this.scroll2 = 0;
+  //       this.setState({ displayAbout: 'none' });
+  //     }.bind(this), 800);
+  //   } else if (this.state.page == 3 && this.scroll2 == 0) {
+  //     this.scroll2 = 1;
+  //     this.setState({ page: 4, currentPage: 4, displayPortfolio: 'block' });
+  //     this.refs.menu.updateMenu(true);
+  //     this.refs.logo.updateLogo(true);
+  //     this.refs.about.page2out();
+  //     this.refs.portfolio.in();
+  //     setTimeout( function() {
+  //       this.scroll2 = 0;
+  //       this.setState({ displayPortfolio: 'none' });
+  //     }.bind(this), 800);
+  //   } else if (this.state.page == 11 && this.scroll2 == 0) {
+  //     this.scroll2 = 1;
+  //     this.setState({ page: 10, currentPage: 10 });
+  //     this.refs.menu.updateMenu(false);
+  //     this.refs.contact.out();
+  //     setTimeout( function() {
+  //       this.scroll2 = 0;
+  //       this.setState({ displayContact: 'none' });
+  //     }.bind(this), 800);
+  //   }
+  // }
+  //
+  // toContact() {
+  //
+  // }
 
   // handleArrow(next) {
   //   console.log("me");

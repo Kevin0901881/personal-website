@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import '../CSS/About.css';
 import Resume from './Resume.js'
+import Scrollbar from './Scrollbar.js'
+import Constants from './Constants.js'
 import portrait from '../Images/portrait_1080p.png'
 import rightArrow from '../Images/right_arrow.png'
 import rightArrowDark from '../Images/right_arrow_dark.png'
@@ -11,6 +13,7 @@ class About extends Component {
     super(props);
     this.height = window.innerHeight;
     this.width = window.innerWidth;
+    this.dimens = Constants.CENTER_SHAPE_DIMENS;
     this.state = {
       topCircle: '',
       // leftCircle: '25%',
@@ -40,14 +43,17 @@ class About extends Component {
       opacityAbout: 1,
       opacityResume: 0,
       topResume: '',
-      marginBottomResume: ''
+      marginBottomResume: '',
+      opacityScrollbar: 0,
+      foregroundHeight: 0
     };
 
     this.hideResume = this.hideResume.bind(this);
+    this.handleScroll = this.handleScroll.bind(this);
   }
 
   parallax(e) {
-    this.setState({ transformCircle: 'translate(' + (this.refs.circle.clientWidth * -0.5 + (e.clientX * 4 / (this.width * 2))) + 'px, ' + (this.refs.circle.clientHeight * -0.5 + (e.clientY * 4 / (this.height * 2))) + 'px)',
+    this.setState({ transformCircle: 'translate(' + (this.dimens * -0.5 + (e.clientX * 4 / (this.width * 2))) + 'px, ' + (this.dimens * -0.5 + (e.clientY * 4 / (this.height * 2))) + 'px)',
                     // leftCircle: (windowWidth / 2) - (e.clientX * 4 / (windowWidth * 2)) + 'px',
                     transformPortrait: 'translate(' + (e.clientX * 8 / (this.width * 2)) + 'px, ' + (-20 + (e.clientY * 8 / (this.height * 2))) + 'px)'
                     // topText: (this.height * 0.31) + (e.clientY * 3 / (windowHeight * 2)) + 'px',
@@ -57,16 +63,16 @@ class About extends Component {
 
   page1in() {
     this.parallax(window.event);
-    this.setState({ topCircle: this.height + this.refs.circle.clientHeight + 'px', leftPortrait: this.refs.circle.clientWidth / 3 - this.refs.portrait.clientWidth / 2 + 'px',
-                    topPortrait: this.refs.circle.clientHeight / 2 + 'px', transitionCircle: '', topText: this.height / 2 - 40 + 'px',
-                    topResume: this.height + 'px', marginBottomResume: (this.height - this.refs.circle.clientHeight) / 2 + this.refs.circle.clientHeight / 6 + 'px' });
+    this.setState({ topCircle: this.height + this.dimens + 'px', leftPortrait: this.dimens / 3 - this.refs.portrait.clientWidth / 2 + 'px',
+                    topPortrait: this.dimens / 2 + 'px', transitionCircle: '', topText: this.height / 2 - 40 + 'px',
+                    topResume: this.height + 'px', marginBottomResume: (this.height - this.dimens) / 2 + this.dimens / 6 + 'px' });
     setTimeout( function() {
-      this.setState({ topCircle: '50%', topPortrait: this.refs.circle.clientHeight / 4 + 'px', opacityCircle: 1, transitionCircle: 'top 0.8s cubic-bezier(0.645, 0.045, 0.355, 1.000), left 0.8s cubic-bezier(0.645, 0.045, 0.355, 1.000), opacity 0.6s linear' });
+      this.setState({ topCircle: '50%', topPortrait: this.dimens / 4 + 'px', opacityCircle: 1, transitionCircle: 'top 0.8s cubic-bezier(0.645, 0.045, 0.355, 1.000), left 0.8s cubic-bezier(0.645, 0.045, 0.355, 1.000), opacity 0.6s linear' });
     }.bind(this), 200);
   }
 
   page1out() {
-    this.setState({ topCircle: this.height + this.refs.circle.clientHeight + 'px',  topPortrait: this.height * 0.3 + 'px', opacityCircle: 0 });
+    this.setState({ topCircle: this.height + this.dimens + 'px',  topPortrait: this.height * 0.3 + 'px', opacityCircle: 0 });
   }
 
   page1inPage2out() {
@@ -100,14 +106,19 @@ class About extends Component {
 
   page2in() {
     setTimeout( function() {
-      this.setState({ topCircle: '50%', topPortrait: this.refs.circle.clientHeight / 4 + 'px',
+      this.setState({ topCircle: '50%', topPortrait: this.dimens / 4 + 'px',
                       topText: this.height / 2 - 40 + 'px', opacityAbout: 1 });
     }.bind(this), 200);
   }
 
   page2out() {
-    this.setState({ topCircle: -this.refs.circle.clientHeight + 'px', topPortrait: '0px',
-                    topText: -this.refs.textAbout.clientHeight - this.refs.circle.clientHeight / 2 + 'px', opacityAbout: 0 });
+    this.setState({ topCircle: -this.dimens + 'px', topPortrait: '0px',
+                    topText: -this.refs.textAbout.clientHeight - this.dimens / 2 + 'px', opacityAbout: 0 });
+  }
+
+  page2out2() {
+    this.setState({ topCircle: this.height + this.dimens + 'px', topPortrait: this.height * 0.3 + 'px',
+                    topText: this.refs.textAbout.clientHeight + this.dimens / 2 + 'px', opacityAbout: 0 });
   }
 
   showResume() {
@@ -123,37 +134,44 @@ class About extends Component {
       this.setState({ displayText: 'none', displayResume: 'block' });
     }.bind(this), 450);
     setTimeout( function() {
-      this.setState({ opacityResume: 1, topResume: (this.height - this.refs.circle.clientHeight) / 2 + 'px' });
-    }.bind(this), 460);
+      this.setState({ opacityResume: 1, topResume: (this.height - this.dimens) / 2 + 'px', opacityScrollbar: 1 });
+    }.bind(this), 475);
   }
 
   hideResume() {
-    this.setState({ opacityResume: 0, topResume: this.height + 'px' });
+    this.setState({ opacityResume: 0, topResume: this.height + 'px', opacityScrollbar: 0 });
     setTimeout( function() {
-      this.setState({ displayText: 'block', displayResume: 'none' });
+      this.setState({ displayText: 'block', displayResume: 'none', opacityResumeButton: 0, transformResumeButton: 'translateY(-50px)' });
     }.bind(this), 600);
     setTimeout( function() {
       this.setState({ opacityResumeButton: 1, transformResumeButton: 'translateY(0px)' });
-    }.bind(this), 610);
+    }.bind(this), 630);
     setTimeout( function() {
       this.setState({ opacityBody: 1, transformBody: 'translateY(0px)' });
-    }.bind(this), 685);
+    }.bind(this), 705);
     setTimeout( function() {
       this.setState({ opacityTitle: 1, transformTitle: 'translateY(0px)' });
       this.props.activateResume();
-    }.bind(this), 760);
+    }.bind(this), 780);
+  }
+
+  handleScroll() {
+    this.setState({ foregroundHeight: this.refs.about.scrollTop / (this.refs.about.scrollHeight - this.refs.about.clientHeight) * (this.dimens / 2) });
   }
 
   render() {
     return (
       <div className="About" ref="about" style={{ paddingRight: '50px', display: this.props.display, opacity: this.state.opacityAbout }} onWheel={this.handleScroll}
-           onMouseMove={(e) => { this.parallax(e) }}>
+           onMouseMove={(e) => { this.parallax(e) }} onScroll={(e) => { this.handleScroll() }}>
           <div className="circle" ref="circle" style={{ top: this.state.topCircle, left: this.state.leftCircle, opacity: this.state.opacityCircle, transform: this.state.transformCircle, transition: this.state.transitionCircle }}>
             <img src={portrait} className="portrait" ref="portrait" style={{ top: this.state.topPortrait, left: this.state.leftPortrait, transform: this.state.transformPortrait }}/>
           </div>
           <div className="resume" style={{ top: this.state.topResume, left: this.state.leftText, marginBottom: this.state.marginBottomResume,
-                                           display: this.state.displayResume, opacity: this.state.opacityResume }}>
+                                           display: this.state.displayResume, opacity: this.state.opacityResume }} ref="resume">
               <Resume width={this.width} hideResume={this.hideResume} />
+          </div>
+          <div className="scrollbar" style={{ opacity: this.state.opacityScrollbar }}>
+            <Scrollbar background="#1b1b1b" foregroundHeight={this.state.foregroundHeight} foregroundBackground="#e639e4" />
           </div>
           <div className="textAbout" ref="textAbout" style={{ top: this.state.topText, left: this.state.leftText, display: this.state.displayText }}>
             <div className="titleAbout" style={{ opacity: this.state.opacityTitle, transform: this.state.transformTitle }}>STUDENT - DEVELOPER - DESIGNER</div>

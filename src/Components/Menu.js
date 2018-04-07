@@ -42,19 +42,24 @@ class Menu extends Component {
                         welcome: '#292929', about: '#292929', portfolio: '#292929', contact: '#292929', backgroundColor: '#292929', color: '#ffffff' });
         break;
       case 5:
-        this.setState({ welcome: '#b52948', about: '#b52948', portfolio: '#b52948', contact: '#b52948', backgroundColor: '#b52948', color: '#04307b' });
+        this.setState({ opacityMenu: 0, opacityWelcome: 0, opacityAbout: 0, opacityPortfolio: 1, opacityContact: 0, translate: "translateY(34px)",
+                        welcome: '#b52948', about: '#b52948', portfolio: '#b52948', contact: '#b52948', backgroundColor: '#b52948', color: '#04307b' });
         break;
       case 6:
-        this.setState({ welcome: '#b5b5b5', about: '#b5b5b5', portfolio: '#b5b5b5', contact: '#b5b5b5', backgroundColor: '#b5b5b5', color: '#321914' });
+        this.setState({ opacityMenu: 0, opacityWelcome: 0, opacityAbout: 0, opacityPortfolio: 1, opacityContact: 0, translate: "translateY(34px)",
+                        welcome: '#b5b5b5', about: '#b5b5b5', portfolio: '#b5b5b5', contact: '#b5b5b5', backgroundColor: '#b5b5b5', color: '#321914' });
         break;
       case 7:
-        this.setState({ welcome: '#a2192a', about: '#a2192a', portfolio: '#a2192a', contact: '#a2192a', backgroundColor: '#a2192a', color: '#e7bc53' });
+        this.setState({ opacityMenu: 0, opacityWelcome: 0, opacityAbout: 0, opacityPortfolio: 1, opacityContact: 0, translate: "translateY(34px)",
+                        welcome: '#a2192a', about: '#a2192a', portfolio: '#a2192a', contact: '#a2192a', backgroundColor: '#a2192a', color: '#e7bc53' });
         break;
       case 8:
-        this.setState({ welcome: '#118f3d', about: '#118f3d', portfolio: '#118f3d', contact: '#118f3d', backgroundColor: '#118f3d', color: '#000000' });
+        this.setState({ opacityMenu: 0, opacityWelcome: 0, opacityAbout: 0, opacityPortfolio: 1, opacityContact: 0, translate: "translateY(34px)",
+                        welcome: '#118f3d', about: '#118f3d', portfolio: '#118f3d', contact: '#118f3d', backgroundColor: '#118f3d', color: '#000000' });
         break;
       case 9:
-        this.setState({ welcome: '#572933', about: '#572933', portfolio: '#572933', contact: '#572933', backgroundColor: '#572933', color: '#e4e4f0' });
+        this.setState({ opacityMenu: 0, opacityWelcome: 0, opacityAbout: 0, opacityPortfolio: 1, opacityContact: 0, translate: "translateY(34px)",
+                        welcome: '#572933', about: '#572933', portfolio: '#572933', contact: '#572933', backgroundColor: '#572933', color: '#e4e4f0' });
         break;
     }
     if (next) {
@@ -178,17 +183,21 @@ class Menu extends Component {
           <div>
               <div id="welcome" className="menuItem" onMouseEnter={() => this.setState({ welcome: this.state.color })}
                    onMouseLeave={() => {if (this.props.currentPage != '1') this.setState({ welcome: this.state.backgroundColor })}}
+                   // onMouseClick={() => this.props.toWelcome()}
                    style={{ opacity: this.state.opacityWelcome, transform: this.state.translate, color: this.state.welcome }}>WELCOME</div>
               <div id="about" className="menuItem" onMouseEnter={() => this.setState({ about: this.state.color })}
                    onMouseLeave={() => {if (this.props.currentPage != '2' && this.props.currentPage != '3') this.setState({ about: this.state.backgroundColor })}}
+                   // onMouseClick={() => this.props.toAbout()}
                    style={{ opacity: this.state.opacityAbout, transform: this.state.translate, color: this.state.about }}>ABOUT</div>
               <div id="portfolio" className="menuItem" onMouseEnter={() => {if (this.props.currentPage == '1' || this.props.currentPage == '2' ||
                                                                                 this.props.currentPage == '3' || this.props.currentPage == '11') this.setState({ portfolio: this.state.color })}}
                    onMouseLeave={() => {if (this.props.currentPage == '1' || this.props.currentPage == '2' ||
                                             this.props.currentPage == '3' || this.props.currentPage == '11') this.setState({ portfolio: this.state.backgroundColor })}}
+                   // onMouseClick={() => this.props.toPortfolio()}
                    style={{ opacity: this.state.opacityPortfolio, transform: this.state.translate, color: this.state.portfolio }}>PORTFOLIO</div>
               <div id="contact" className="menuItem" onMouseEnter={() => this.setState({ contact: this.state.color })}
                    onMouseLeave={() => {if (this.props.currentPage != '11') this.setState({ contact: this.state.backgroundColor })}}
+                   // onMouseClick={() => this.props.toContact()}
                    style={{ opacity: this.state.opacityContact, transform: this.state.translate, color: this.state.contact }}>CONTACT</div>
           </div>
       </div>
