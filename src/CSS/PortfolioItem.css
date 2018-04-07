@@ -1,0 +1,64 @@
+.PortfolioItem {
+  transition: opacity 0.5s linear;
+}
+
+.backPortfolio {
+  width: auto;
+  height: 20px;
+  font-family: Montserrat;
+  font-weight: 600;
+  font-size: 15px;
+  letter-spacing: 3px;
+  position: absolute;
+  top: 70px;
+  left: 70px;
+  cursor: pointer;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  transition: color 0.2s linear, opacity 0.3s linear;
+}
+
+.portfolioContent {
+  text-align: left;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  transition: opacity 0.3s linear, transform 0.5s cubic-bezier(0.645, 0.045, 0.355, 1.000);
+}
+
+.portfolioYear {
+  font-family: Montserrat;
+  font-weight: 600;
+  font-size: 17px;
+  letter-spacing: 3px;
+  margin-left: 2px;
+}
+
+.portfolioTitle {
+  font-family: Montserrat;
+  font-weight: 700;
+  font-size: 55px;
+  letter-spacing: 10px;
+  margin-top: 6px;
+}
+
+.portfolioDescription {
+  font-family: Catamaran;
+  font-weight: 400;
+  font-size: 18px;
+  letter-spacing: 0.5px;
+  margin-top: 6px;
+  margin-left: 2px;
+}
+
+.portfolioNumber {
+  position: absolute;
+  font-family: Montserrat;
+  font-weight: 600;
+  font-size: 25px;
+  line-height: 25px;
+  letter-spacing: 4px;
+  transition: opacity 0.3s linear, transform 0.5s cubic-bezier(0.645, 0.045, 0.355, 1.000);
+}

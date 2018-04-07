@@ -18,7 +18,7 @@ class Resume extends Component {
   render() {
     return (
       <div className="Resume" style={{ width: this.state.width }}>
-          <div className="back" onMouseEnter={() => { this.setState({ shiftArrow: 'translateX(-8px)', arrowOpacity: '1' }) }}
+          <div className="backResume" onMouseEnter={() => { this.setState({ shiftArrow: 'translateX(-8px)', arrowOpacity: '1' }) }}
                onMouseLeave={() => { this.setState({ shiftArrow: 'translateX(0px)', arrowOpacity: '0' }) }}
                onClick={() => { this.props.hideResume() }}>
               <img src={leftArrow} className="leftArrow" style={{ transform: this.state.shiftArrow }} />

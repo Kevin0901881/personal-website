@@ -145,3 +145,19 @@ html, body, #root, .App {
   animation-name: outToTop;
   animation-duration: 0.8s;
 }
+
+.leftArrow {
+  width: 8.5px;
+  height: 10px;
+  margin-right: -8.5px;
+  margin-bottom: 0.5px;
+  transition: transform 0.2s ease-out, opacity 0.2s ease-out;
+}
+
+.leftArrowDark {
+  width: 8.5px;
+  height: 10px;
+  margin-right: 15px;
+  margin-bottom: 0.5px;
+  transition: transform 0.2s ease-out, opacity 0.2s ease-out;
+}

@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import '../CSS/Portfolio.css';
 import Constants from './Constants.js'
+import Scrollbar from './Scrollbar.js'
+import PortfolioItem from './PortfolioItem.js'
 import left1 from '../Images/portfolio1_left.png';
 import right1 from '../Images/portfolio1_right.png';
 import left2 from '../Images/portfolio2_left.png';
@@ -49,7 +51,9 @@ class Portfolio extends Component {
       transition: '',
       heightSquare: '0px',
       heightSquare2: '0px',
-      opacityProgress: 0
+      opacityProgress: 0,
+      opacityScrollbar: 0,
+      foregroundHeight: 0
     }
     this.updateDimensions = this.updateDimensions.bind(this);
   }
@@ -212,16 +216,59 @@ class Portfolio extends Component {
        leftSquare: 0.5 * this.width, leftSquare2: 0.5 * this.width });
   }
 
+  handleScroll() {
+    this.setState({ foregroundHeight: this.refs.Portfolio.scrollTop / (this.refs.Portfolio.scrollHeight - this.refs.Portfolio.clientHeight) * (this.dimens / 2) });
+  }
+
+  itemIn() {
+    switch (this.props.page) {
+      case 4:
+        this.setState({ arrowOpacityRight: 0, opacityProgress: 0 });
+        break;
+      case 5:
+        this.setState({ arrowOpacityLeft2: 0, arrowOpacityRight2: 0, opacityProgress: 0 });
+        break;
+      case 6:
+        this.setState({ arrowOpacityLeft: 0, arrowOpacityRight: 0, opacityProgress: 0 });
+        break;
+      case 7:
+        this.setState({ arrowOpacityLeft2: 0, arrowOpacityRight2: 0, opacityProgress: 0 });
+        break;
+      case 8:
+        this.setState({ arrowOpacityLeft: 0, arrowOpacityRight: 0, opacityProgress: 0 });
+        break;
+      case 9:
+        this.setState({ arrowOpacityLeft2: 0, arrowOpacityRight2: 0, opacityProgress: 0 });
+        break;
+      case 10:
+        this.setState({ arrowOpacityLeft: 0, opacityProgress: 0 });
+        break;
+    }
+    this.refs.portfolioItem.in();
+  }
+
+  itemOut() {
+
+  }
+
   render() {
     return (
       <div className="Portfolio" ref="Portfolio" style={{ background: this.state.backgroundColor, display: this.props.display }}>
+          <div className="portfolioItem">
+            <PortfolioItem color={this.state.progressForeground} scrollbarHeight={this.state.foregroundHeight} ref="portfolioItem" />
+          </div>
+          <div className="scrollbar" style={{ opacity: this.state.opacityScrollbar }}>
+            <Scrollbar background="#1b1b1b" foregroundHeight={this.state.foregroundHeight} foregroundBackground="#e639e4" />
+          </div>
           <img src={this.state.arrowLeft2} className="prev" ref="prev2" style={{ left: this.state.leftArrow, bottom: this.state.bottomArrow, opacity: this.state.arrowOpacityLeft2 }} />
           <img src={this.state.arrowLeft} className="prev" ref="prev" style={{ left: this.state.leftArrow, bottom: this.state.bottomArrow, opacity: this.state.arrowOpacityLeft }} />
           {/* <div className="squareLeft" ref="squareLeft" style={{ background: this.state.backgroundSquareLeft }} /> */}
           <div className="square" ref="square2" style={{ background: this.state.backgroundSquare2, opacity: this.state.opacitySquare2, bottom: this.state.bottomSquare,
-                                                         left: this.state.leftSquare2, transition: this.state.transition, height: this.state.heightSquare2 }} />
+                                                         left: this.state.leftSquare2, transition: this.state.transition, height: this.state.heightSquare2 }}
+               onClick={() => { this.itemIn() }} />
           <div className="square" ref="square" style={{ background: this.state.backgroundSquare, opacity: this.state.opacitySquare, bottom: this.state.bottomSquare,
-                                                        left: this.state.leftSquare, transition: this.state.transition, height: this.state.heightSquare }} />
+                                                        left: this.state.leftSquare, transition: this.state.transition, height: this.state.heightSquare }}
+               onClick={() => { this.itemIn() }} />
           {/* <div className="squareRight" ref="squareRight" style={{ background: this.state.backgroundSquareRight }} /> */}
           <img src={this.state.arrowRight2} className="next" ref="next2" style={{ right: this.state.leftArrow, bottom: this.state.bottomArrow, opacity: this.state.arrowOpacityRight2 }} />
           <img src={this.state.arrowRight} className="next" ref="next" style={{ right: this.state.leftArrow, bottom: this.state.bottomArrow, opacity: this.state.arrowOpacityRight }} />
