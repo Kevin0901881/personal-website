@@ -25,7 +25,8 @@ class About extends Component {
       bodyWidth: this.width * 0.5625 + 'px',
       colWidth: this.width * 0.2656 + 'px',
       shiftArrow: 'translateX(0px)',
-      arrowOpacity: '0',
+      arrowOpacity: '1',
+      arrowOpacity2: '0',
       paddingRight: window.offsetWidth - window.clientWidth + 'px',
       displayText: 'none',
       displayResume: 'none',
@@ -168,10 +169,10 @@ class About extends Component {
           </div>
           <div className="resume" style={{ top: this.state.topResume, left: this.state.leftText, marginBottom: this.state.marginBottomResume,
                                            display: this.state.displayResume, opacity: this.state.opacityResume }} ref="resume">
-              <Resume width={this.width} hideResume={this.hideResume} />
+            <Resume width={this.width} hideResume={this.hideResume} />
           </div>
           <div className="scrollbar" style={{ opacity: this.state.opacityScrollbar }}>
-            <Scrollbar background="#1b1b1b" foregroundHeight={this.state.foregroundHeight} foregroundBackground="#e639e4" />
+            <Scrollbar background={Constants.SECONDARYCOLOR1} foregroundHeight={this.state.foregroundHeight} foregroundBackground={Constants.PRIMARYCOLOR2} />
           </div>
           <div className="textAbout" ref="textAbout" style={{ top: this.state.topText, left: this.state.leftText, display: this.state.displayText }}>
             <div className="titleAbout" style={{ opacity: this.state.opacityTitle, transform: this.state.transformTitle }}>STUDENT - DEVELOPER - DESIGNER</div>
@@ -191,13 +192,13 @@ class About extends Component {
                     voluptatem.
                 </div>
             </div>
-            <div className="resumeButton" onMouseEnter={() => { this.setState({ shiftArrow: 'translateX(8px)', arrowOpacity: '1' }) }}
-                 onMouseLeave={() => { this.setState({ shiftArrow: 'translateX(0px)', arrowOpacity: '0' }) }}
+            <div className="resumeButton" onMouseEnter={() => { this.setState({ shiftArrow: 'translateX(8px)', arrowOpacity: '0', arrowOpacity2: '1' }) }}
+                 onMouseLeave={() => { this.setState({ shiftArrow: 'translateX(0px)', arrowOpacity: '1', arrowOpacity2: '0' }) }}
                  onClick={() => { this.showResume() }}
                  style={{ opacity: this.state.opacityResumeButton, transform: this.state.transformResumeButton }}>
                 VIEW RESUME
-                <img src={rightArrow} className="rightArrow" style={{ transform: this.state.shiftArrow }} />
-                <img src={rightArrowDark} className="rightArrowDark" style={{ transform: this.state.shiftArrow, opacity: this.state.arrowOpacity }} />
+                <img src={rightArrow} className="rightArrow" style={{ transform: this.state.shiftArrow, opacity: this.state.arrowOpacity }} />
+                <img src={rightArrowDark} className="rightArrowDark" style={{ transform: this.state.shiftArrow, opacity: this.state.arrowOpacity2 }} />
             </div>
           </div>
       </div>

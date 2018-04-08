@@ -23,7 +23,8 @@ class App extends Component {
       displayAbout: 'none',
       displayPortfolio: 'none',
       displayContact: 'none',
-      resumeActivated: false
+      resumeActivated: false,
+      portfolioItemActivated: false
     }
     this.handleScroll = this.handleScroll.bind(this);
     this.activateResume = this.activateResume.bind(this);
@@ -173,6 +174,14 @@ class App extends Component {
       this.setState({ resumeActivated: false });
     } else {
       this.setState({ resumeActivated: true });
+    }
+  }
+
+  activatePortfolioItem() {
+    if (this.state.portfolioItemActivated == true) {
+      this.setState({ portfolioItemActivated: false });
+    } else {
+      this.setState({ portfolioItemActivated: true });
     }
   }
 
@@ -366,7 +375,8 @@ class App extends Component {
           <Logo className="logo" page={this.state.currentPage} ref="logo" />
           <Welcome className="welcome" display={this.state.displayWelcome} ref="welcome" />
           <About className="about" display={this.state.displayAbout} activateResume={this.activateResume} ref="about" />
-          <Portfolio className="portfolio" page={this.state.page} currentPage={this.state.portfolioPage} display={this.state.displayPortfolio} ref="portfolio" />
+          <Portfolio className="portfolio" page={this.state.page} currentPage={this.state.portfolioPage} display={this.state.displayPortfolio}
+                     activatePortfolioItem={this.activatePortfolioItem} ref="portfolio" />
           <Contact className="contact" ref="contact" display={this.state.displayContact} />
           <Menu className="menu" page={this.state.page} currentPage={this.state.currentPage} ref="menu" />
       </div>

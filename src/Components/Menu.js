@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import '../CSS/Menu.css';
+import Constants from './Constants.js'
 
 class Menu extends Component {
   constructor(props) {
@@ -12,12 +13,12 @@ class Menu extends Component {
       opacityPortfolio: 1,
       opacityContact: 1,
       translate: "translateY(0px)",
-      welcome: '#5cd9b1',
-      about: '#292929',
-      portfolio: '#292929',
-      contact: '#292929',
-      color: '#5cd9b1',
-      backgroundColor: '#292929'
+      welcome: Constants.PRIMARYCOLOR1,
+      about: Constants.SECONDARYCOLOR1,
+      portfolio: Constants.SECONDARYCOLOR1,
+      contact: Constants.SECONDARYCOLOR1,
+      color: Constants.PRIMARYCOLOR1,
+      backgroundColor: Constants.SECONDARYCOLOR1
       // opacityMenu: 0,
       // opacityWelcome: 0,
       // opacityAbout: 0,
@@ -39,37 +40,37 @@ class Menu extends Component {
     switch (this.props.currentPage) {
       case 4:
         this.setState({ opacityMenu: 0, opacityWelcome: 0, opacityAbout: 0, opacityPortfolio: 1, opacityContact: 0, translate: "translateY(34px)",
-                        welcome: '#292929', about: '#292929', portfolio: '#292929', contact: '#292929', backgroundColor: '#292929', color: '#ffffff' });
+                        welcome: Constants.SECONDARYCOLOR1, about: Constants.SECONDARYCOLOR1, portfolio: Constants.SECONDARYCOLOR1, contact: Constants.SECONDARYCOLOR1, backgroundColor: Constants.SECONDARYCOLOR1, color: Constants.PRIMARYCOLOR4 });
         break;
       case 5:
         this.setState({ opacityMenu: 0, opacityWelcome: 0, opacityAbout: 0, opacityPortfolio: 1, opacityContact: 0, translate: "translateY(34px)",
-                        welcome: '#b52948', about: '#b52948', portfolio: '#b52948', contact: '#b52948', backgroundColor: '#b52948', color: '#04307b' });
+                        welcome: Constants.SECONDARYCOLOR5, about: Constants.SECONDARYCOLOR5, portfolio: Constants.SECONDARYCOLOR5, contact: Constants.SECONDARYCOLOR5, backgroundColor: Constants.SECONDARYCOLOR5, color: Constants.PRIMARYCOLOR5 });
         break;
       case 6:
         this.setState({ opacityMenu: 0, opacityWelcome: 0, opacityAbout: 0, opacityPortfolio: 1, opacityContact: 0, translate: "translateY(34px)",
-                        welcome: '#b5b5b5', about: '#b5b5b5', portfolio: '#b5b5b5', contact: '#b5b5b5', backgroundColor: '#b5b5b5', color: '#321914' });
+                        welcome: Constants.SECONDARYCOLOR6, about: Constants.SECONDARYCOLOR6, portfolio: Constants.SECONDARYCOLOR6, contact: Constants.SECONDARYCOLOR6, backgroundColor: Constants.SECONDARYCOLOR6, color: Constants.PRIMARYCOLOR6 });
         break;
       case 7:
         this.setState({ opacityMenu: 0, opacityWelcome: 0, opacityAbout: 0, opacityPortfolio: 1, opacityContact: 0, translate: "translateY(34px)",
-                        welcome: '#a2192a', about: '#a2192a', portfolio: '#a2192a', contact: '#a2192a', backgroundColor: '#a2192a', color: '#e7bc53' });
+                        welcome: Constants.SECONDARYCOLOR7, about: Constants.SECONDARYCOLOR7, portfolio: Constants.SECONDARYCOLOR7, contact: Constants.SECONDARYCOLOR7, backgroundColor: Constants.SECONDARYCOLOR7, color: Constants.PRIMARYCOLOR7 });
         break;
       case 8:
         this.setState({ opacityMenu: 0, opacityWelcome: 0, opacityAbout: 0, opacityPortfolio: 1, opacityContact: 0, translate: "translateY(34px)",
-                        welcome: '#118f3d', about: '#118f3d', portfolio: '#118f3d', contact: '#118f3d', backgroundColor: '#118f3d', color: '#000000' });
+                        welcome: Constants.SECONDARYCOLOR8, about: Constants.SECONDARYCOLOR8, portfolio: Constants.SECONDARYCOLOR8, contact: Constants.SECONDARYCOLOR8, backgroundColor: Constants.SECONDARYCOLOR8, color: Constants.PRIMARYCOLOR8 });
         break;
       case 9:
         this.setState({ opacityMenu: 0, opacityWelcome: 0, opacityAbout: 0, opacityPortfolio: 1, opacityContact: 0, translate: "translateY(34px)",
-                        welcome: '#572933', about: '#572933', portfolio: '#572933', contact: '#572933', backgroundColor: '#572933', color: '#e4e4f0' });
+                        welcome: Constants.SECONDARYCOLOR9, about: Constants.SECONDARYCOLOR9, portfolio: Constants.SECONDARYCOLOR9, contact: Constants.SECONDARYCOLOR9, backgroundColor: Constants.SECONDARYCOLOR9, color: Constants.PRIMARYCOLOR9 });
         break;
     }
     if (next) {
       switch (this.props.page) {
         case 2:
           this.setState({ opacityMenu: 0, opacityWelcome: 0, opacityAbout: 1, opacityPortfolio: 0, opacityContact: 0, translate: "translateY(69px)",
-                          welcome: '#292929', about: '#292929', portfolio: '#292929', contact: '#292929', backgroundColor: '#292929', color: '#e639e4' });
+                          welcome: Constants.SECONDARYCOLOR1, about: Constants.SECONDARYCOLOR1, portfolio: Constants.SECONDARYCOLOR1, contact: Constants.SECONDARYCOLOR1, backgroundColor: Constants.SECONDARYCOLOR1, color: Constants.PRIMARYCOLOR2 });
           break;
         case 10:
-          this.setState({ welcome: '#012165', about: '#012165', portfolio: '#012165', contact: '#012165', backgroundColor: '#012165', color: '#faad55' });
+          this.setState({ welcome: Constants.SECONDARYCOLOR10, about: Constants.SECONDARYCOLOR10, portfolio: Constants.SECONDARYCOLOR10, contact: Constants.SECONDARYCOLOR10, backgroundColor: Constants.SECONDARYCOLOR10, color: Constants.PRIMARYCOLOR10 });
           break;
         case 11:
           this.setState({ opacityMenu: 0, opacityWelcome: 0, opacityAbout: 0, opacityPortfolio: 0, opacityContact: 1, translate: "translateY(0px)" });
@@ -78,11 +79,11 @@ class Menu extends Component {
       switch (this.props.page) {
         case 1:
           this.setState({ opacityMenu: 1, opacityWelcome: 1, opacityAbout: 1, opacityPortfolio: 1, opacityContact: 1, translate: "translateY(0px)",
-                          welcome: '#5cd9b1', about: '#292929', portfolio: '#292929', contact: '#292929', backgroundColor: '#292929', color: '#5cd9b1' });
+                          welcome: Constants.PRIMARYCOLOR1, about: Constants.SECONDARYCOLOR1, portfolio: Constants.SECONDARYCOLOR1, contact: Constants.SECONDARYCOLOR1, backgroundColor: Constants.SECONDARYCOLOR1, color: Constants.PRIMARYCOLOR1 });
           break;
         case 3:
           this.setState({ opacityMenu: 0, opacityWelcome: 0, opacityAbout: 1, opacityPortfolio: 0, opacityContact: 0, translate: "translateY(69px)",
-                          welcome: '#292929', about: '#292929', portfolio: '#292929', contact: '#292929', backgroundColor: '#292929', color: '#e639e4' });
+                          welcome: Constants.SECONDARYCOLOR1, about: Constants.SECONDARYCOLOR1, portfolio: Constants.SECONDARYCOLOR1, contact: Constants.SECONDARYCOLOR1, backgroundColor: Constants.SECONDARYCOLOR1, color: Constants.PRIMARYCOLOR2 });
           break;
         case 10:
           this.setState({ opacityMenu: 0, opacityWelcome: 0, opacityAbout: 0, opacityPortfolio: 1, opacityContact: 0, translate: "translateY(34px)" });
@@ -94,43 +95,43 @@ class Menu extends Component {
     switch (this.props.currentPage) {
       case 2:
         this.setState({ opacityMenu: 0, opacityWelcome: 0, opacityAbout: 1, opacityPortfolio: 0, opacityContact: 0, translate: "translateY(69px)",
-                        about: '#292929' });
+                        about: Constants.SECONDARYCOLOR1 });
         break;
       case 3:
         this.setState({ opacityMenu: 0, opacityWelcome: 0, opacityAbout: 1, opacityPortfolio: 0, opacityContact: 0, translate: "translateY(69px)",
-                        about: '#292929' });
+                        about: Constants.SECONDARYCOLOR1 });
         break;
       case 4:
         this.setState({ opacityMenu: 0, opacityWelcome: 0, opacityAbout: 0, opacityPortfolio: 1, opacityContact: 0, translate: "translateY(34px)",
-                        portfolio: '#292929' });
+                        portfolio: Constants.SECONDARYCOLOR1 });
         break;
       case 5:
         this.setState({ opacityMenu: 0, opacityWelcome: 0, opacityAbout: 0, opacityPortfolio: 1, opacityContact: 0, translate: "translateY(34px)",
-                        portfolio: '#b52948' });
+                        portfolio: Constants.SECONDARYCOLOR5 });
         break;
       case 6:
         this.setState({ opacityMenu: 0, opacityWelcome: 0, opacityAbout: 0, opacityPortfolio: 1, opacityContact: 0, translate: "translateY(34px)",
-                        portfolio: '#b5b5b5' });
+                        portfolio: Constants.SECONDARYCOLOR6 });
         break;
       case 7:
         this.setState({ opacityMenu: 0, opacityWelcome: 0, opacityAbout: 0, opacityPortfolio: 1, opacityContact: 0, translate: "translateY(34px)",
-                        portfolio: '#a2192a' });
+                        portfolio: Constants.SECONDARYCOLOR7 });
         break;
       case 8:
         this.setState({ opacityMenu: 0, opacityWelcome: 0, opacityAbout: 0, opacityPortfolio: 1, opacityContact: 0, translate: "translateY(34px)",
-                        portfolio: '#118f3d' });
+                        portfolio: Constants.SECONDARYCOLOR8 });
         break;
       case 9:
         this.setState({ opacityMenu: 0, opacityWelcome: 0, opacityAbout: 0, opacityPortfolio: 1, opacityContact: 0, translate: "translateY(34px)",
-                        portfolio: '#572933' });
+                        portfolio: Constants.SECONDARYCOLOR9 });
         break;
       case 10:
         this.setState({ opacityMenu: 0, opacityWelcome: 0, opacityAbout: 0, opacityPortfolio: 1, opacityContact: 0, translate: "translateY(34px)",
-                        portfolio: '#012165' });
+                        portfolio: Constants.SECONDARYCOLOR10 });
         break;
       case 11:
         this.setState({ opacityMenu: 0, opacityWelcome: 0, opacityAbout: 0, opacityPortfolio: 0, opacityContact: 1, translate: "translateY(0px)",
-                        contact: '#012165' });
+                        contact: Constants.SECONDARYCOLOR10 });
         break;
     }
   }
@@ -138,34 +139,34 @@ class Menu extends Component {
   hoverOn() {
     switch (this.props.currentPage) {
       case 2:
-        this.setState({ about: '#e639e4', opacityMenu: 1, opacityWelcome: 1, opacityAbout: 1, opacityPortfolio: 1, opacityContact: 1, translate: "translateY(0px)" });
+        this.setState({ about: Constants.PRIMARYCOLOR2, opacityMenu: 1, opacityWelcome: 1, opacityAbout: 1, opacityPortfolio: 1, opacityContact: 1, translate: "translateY(0px)" });
         break;
       case 3:
-        this.setState({ about: '#e639e4', opacityMenu: 1, opacityWelcome: 1, opacityAbout: 1, opacityPortfolio: 1, opacityContact: 1, translate: "translateY(0px)" });
+        this.setState({ about: Constants.PRIMARYCOLOR2, opacityMenu: 1, opacityWelcome: 1, opacityAbout: 1, opacityPortfolio: 1, opacityContact: 1, translate: "translateY(0px)" });
         break;
       case 4:
-        this.setState({ portfolio: '#ffffff', opacityMenu: 1, opacityWelcome: 1, opacityAbout: 1, opacityPortfolio: 1, opacityContact: 1, translate: "translateY(0px)" });
+        this.setState({ portfolio: Constants.PRIMARYCOLOR4, opacityMenu: 1, opacityWelcome: 1, opacityAbout: 1, opacityPortfolio: 1, opacityContact: 1, translate: "translateY(0px)" });
         break;
       case 5:
-        this.setState({ portfolio: '#04307b', opacityMenu: 1, opacityWelcome: 1, opacityAbout: 1, opacityPortfolio: 1, opacityContact: 1, translate: "translateY(0px)" });
+        this.setState({ portfolio: Constants.PRIMARYCOLOR5, opacityMenu: 1, opacityWelcome: 1, opacityAbout: 1, opacityPortfolio: 1, opacityContact: 1, translate: "translateY(0px)" });
         break;
       case 6:
-        this.setState({ portfolio: '#321914', opacityMenu: 1, opacityWelcome: 1, opacityAbout: 1, opacityPortfolio: 1, opacityContact: 1, translate: "translateY(0px)" });
+        this.setState({ portfolio: Constants.PRIMARYCOLOR6, opacityMenu: 1, opacityWelcome: 1, opacityAbout: 1, opacityPortfolio: 1, opacityContact: 1, translate: "translateY(0px)" });
         break;
       case 7:
-        this.setState({ portfolio: '#e7bc53', opacityMenu: 1, opacityWelcome: 1, opacityAbout: 1, opacityPortfolio: 1, opacityContact: 1, translate: "translateY(0px)" });
+        this.setState({ portfolio: Constants.PRIMARYCOLOR7, opacityMenu: 1, opacityWelcome: 1, opacityAbout: 1, opacityPortfolio: 1, opacityContact: 1, translate: "translateY(0px)" });
         break;
       case 8:
-        this.setState({ portfolio: '#000000', opacityMenu: 1, opacityWelcome: 1, opacityAbout: 1, opacityPortfolio: 1, opacityContact: 1, translate: "translateY(0px)" });
+        this.setState({ portfolio: Constants.PRIMARYCOLOR8, opacityMenu: 1, opacityWelcome: 1, opacityAbout: 1, opacityPortfolio: 1, opacityContact: 1, translate: "translateY(0px)" });
         break;
       case 9:
-        this.setState({ portfolio: '#e4e4f0', opacityMenu: 1, opacityWelcome: 1, opacityAbout: 1, opacityPortfolio: 1, opacityContact: 1, translate: "translateY(0px)" });
+        this.setState({ portfolio: Constants.PRIMARYCOLOR9, opacityMenu: 1, opacityWelcome: 1, opacityAbout: 1, opacityPortfolio: 1, opacityContact: 1, translate: "translateY(0px)" });
         break;
       case 10:
-        this.setState({ portfolio: '#faad55', opacityMenu: 1, opacityWelcome: 1, opacityAbout: 1, opacityPortfolio: 1, opacityContact: 1, translate: "translateY(0px)" });
+        this.setState({ portfolio: Constants.PRIMARYCOLOR10, opacityMenu: 1, opacityWelcome: 1, opacityAbout: 1, opacityPortfolio: 1, opacityContact: 1, translate: "translateY(0px)" });
         break;
       case 11:
-        this.setState({ contact: '#faad55', opacityMenu: 1, opacityWelcome: 1, opacityAbout: 1, opacityPortfolio: 1, opacityContact: 1, translate: "translateY(0px)" });
+        this.setState({ contact: Constants.PRIMARYCOLOR10, opacityMenu: 1, opacityWelcome: 1, opacityAbout: 1, opacityPortfolio: 1, opacityContact: 1, translate: "translateY(0px)" });
         break;
     }
   }

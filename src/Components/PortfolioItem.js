@@ -3,6 +3,18 @@ import '../CSS/PortfolioItem.css';
 import Constants from './Constants.js'
 import leftArrow from '../Images/left_arrow.png'
 import leftArrowDark from '../Images/left_arrow_dark.png'
+import leftArrow2 from '../Images/left_arrow2.png'
+import leftArrowDark2 from '../Images/left_arrow_dark2.png'
+import leftArrow3 from '../Images/left_arrow3.png'
+import leftArrowDark3 from '../Images/left_arrow_dark3.png'
+import leftArrow4 from '../Images/left_arrow4.png'
+import leftArrowDark4 from '../Images/left_arrow_dark4.png'
+import leftArrow5 from '../Images/left_arrow5.png'
+import leftArrowDark5 from '../Images/left_arrow_dark5.png'
+import leftArrow6 from '../Images/left_arrow6.png'
+import leftArrowDark6 from '../Images/left_arrow_dark6.png'
+import leftArrow7 from '../Images/left_arrow7.png'
+import leftArrowDark7 from '../Images/left_arrow_dark7.png'
 
 class PortfolioItem extends Component {
   constructor(props) {
@@ -11,56 +23,94 @@ class PortfolioItem extends Component {
     this.dimens = Constants.CENTER_SHAPE_DIMENS;
     this.state = {
       shiftArrow: 'translateX(0px)',
-      arrowOpacity: '0',
+      arrowOpacity: '1',
+      arrowOpacity2: '0',
       number: '01',
       year: '2018',
       title: 'ROCKET',
       description: 'Intelligent Chatbot',
-      secondaryColor: '#808080',
-      primaryColor: '#ffffff',
+      secondaryColor: '',
+      primaryColor: '',
+      backColor: '',
       backOpacity: 0,
       contentOpacity: 0,
       contentTransform: 'translate(-50%, 40px)',
       numberOpacity: 0,
-      numberTransform: 'translateY(40px)'
+      numberTransform: 'translateY(40px)',
+      leftArrow: '',
+      leftArrowDark: ''
     }
+
+    this.out = this.out.bind(this);
   }
 
   in() {
+    this.setState({ primaryColor: this.props.primaryColor, secondaryColor: this.props.secondaryColor, backColor: this.props.primaryColor });
+    switch (this.props.page) {
+      case 4:
+        this.setState({ leftArrow: leftArrow, leftArrowDark: leftArrowDark });
+        break;
+      case 5:
+        this.setState({ leftArrow: leftArrow2, leftArrowDark: leftArrowDark2 });
+        break;
+      case 6:
+        this.setState({ leftArrow: leftArrow3, leftArrowDark: leftArrowDark3 });
+        break;
+      case 7:
+        this.setState({ leftArrow: leftArrow4, leftArrowDark: leftArrowDark4 });
+        break;
+      case 8:
+        this.setState({ leftArrow: leftArrow5, leftArrowDark: leftArrowDark5 });
+        break;
+      case 9:
+        this.setState({ leftArrow: leftArrow6, leftArrowDark: leftArrowDark6 });
+        break;
+      case 10:
+        this.setState({ leftArrow: leftArrow7, leftArrowDark: leftArrowDark7 });
+        break;
+    }
+    setTimeout( function() {
+      this.setState({ backOpacity: 1 });
+    }.bind(this), 50);
     setTimeout( function() {
       this.setState({ numberOpacity: 1, numberTransform: 'translateY(0px)' });
     }.bind(this), 200);
     setTimeout( function() {
       this.setState({ contentOpacity: 1, contentTransform: 'translate(-50%, 0px)' });
     }.bind(this), 350);
-    setTimeout( function() {
-      this.setState({ backOpacity: 1 });
-    }.bind(this), 800);
   }
 
   out() {
     if (this.props.scrollbarHeight == 0) {
+      this.props.itemOut();
       this.setState({ backOpacity: 0 });
       setTimeout( function() {
         this.setState({ contentOpacity: 0, contentTransform: 'translate(-50%, 40px)' });
-      }.bind(this), 100);
+      }.bind(this), 200);
       setTimeout( function() {
         this.setState({ numberOpacity: 0, numberTransform: 'translateY(40px)' });
-      }.bind(this), 300);
+      }.bind(this), 350);
     } else { // TODO: FINISH THIS
 
     }
   }
 
+  hoverOn() {
+    this.setState({ backColor: this.props.secondaryColor });
+  }
+
+  hoverOff() {
+    this.setState({ backColor: this.props.primaryColor });
+  }
+
   render() {
     return (
       <div className="PortfolioItem">
-          <div className="backPortfolio" onMouseEnter={() => { this.setState({ shiftArrow: 'translateX(-8px)', arrowOpacity: '1' }) }}
-               onMouseLeave={() => { this.setState({ shiftArrow: 'translateX(0px)', arrowOpacity: '0' }) }}
-               onClick={() => {  }}
-               style={{ color: this.props.color, opacity: this.state.backOpacity }} ref="back">
-              <img src={leftArrow} className="leftArrow" style={{ transform: this.state.shiftArrow }} />
-              <img src={leftArrowDark} className="leftArrowDark" style={{ transform: this.state.shiftArrow, opacity: this.state.arrowOpacity }} />
+          <div className="backPortfolio" onMouseEnter={() => { this.setState({ shiftArrow: 'translateX(-8px)', arrowOpacity: '0', arrowOpacity2: '1' }); this.hoverOn(); }}
+               onMouseLeave={() => { this.setState({ shiftArrow: 'translateX(0px)', arrowOpacity: '1', arrowOpacity2: '0' }); this.hoverOff(); }}
+               onClick={() => { this.out() }} style={{ color: this.state.backColor, opacity: this.state.backOpacity }} ref="back">
+              <img src={this.state.leftArrow} className="leftArrow" style={{ transform: this.state.shiftArrow, opacity: this.state.arrowOpacity }} />
+              <img src={this.state.leftArrowDark} className="leftArrowDark" style={{ transform: this.state.shiftArrow, opacity: this.state.arrowOpacity2 }} />
               BACK
           </div>
           <div className="portfolioContent" ref="content" style={{ width: this.dimens * 2 + 'px', marginTop: window.innerHeight / 2 + 100 + 'px',

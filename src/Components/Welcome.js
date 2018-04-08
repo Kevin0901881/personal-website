@@ -1,12 +1,13 @@
 import React, { Component } from 'react';
 import '../CSS/Welcome.css';
+import Constants from './Constants.js';
 
 class Welcome extends Component {
   constructor(props) {
     super(props);
     this.state = {
       pos: 81,
-      background: "linear-gradient(to bottom, #5cd9b1 0%, #000000 " + 81 + "%)",
+      background: 'linear-gradient(to bottom, ' + Constants.PRIMARYCOLOR1 + ' 0%, rgba(255,0,0,0) ' + 81 + '%)',
       top: '50%',
       opacity: 1
     };
@@ -25,7 +26,7 @@ class Welcome extends Component {
   render() {
     return (
       <div className="Welcome" onMouseMove={(e) => {this.setState({
-        pos: 73 + (e.clientY * 8 / window.innerHeight), background: "linear-gradient(to bottom, #5cd9b1 0%, #000000 " + this.state.pos + "%)" })}}
+        pos: 73 + (e.clientY * 8 / window.innerHeight), background: 'linear-gradient(to bottom, ' + Constants.PRIMARYCOLOR1 + ' 0%, rgba(255,0,0,0) ' + this.state.pos + '%)' })}}
         style={{ display: this.props.display }}>
           <div className="kevin" ref="kevin" style={{ backgroundImage: this.state.background, top: this.state.top, opacity: this.state.opacity }}>
               KEVIN

@@ -76,23 +76,23 @@ class Contact extends Component {
     return (
       <div className="Contact" style={{ height: this.state.heightBackground, display: this.props.display }}>
         <div className="logos">
-          <a href="https://www.linkedin.com/in/kevinli0123/" target="_blank" className="link" onMouseEnter={ () => {this.setState({ opacityLinkedinDark: 1 })} }
-             onMouseOut={ () => {this.setState({ opacityLinkedinDark: 0 })}}>
+          <a href="https://www.linkedin.com/in/kevinli0123/" target="_blank" className="link" onMouseEnter={ () => {this.setState({ opacityLinkedinDark: 1, opacityLinkedin: 0 })} }
+             onMouseOut={ () => {this.setState({ opacityLinkedinDark: 0, opacityLinkedin: 1 })}}>
             <img src={linkedin} className="logo" style={{ opacity: this.state.opacityLinkedin, transform: this.state.translateLinkedin }} />
             <img src={linkedinDark} className="logo2" style={{ opacity: this.state.opacityLinkedinDark, transform: this.state.translateLinkedin }} />
           </a>
-          <a href="https://github.com/Kevin0901881" target="_blank" className="link" onMouseEnter={ () => {this.setState({ opacityGithubDark: 1 })} }
-             onMouseOut={ () => {this.setState({ opacityGithubDark: 0 })}}>
+          <a href="https://github.com/Kevin0901881" target="_blank" className="link" onMouseEnter={ () => {this.setState({ opacityGithubDark: 1, opacityGithub: 0 })} }
+             onMouseOut={ () => {this.setState({ opacityGithubDark: 0, opacityGithub: 1 })}}>
             <img src={github} className="logo" style={{ opacity: this.state.opacityGithub, transform: this.state.translateGithub }} />
             <img src={githubDark} className="logo2" style={{ opacity: this.state.opacityGithubDark, transform: this.state.translateGithub }} />
           </a>
-          <a href="https://www.behance.net/kevin09018a40a" target="_blank" className="link" onMouseEnter={ () => {this.setState({ opacityBehanceDark: 1 })} }
-             onMouseOut={ () => {this.setState({ opacityBehanceDark: 0 })}}>
+          <a href="https://www.behance.net/kevin09018a40a" target="_blank" className="link" onMouseEnter={ () => {this.setState({ opacityBehanceDark: 1, opacityBehance: 0 })} }
+             onMouseOut={ () => {this.setState({ opacityBehanceDark: 0, opacityBehance: 1 })}}>
             <img src={behance} className="logo" style={{ opacity: this.state.opacityBehance, transform: this.state.translateBehance }} />
             <img src={behanceDark} className="logo2" style={{ opacity: this.state.opacityBehanceDark, transform: this.state.translateBehance }} />
           </a>
-          <a href="mailto:kevin0901881@gmail.com?subject=What%27s%20Up%20Kev!" className="link" onMouseEnter={ () => {this.setState({ opacityEmailDark: 1 })} }
-             onMouseOut={ () => {this.setState({ opacityEmailDark: 0 })}}>
+          <a href="mailto:kevin0901881@gmail.com?subject=What%27s%20Up%20Kev!" className="link" onMouseEnter={ () => {this.setState({ opacityEmailDark: 1, opacityEmail: 0 })} }
+             onMouseOut={ () => {this.setState({ opacityEmailDark: 0, opacityEmail: 1 })}}>
             <img src={email} className="logo" style={{ opacity: this.state.opacityEmail, transform: this.state.translateEmail }} />
             <img src={emailDark} className="logo2" style={{ opacity: this.state.opacityEmailDark, transform: this.state.translateEmail }} />
           </a>

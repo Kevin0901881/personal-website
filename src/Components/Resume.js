@@ -10,7 +10,8 @@ class Resume extends Component {
 
     this.state = {
       shiftArrow: 'translateX(0px)',
-      arrowOpacity: '0',
+      arrowOpacity: '1',
+      arrowOpacity2: '0',
       width: this.props.width * 0.55 + 'px'
     }
   }
@@ -18,11 +19,11 @@ class Resume extends Component {
   render() {
     return (
       <div className="Resume" style={{ width: this.state.width }}>
-          <div className="backResume" onMouseEnter={() => { this.setState({ shiftArrow: 'translateX(-8px)', arrowOpacity: '1' }) }}
-               onMouseLeave={() => { this.setState({ shiftArrow: 'translateX(0px)', arrowOpacity: '0' }) }}
+          <div className="backResume" onMouseEnter={() => { this.setState({ shiftArrow: 'translateX(-8px)', arrowOpacity: '0', arrowOpacity2: '1' }) }}
+               onMouseLeave={() => { this.setState({ shiftArrow: 'translateX(0px)', arrowOpacity: '1', arrowOpacity2: '0' }) }}
                onClick={() => { this.props.hideResume() }}>
-              <img src={leftArrow} className="leftArrow" style={{ transform: this.state.shiftArrow }} />
-              <img src={leftArrowDark} className="leftArrowDark" style={{ transform: this.state.shiftArrow, opacity: this.state.arrowOpacity }} />
+              <img src={leftArrow} className="leftArrow" style={{ transform: this.state.shiftArrow, opacity: this.state.arrowOpacity }} />
+              <img src={leftArrowDark} className="leftArrowDark" style={{ transform: this.state.shiftArrow, opacity: this.state.arrowOpacity2 }} />
               BACK
           </div>
           <img src={resume} className="resume" />

@@ -59,7 +59,7 @@
     color: #111111;
   }
   80% {
-    color: #666666;
+    color: #aaaaaa;
   }
   100% {
     color: #111111;
@@ -156,7 +156,6 @@ html, body, #root, .App {
 
 .leftArrowDark {
   width: 8.5px;
-  height: 10px;
   margin-right: 15px;
   margin-bottom: 0.5px;
   transition: transform 0.2s ease-out, opacity 0.2s ease-out;
