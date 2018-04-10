@@ -162,7 +162,7 @@ class About extends Component {
 
   render() {
     return (
-      <div className="About" ref="about" style={{ paddingRight: '50px', display: this.props.display, opacity: this.state.opacityAbout }} onWheel={this.handleScroll}
+      <div className="About" ref="about" style={{ display: this.props.display, opacity: this.state.opacityAbout }} onWheel={this.handleScroll}
            onMouseMove={(e) => { this.parallax(e) }} onScroll={(e) => { this.handleScroll() }}>
           <div className="circle" ref="circle" style={{ top: this.state.topCircle, left: this.state.leftCircle, opacity: this.state.opacityCircle, transform: this.state.transformCircle, transition: this.state.transitionCircle }}>
             <img src={portrait} className="portrait" ref="portrait" style={{ top: this.state.topPortrait, left: this.state.leftPortrait, transform: this.state.transformPortrait }}/>

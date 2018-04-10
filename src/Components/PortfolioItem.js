@@ -22,6 +22,7 @@ class PortfolioItem extends Component {
 
     this.dimens = Constants.CENTER_SHAPE_DIMENS;
     this.state = {
+      portfolioItemHeight: '',
       shiftArrow: 'translateX(0px)',
       arrowOpacity: '1',
       arrowOpacity2: '0',
@@ -29,23 +30,27 @@ class PortfolioItem extends Component {
       year: '2018',
       title: 'ROCKET',
       description: 'Intelligent Chatbot',
-      secondaryColor: '',
       primaryColor: '',
+      secondaryColor: '',
+      tertieryColor: '',
       backColor: '',
       backOpacity: 0,
-      contentOpacity: 0,
-      contentTransform: 'translate(-50%, 40px)',
+      headerOpacity: 0,
+      headerTransform: 'translateY(30px)',
       numberOpacity: 0,
-      numberTransform: 'translateY(40px)',
+      numberTransform: 'translateY(30px)',
       leftArrow: '',
-      leftArrowDark: ''
+      leftArrowDark: '',
+      textOpacity: 0,
+      gradientOpacity: 0
     }
 
     this.out = this.out.bind(this);
   }
 
   in() {
-    this.setState({ primaryColor: this.props.primaryColor, secondaryColor: this.props.secondaryColor, backColor: this.props.primaryColor });
+    this.setState({ primaryColor: this.props.primaryColor, secondaryColor: this.props.secondaryColor, tertieryColor: this.props.tertieryColor,
+                    backColor: this.props.primaryColor, gradientOpacity: 1 });
     switch (this.props.page) {
       case 4:
         this.setState({ leftArrow: leftArrow, leftArrowDark: leftArrowDark });
@@ -70,28 +75,43 @@ class PortfolioItem extends Component {
         break;
     }
     setTimeout( function() {
-      this.setState({ backOpacity: 1 });
+      this.setState({ backOpacity: 1, portfolioItemHeight: this.refs.portfolioContent.clientHeight + window.innerHeight / 2 + 100 + 'px' });
     }.bind(this), 50);
     setTimeout( function() {
       this.setState({ numberOpacity: 1, numberTransform: 'translateY(0px)' });
     }.bind(this), 200);
     setTimeout( function() {
-      this.setState({ contentOpacity: 1, contentTransform: 'translate(-50%, 0px)' });
+      this.setState({ headerOpacity: 1, headerTransform: 'translateY(0px)' });
     }.bind(this), 350);
+    setTimeout( function() {
+      this.setState({ textOpacity: 1 });
+    }.bind(this), 500);
   }
 
   out() {
     if (this.props.scrollbarHeight == 0) {
       this.props.itemOut();
-      this.setState({ backOpacity: 0 });
+      this.setState({ backOpacity: 0, textOpacity: 0 });
       setTimeout( function() {
-        this.setState({ contentOpacity: 0, contentTransform: 'translate(-50%, 40px)' });
+        this.setState({ headerOpacity: 0, headerTransform: 'translateY(30px)' });
       }.bind(this), 200);
       setTimeout( function() {
-        this.setState({ numberOpacity: 0, numberTransform: 'translateY(40px)' });
+        this.setState({ numberOpacity: 0, numberTransform: 'translateY(30px)', gradientOpacity: 0 });
       }.bind(this), 350);
-    } else { // TODO: FINISH THIS
-
+    } else {
+      this.props.scrollTop(true);
+      this.setState({ backOpacity: 0 });
+      this.props.itemOut();
+      this.setState({ textOpacity: 0 });
+      setTimeout( function() {
+        this.setState({ headerOpacity: 0, headerTransform: 'translateY(30px)' });
+      }.bind(this), 100);
+      setTimeout( function() {
+        this.setState({ numberOpacity: 0, numberTransform: 'translateY(30px)' });
+      }.bind(this), 250);
+      setTimeout( function() {
+        this.setState({ gradientOpacity: 0 });
+      }.bind(this), 550);
     }
   }
 
@@ -105,7 +125,7 @@ class PortfolioItem extends Component {
 
   render() {
     return (
-      <div className="PortfolioItem">
+      <div className="PortfolioItem" style={{ height: this.state.portfolioItemHeight }}>
           <div className="backPortfolio" onMouseEnter={() => { this.setState({ shiftArrow: 'translateX(-8px)', arrowOpacity: '0', arrowOpacity2: '1' }); this.hoverOn(); }}
                onMouseLeave={() => { this.setState({ shiftArrow: 'translateX(0px)', arrowOpacity: '1', arrowOpacity2: '0' }); this.hoverOff(); }}
                onClick={() => { this.out() }} style={{ color: this.state.backColor, opacity: this.state.backOpacity }} ref="back">
@@ -113,16 +133,28 @@ class PortfolioItem extends Component {
               <img src={this.state.leftArrowDark} className="leftArrowDark" style={{ transform: this.state.shiftArrow, opacity: this.state.arrowOpacity2 }} />
               BACK
           </div>
-          <div className="portfolioContent" ref="content" style={{ width: this.dimens * 2 + 'px', marginTop: window.innerHeight / 2 + 100 + 'px',
-                                                                   opacity: this.state.contentOpacity, transform: this.state.contentTransform }}>
-            <div className="portfolioYear" style={{ color: this.state.secondaryColor }}>{this.state.year}</div>
-            <div className="portfolioTitle" style={{ color: this.state.primaryColor }}>{this.state.title}</div>
-            <div className="portfolioDescription" style={{ color: this.state.primaryColor }}>{this.state.description}</div>
+          <div className="portfolioContent" style={{ top: window.innerHeight / 2 + 100 + 'px', width: this.dimens * 2 + 'px' }} ref="portfolioContent">
+            <div className="portfolioHeader" ref="content" style={{ opacity: this.state.headerOpacity, transform: this.state.headerTransform }}>
+              <div className="portfolioYear" style={{ color: this.state.secondaryColor }}>{this.state.year}</div>
+              <div className="portfolioTitle" style={{ color: this.state.primaryColor }}>{this.state.title}</div>
+              <div className="portfolioDescription" style={{ color: this.state.primaryColor }}>{this.state.description}</div>
+            </div>
+            <div className="portfolioText" style={{ color: this.state.primaryColor, top: this.props.topText,
+                                                    marginTop: (window.innerHeight - this.dimens) / 2 + 'px', opacity: this.state.textOpacity }} ref="portfolioText">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+              labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
+              nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit
+              esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt
+              in culpa qui officia deserunt mollit anim id est.
+            </div>
           </div>
           <div className="portfolioNumber" ref="number" style={{ left: (window.innerWidth + this.dimens) / 2 + 20 + 'px', top: (window.innerHeight - this.dimens) / 2 + 'px',
                                                                  color: this.state.primaryColor, opacity: this.state.numberOpacity, transform: this.state.numberTransform }}>
             {this.state.number}
           </div>
+          <div className="portfolioGradient" style={{ height: (window.innerHeight - this.dimens) / 2 + 'px',
+                                                      background: 'linear-gradient(to bottom, rgba(255,0,0,0) 0%, ' + this.props.tertieryColor + ' 100%)',
+                                                      opacity: this.state.gradientOpacity }} />
       </div>
     );
   }

@@ -29,4 +29,5 @@ const Constants = {
   SECONDARYCOLOR10: '#011c57',
   TERTIERYCOLOR10: '#0336a1'
 }
+
 export default Constants

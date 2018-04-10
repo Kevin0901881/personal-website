@@ -28,6 +28,7 @@ class App extends Component {
     }
     this.handleScroll = this.handleScroll.bind(this);
     this.activateResume = this.activateResume.bind(this);
+    this.activatePortfolioItem = this.activatePortfolioItem.bind(this);
     // this.handleArrow = this.handleScroll.bind(this);
   }
 
@@ -60,7 +61,7 @@ class App extends Component {
         setTimeout( function() {
           this.scroll2 = 0;
         }.bind(this), 800);
-      } else if (this.state.page == 4 && this.scroll2 == 0 && this.scrollPrev == 0) {
+      } else if (this.state.page == 4 && this.scroll2 == 0 && this.scrollPrev == 0 && !this.state.portfolioItemActivated) {
         this.scroll2 = 1;
         this.setState({ page: this.state.page - 1, currentPage: this.state.currentPage - 1, displayAbout: 'block' });
         this.refs.menu.updateMenu(false);
@@ -71,7 +72,7 @@ class App extends Component {
           this.scroll2 = 0;
           this.setState({ displayPortfolio: 'none' });
         }.bind(this), 800);
-      } else if (this.state.page >= 5 && this.state.page <= 10) {
+      } else if (this.state.page >= 5 && this.state.page <= 10 && !this.state.portfolioItemActivated) {
         this.setState({ page: this.state.page - 1 });
         this.scrollPrev++;
         if (this.scrollPrev > 1) {
@@ -134,7 +135,7 @@ class App extends Component {
          this.scroll2 = 0;
          this.setState({ displayAbout: 'none', page: this.state.page + 1 });
        }.bind(this), 800);
-     } else if (this.state.page >= 4 && this.state.page <= 9) {
+     } else if (this.state.page >= 4 && this.state.page <= 9 && !this.state.portfolioItemActivated) {
        this.setState({ page: this.state.page + 1 });
        this.scrollNext++;
        if (this.scrollNext > 1) {
@@ -156,7 +157,7 @@ class App extends Component {
            this.scrollNext--;
          }.bind(this), 200);
        }
-     } else if (this.state.currentPage == 10 && this.scroll2 == 0) {
+     } else if (this.state.currentPage == 10 && this.scroll2 == 0 && !this.state.portfolioItemActivated) {
        this.scroll2 = 1;
        this.setState({ page: this.state.page + 1, displayContact: 'block' });
        this.refs.menu.updateMenu(true);

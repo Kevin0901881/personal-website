@@ -109,6 +109,10 @@ html, body, #root, .App {
   z-index: -3;
 }
 
+.menu {
+  z-index: 10;
+}
+
 .scrollDown {
   color: #FFFFFF;
   font-family: Montserrat;
@@ -124,26 +128,6 @@ html, body, #root, .App {
   -moz-user-select: none;
   -ms-user-select: none;
   animation: pulse 3s ease-out infinite;
-}
-
-.inFromBottom {
-  animation-name: inFromBottom;
-  animation-duration: 0.8s;
-}
-
-.inFromTop {
-  animation-name: inFromTop;
-  animation-duration: 0.8s;
-}
-
-.outToBottom {
-  animation-name: outToBottom;
-  animation-duration: 0.8s;
-}
-
-.outToTop {
-  animation-name: outToTop;
-  animation-duration: 0.8s;
 }
 
 .leftArrow {

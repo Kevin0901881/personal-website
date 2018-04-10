@@ -4,6 +4,7 @@
   overflow-y: auto;
   overflow-x: hidden;
   transition: opacity 0.6s linear;
+  padding-right: 50px;
 }
 
 .circle {
