@@ -373,12 +373,12 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-          <Logo className="logo" page={this.state.currentPage} ref="logo" />
           <Welcome className="welcome" display={this.state.displayWelcome} ref="welcome" />
           <About className="about" display={this.state.displayAbout} activateResume={this.activateResume} ref="about" />
           <Portfolio className="portfolio" page={this.state.page} currentPage={this.state.portfolioPage} display={this.state.displayPortfolio}
                      activatePortfolioItem={this.activatePortfolioItem} ref="portfolio" />
           <Contact className="contact" ref="contact" display={this.state.displayContact} />
+          <Logo className="logo" page={this.state.currentPage} ref="logo" />
           <Menu className="menu" page={this.state.page} currentPage={this.state.currentPage} ref="menu" />
       </div>
     );

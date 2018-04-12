@@ -297,10 +297,12 @@ class Portfolio extends Component {
 
   handleScroll() {
     var scrollTop = this.refs.Portfolio.scrollTop;
-    this.setState({ foregroundHeight: scrollTop / (this.refs.Portfolio.scrollHeight - this.refs.Portfolio.clientHeight) * (this.dimens / 2),
-                    opacitySquare: 1 - scrollTop / 500, opacitySquare2: 1 - scrollTop / 500 });
-    if (scrollTop >= this.dimens / 2 + 100) {
-      
+    this.setState({ opacitySquare: 1 - scrollTop / 500, opacitySquare2: 1 - scrollTop / 500,
+                    foregroundHeight: scrollTop / (this.refs.Portfolio.scrollHeight - this.refs.Portfolio.clientHeight) * (this.dimens / 2) });
+    if (scrollTop >= this.dimens / 2 + 140) {
+      this.refs.portfolioItem.numberStateChange(false);
+    } else {
+      this.refs.portfolioItem.numberStateChange(true);
     }
   }
 

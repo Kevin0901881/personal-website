@@ -39,6 +39,8 @@ class PortfolioItem extends Component {
       headerTransform: 'translateY(30px)',
       numberOpacity: 0,
       numberTransform: 'translateY(30px)',
+      numberPosition: 'fixed',
+      numberTop: (window.innerHeight - this.dimens) / 2 + 'px',
       leftArrow: '',
       leftArrowDark: '',
       textOpacity: 0,
@@ -46,6 +48,7 @@ class PortfolioItem extends Component {
     }
 
     this.out = this.out.bind(this);
+    this.numberStateChange = this.numberStateChange.bind(this);
   }
 
   in() {
@@ -123,6 +126,14 @@ class PortfolioItem extends Component {
     this.setState({ backColor: this.props.primaryColor });
   }
 
+  numberStateChange(fixed) {
+    if (fixed) {
+      this.setState({ numberPosition: 'fixed', numberTop: (window.innerHeight - this.dimens) / 2 + 'px' });
+    } else {
+      this.setState({ numberPosition: 'absolute', numberTop: window.innerHeight / 2 + 140 + 'px' });
+    }
+  }
+
   render() {
     return (
       <div className="PortfolioItem" style={{ height: this.state.portfolioItemHeight }}>
@@ -148,13 +159,17 @@ class PortfolioItem extends Component {
               in culpa qui officia deserunt mollit anim id est.
             </div>
           </div>
-          <div className="portfolioNumber" ref="number" style={{ left: (window.innerWidth + this.dimens) / 2 + 20 + 'px', top: (window.innerHeight - this.dimens) / 2 + 'px',
-                                                                 color: this.state.primaryColor, opacity: this.state.numberOpacity, transform: this.state.numberTransform }}>
+          <div className="portfolioNumber" ref="number" style={{ left: (window.innerWidth + this.dimens) / 2 + 20 + 'px', top: this.state.numberTop,
+                                                                 color: this.state.primaryColor, opacity: this.state.numberOpacity, transform: this.state.numberTransform,
+                                                                 position: this.state.numberPosition }}>
             {this.state.number}
           </div>
-          <div className="portfolioGradient" style={{ height: (window.innerHeight - this.dimens) / 2 + 'px',
-                                                      background: 'linear-gradient(to bottom, rgba(255,0,0,0) 0%, ' + this.props.tertieryColor + ' 100%)',
-                                                      opacity: this.state.gradientOpacity }} />
+          <div className="portfolioGradientTop" style={{ height: (window.innerHeight - this.dimens) / 2 + 'px',
+                                                         background: 'linear-gradient(to top, rgba(255,0,0,0) 0%, ' + this.props.tertieryColor + ' 100%)',
+                                                         opacity: this.state.gradientOpacity }} />
+          <div className="portfolioGradientBottom" style={{ height: (window.innerHeight - this.dimens) / 2 + 'px',
+                                                            background: 'linear-gradient(to bottom, rgba(255,0,0,0) 0%, ' + this.props.tertieryColor + ' 100%)',
+                                                            opacity: this.state.gradientOpacity }} />
       </div>
     );
   }
