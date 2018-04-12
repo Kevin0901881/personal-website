@@ -56,12 +56,11 @@ class Portfolio extends Component {
       opacityProgress: 0,
       opacityScrollbar: 0,
       foregroundHeight: 0,
-      displayPortfolioItem: 'none',
-      scrollTop: ''
+      displayPortfolioItem: 'none'
     }
     this.updateDimensions = this.updateDimensions.bind(this);
     this.itemOut = this.itemOut.bind(this);
-    this.handleScroll = this.handleScroll.bind(this);
+    this.toTop = this.toTop.bind(this);
   }
 
   componentDidMount() {
@@ -225,7 +224,7 @@ class Portfolio extends Component {
   itemIn() {
     this.itemEnabled = true;
     this.setState({ arrowOpacityLeft: 0, arrowOpacityLeft2: 0, arrowOpacityRight: 0, arrowOpacityRight2: 0, opacityProgress: 0, displayPortfolioItem: 'block',
-                    cursorSquare: 'default' });
+                    cursorSquare: 'default', transition: 'opacity 0.1s linear' });
     this.refs.portfolioItem.in();
     this.props.activatePortfolioItem();
     setTimeout( function() {
@@ -292,21 +291,25 @@ class Portfolio extends Component {
     animateScroll();
   }
 
-  handleScroll(toTop) {
-    if (toTop) {
-      this.scrollTo(this.refs.Portfolio, 0, 250);
-    } else {
-      this.setState({ foregroundHeight: this.refs.Portfolio.scrollTop / (this.refs.Portfolio.scrollHeight - this.refs.Portfolio.clientHeight) * (this.dimens / 2),
-                      scrollTop: this.refs.Portfolio.scrollTop });
+  toTop() {
+    this.scrollTo(this.refs.Portfolio, 0, 250);
+  }
+
+  handleScroll() {
+    var scrollTop = this.refs.Portfolio.scrollTop;
+    this.setState({ foregroundHeight: scrollTop / (this.refs.Portfolio.scrollHeight - this.refs.Portfolio.clientHeight) * (this.dimens / 2),
+                    opacitySquare: 1 - scrollTop / 500, opacitySquare2: 1 - scrollTop / 500 });
+    if (scrollTop >= this.dimens / 2 + 100) {
+      
     }
   }
 
   render() {
     return (
-      <div className="Portfolio" ref="Portfolio" style={{ background: this.state.backgroundColor, display: this.props.display }} onScroll={(e) => { this.handleScroll(false) }}>
+      <div className="Portfolio" ref="Portfolio" style={{ background: this.state.backgroundColor, display: this.props.display }} onScroll={(e) => { this.handleScroll() }}>
           <div className="portfolioItem" style={{ display: this.state.displayPortfolioItem }}>
             <PortfolioItem primaryColor={this.state.progressForeground} secondaryColor={this.state.progressBackground}
-                           tertieryColor={this.state.backgroundColor} scrollbarHeight={this.state.foregroundHeight} scrollTop={this.handleScroll}
+                           tertieryColor={this.state.backgroundColor} scrollbarHeight={this.state.foregroundHeight} scrollTop={this.toTop}
                            itemOut={this.itemOut} page={this.props.page} topText={this.height - (this.height - this.dimens) / 2}
                            ref="portfolioItem" />
           </div>
