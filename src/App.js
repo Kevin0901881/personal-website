@@ -52,7 +52,7 @@ class App extends Component {
         setTimeout( function() {
           this.scroll2 = 0;
           this.setState({ displayAbout: 'none' });
-        }.bind(this), 800);
+        }.bind(this), 1100);
       } else if (this.state.page == 3 && this.scroll2 == 0 && !this.state.resumeActivated) {
         this.scroll2 = 1;
         this.setState({ page: this.state.page - 1, currentPage: this.state.currentPage - 1 });
@@ -60,7 +60,7 @@ class App extends Component {
         this.refs.about.page1inPage2out();
         setTimeout( function() {
           this.scroll2 = 0;
-        }.bind(this), 800);
+        }.bind(this), 1100);
       } else if (this.state.page == 4 && this.scroll2 == 0 && this.scrollPrev == 0 && !this.state.portfolioItemActivated) {
         this.scroll2 = 1;
         this.setState({ page: this.state.page - 1, currentPage: this.state.currentPage - 1, displayAbout: 'block' });
@@ -71,7 +71,7 @@ class App extends Component {
         setTimeout( function() {
           this.scroll2 = 0;
           this.setState({ displayPortfolio: 'none' });
-        }.bind(this), 800);
+        }.bind(this), 1100);
       } else if (this.state.page >= 5 && this.state.page <= 10 && !this.state.portfolioItemActivated) {
         this.setState({ page: this.state.page - 1 });
         this.scrollPrev++;
@@ -83,7 +83,7 @@ class App extends Component {
             this.refs.portfolio.updateScene(false);
             this.refs.menu.updateMenu(false);
             this.refs.logo.updateLogo(false);
-          }.bind(this), 200 * (this.scrollPrev - 1) - (Date.now() - this.currentTime));
+          }.bind(this), 400 * (this.scrollPrev - 1) - (Date.now() - this.currentTime));
         } else {
           this.currentTime = Date.now();
           this.setState({ currentPage: this.state.currentPage - 1, portfolioPage: this.state.portfolioPage - 1 });
@@ -92,7 +92,7 @@ class App extends Component {
           this.refs.logo.updateLogo(false);
           setTimeout( function() {
             this.scrollPrev--;
-          }.bind(this), 200);
+          }.bind(this), 400);
         }
       } else if (this.state.currentPage == 11 && this.scroll2 == 0) {
        this.scroll2 = 1;
@@ -102,7 +102,7 @@ class App extends Component {
        setTimeout( function() {
          this.scroll2 = 0;
          this.setState({ displayContact: 'none' });
-       }.bind(this), 800);
+       }.bind(this), 1100);
      }
    } else if (e.deltaY > 0) { // scroll down (next)
      if (this.state.page == 1 && this.scroll2 == 0) {
@@ -115,7 +115,7 @@ class App extends Component {
        setTimeout( function() {
          this.scroll2 = 0;
          this.setState({ displayWelcome: 'none' });
-       }.bind(this), 800);
+       }.bind(this), 1100);
      } else if (this.state.page == 2 && this.scroll2 == 0) {
        this.scroll2 = 1;
        this.setState({ page: this.state.page + 1, currentPage: this.state.currentPage + 1 });
@@ -123,7 +123,7 @@ class App extends Component {
        this.refs.about.page2inPage1out();
        setTimeout( function() {
          this.scroll2 = 0;
-       }.bind(this), 800);
+       }.bind(this), 1100);
      } else if (this.state.page == 3 && this.scroll2 == 0 && !this.state.resumeActivated) {
        this.scroll2 = 1;
        this.setState({ currentPage: this.state.currentPage + 1, displayPortfolio: 'block' });
@@ -134,7 +134,7 @@ class App extends Component {
        setTimeout( function() {
          this.scroll2 = 0;
          this.setState({ displayAbout: 'none', page: this.state.page + 1 });
-       }.bind(this), 800);
+       }.bind(this), 1100);
      } else if (this.state.page >= 4 && this.state.page <= 9 && !this.state.portfolioItemActivated) {
        this.setState({ page: this.state.page + 1 });
        this.scrollNext++;
@@ -146,7 +146,7 @@ class App extends Component {
            this.refs.portfolio.updateScene(true);
            this.refs.menu.updateMenu(true);
            this.refs.logo.updateLogo(true);
-         }.bind(this), 200 * (this.scrollNext - 1) - (Date.now() - this.currentTime));
+         }.bind(this), 400 * (this.scrollNext - 1) - (Date.now() - this.currentTime));
        } else {
          this.currentTime = Date.now();
          this.setState({ currentPage: this.state.currentPage + 1, portfolioPage: this.state.portfolioPage + 1 });
@@ -155,7 +155,7 @@ class App extends Component {
          this.refs.logo.updateLogo(true);
          setTimeout( function() {
            this.scrollNext--;
-         }.bind(this), 200);
+         }.bind(this), 400);
        }
      } else if (this.state.currentPage == 10 && this.scroll2 == 0 && !this.state.portfolioItemActivated) {
        this.scroll2 = 1;
@@ -197,7 +197,7 @@ class App extends Component {
   //     setTimeout( function() {
   //       this.scroll2 = 0;
   //       this.setState({ displayAbout: 'none' });
-  //     }.bind(this), 800);
+  //     }.bind(this), 1100);
   //   } else if (this.state.page == 3 && this.scroll2 == 0) {
   //     this.setState({ page: 1, currentPage: 1, displayWelcome: 'block' });
   //     this.refs.menu.updateMenu(false);
@@ -207,7 +207,7 @@ class App extends Component {
   //     setTimeout( function() {
   //       this.scroll2 = 0;
   //       this.setState({ displayAbout: 'none' });
-  //     }.bind(this), 800);
+  //     }.bind(this), 1100);
   //   } else if (this.state.page >= 4 && this.state.page <= 10 && this.scroll2 == 0) {
   //     this.setState({ page: 1, currentPage: 1, displayWelcome: 'block' });
   //     this.refs.menu.updateMenu(false);
@@ -217,7 +217,7 @@ class App extends Component {
   //     setTimeout( function() {
   //       this.scroll2 = 0;
   //       this.setState({ displayPortfolio: 'none' });
-  //     }.bind(this), 800);
+  //     }.bind(this), 1100);
   //   } else if (this.state.page == 11 && this.scroll2 == 0) {
   //     this.setState({ page: 1, currentPage: 1, displayWelcome: 'block' });
   //     this.refs.menu.updateMenu(false);
@@ -228,7 +228,7 @@ class App extends Component {
   //     setTimeout( function() {
   //       this.scroll2 = 0;
   //       this.setState({ displayContact: 'none', displayPortfolio: 'none' });
-  //     }.bind(this), 800);
+  //     }.bind(this), 1100);
   //   }
   // }
   //
@@ -243,7 +243,7 @@ class App extends Component {
   //     setTimeout( function() {
   //       this.scroll2 = 0;
   //       this.setState({ displayWelcome: 'none' });
-  //     }.bind(this), 800);
+  //     }.bind(this), 1100);
   //   } else if (this.state.page >= 4 && this.state.page <= 10 && this.scroll2 == 0) {
   //     this.scroll2 = 1;
   //     this.setState({ page: 2, currentPage: 2, displayAbout: 'block' });
@@ -254,7 +254,7 @@ class App extends Component {
   //     setTimeout( function() {
   //       this.scroll2 = 0;
   //       this.setState({ displayPortfolio: 'none' });
-  //     }.bind(this), 800);
+  //     }.bind(this), 1100);
   //   } else if (this.state.page == 11 && this.scroll2 == 0) {
   //     this.scroll2 = 1;
   //     this.setState({ page: 2, currentPage: 2, displayAbout: 'block' });
@@ -266,7 +266,7 @@ class App extends Component {
   //     setTimeout( function() {
   //       this.scroll2 = 0;
   //       this.setState({ displayContact: 'none', displayPortfolio: 'none' });
-  //     }.bind(this), 800);
+  //     }.bind(this), 1100);
   //   }
   // }
   //
@@ -281,7 +281,7 @@ class App extends Component {
   //     setTimeout( function() {
   //       this.scroll2 = 0;
   //       this.setState({ displayWelcome: 'none' });
-  //     }.bind(this), 800);
+  //     }.bind(this), 1100);
   //   } else if (this.state.page == 2 && this.scroll2 == 0) {
   //     this.scroll2 = 1;
   //     this.setState({ page: 4, currentPage: 4, displayPortfolio: 'block' });
@@ -292,7 +292,7 @@ class App extends Component {
   //     setTimeout( function() {
   //       this.scroll2 = 0;
   //       this.setState({ displayAbout: 'none' });
-  //     }.bind(this), 800);
+  //     }.bind(this), 1100);
   //   } else if (this.state.page == 3 && this.scroll2 == 0) {
   //     this.scroll2 = 1;
   //     this.setState({ page: 4, currentPage: 4, displayPortfolio: 'block' });
@@ -303,7 +303,7 @@ class App extends Component {
   //     setTimeout( function() {
   //       this.scroll2 = 0;
   //       this.setState({ displayPortfolio: 'none' });
-  //     }.bind(this), 800);
+  //     }.bind(this), 1100);
   //   } else if (this.state.page == 11 && this.scroll2 == 0) {
   //     this.scroll2 = 1;
   //     this.setState({ page: 10, currentPage: 10 });
@@ -312,7 +312,7 @@ class App extends Component {
   //     setTimeout( function() {
   //       this.scroll2 = 0;
   //       this.setState({ displayContact: 'none' });
-  //     }.bind(this), 800);
+  //     }.bind(this), 1100);
   //   }
   // }
   //
@@ -332,7 +332,7 @@ class App extends Component {
   //         this.refs.portfolio.updateScene(false);
   //         this.refs.menu.updateMenu();
   //         this.refs.logo.updateLogo(false);
-  //       }.bind(this), 200 * (this.scrollPrev - 1) - (Date.now() - this.currentTime));
+  //       }.bind(this), 400 * (this.scrollPrev - 1) - (Date.now() - this.currentTime));
   //     } else {
   //       this.currentTime = Date.now();
   //       this.setState({ currentPage: this.state.currentPage - 1 });
@@ -341,7 +341,7 @@ class App extends Component {
   //       this.refs.logo.updateLogo(false);
   //       setTimeout( function() {
   //         this.scrollPrev--;
-  //       }.bind(this), 200);
+  //       }.bind(this), 400);
   //     }
   //     this.setState({ page: this.state.page - 1 });
   //   }
@@ -355,7 +355,7 @@ class App extends Component {
   //         this.refs.portfolio.updateScene(true);
   //         this.refs.menu.updateMenu();
   //         this.refs.logo.updateLogo(true);
-  //       }.bind(this), 200 * (this.scrollNext - 1) - (Date.now() - this.currentTime));
+  //       }.bind(this), 400 * (this.scrollNext - 1) - (Date.now() - this.currentTime));
   //     } else {
   //       this.currentTime = Date.now();
   //       this.setState({ currentPage: this.state.currentPage + 1 });
@@ -364,7 +364,7 @@ class App extends Component {
   //       this.refs.logo.updateLogo(true);
   //       setTimeout( function() {
   //         this.scrollNext--;
-  //       }.bind(this), 200);
+  //       }.bind(this), 400);
   //     }
   //     this.setState({ page: this.state.page + 1 });
   //   }

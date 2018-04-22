@@ -75,7 +75,7 @@ class Portfolio extends Component {
   in() {
     this.setState({ opacitySquare: 0 });
     setTimeout( function() {
-      this.setState({ transition: 'opacity 0.6s linear, height 0.6s cubic-bezier(0.645, 0.045, 0.355, 1.000)', opacitySquare: 1,
+      this.setState({ transition: 'opacity 0.6s linear, height 1s cubic-bezier(0.770, 0.000, 0.175, 1.000)', opacitySquare: 1,
                       bottomSquare: 0.5 * (this.height - this.dimens) + 'px', bottomProgress: (this.height - this.dimens) / 4,
                       leftSquare: 0.5 * this.width, leftSquare2: 0.5 * this.width + this.dimens, heightSquare: this.dimens + 'px' });
     }.bind(this), 350);
@@ -85,7 +85,7 @@ class Portfolio extends Component {
   }
 
   out() {
-    this.setState({ transition: 'opacity 0.6s linear, height 0.6s cubic-bezier(0.645, 0.045, 0.355, 1.000)', opacitySquare: 0,
+    this.setState({ transition: 'opacity 0.6s linear, height 1s cubic-bezier(0.770, 0.000, 0.175, 1.000)', opacitySquare: 0,
                     heightSquare: '0px', arrowOpacityRight: 0, opacityProgress: 0 });
   }
 
@@ -101,7 +101,7 @@ class Portfolio extends Component {
                           opacitySquare: 0, leftSquare: 0.5 * window.innerWidth - this.refs.square2.clientWidth, heightSquare: 0,
                           opacitySquare2: 1, leftSquare2: 0.5 * window.innerWidth, heightSquare2: this.dimens,
                           backgroundSquare2: 'linear-gradient(to bottom, ' + Constants.PRIMARYCOLOR5 + ' 0%, rgba(255,0,0,0) 100%)',
-                          transition: 'opacity 0.3s ease-in-out, top 0.3s ease-in-out, left 0.3s ease-in-out, height 0.3s cubic-bezier(0.645, 0.045, 0.355, 1.000)',
+                          transition: 'opacity 0.4s ease-in-out, left 0.4s cubic-bezier(0.770, 0.000, 0.175, 1.000), height 0.4s cubic-bezier(0.770, 0.000, 0.175, 1.000)',
                           progressBackground: Constants.SECONDARYCOLOR5, progressForeground: Constants.PRIMARYCOLOR5, backgroundColor: Constants.TERTIERYCOLOR5 });
           break;
         case 6:
@@ -110,7 +110,7 @@ class Portfolio extends Component {
                           opacitySquare: 1, leftSquare: 0.5 * window.innerWidth, heightSquare: this.dimens,
                           opacitySquare2: 0, leftSquare2: 0.5 * window.innerWidth - this.refs.square2.clientWidth, heightSquare2: 0,
                           backgroundSquare: 'linear-gradient(to bottom, ' + Constants.PRIMARYCOLOR6 + ' 0%, rgba(255,0,0,0) 100%)',
-                          transition: 'opacity 0.3s ease-in-out, top 0.3s ease-in-out, left 0.3s ease-in-out, height 0.3s cubic-bezier(0.645, 0.045, 0.355, 1.000)',
+                          transition: 'opacity 0.4s ease-in-out, left 0.4s cubic-bezier(0.770, 0.000, 0.175, 1.000), height 0.4s cubic-bezier(0.770, 0.000, 0.175, 1.000)',
                           progressBackground: Constants.SECONDARYCOLOR6, progressForeground: Constants.PRIMARYCOLOR6, backgroundColor: Constants.TERTIERYCOLOR6 });
           break;
         case 7:
@@ -119,7 +119,7 @@ class Portfolio extends Component {
                           opacitySquare: 0, leftSquare: 0.5 * window.innerWidth - this.refs.square2.clientWidth, heightSquare: 0,
                           opacitySquare2: 1, leftSquare2: 0.5 * window.innerWidth, heightSquare2: this.dimens,
                           backgroundSquare2: 'linear-gradient(to bottom, ' + Constants.PRIMARYCOLOR7 + ' 0%, rgba(255,0,0,0) 100%)',
-                          transition: 'opacity 0.3s ease-in-out, top 0.3s ease-in-out, left 0.3s ease-in-out, height 0.3s cubic-bezier(0.645, 0.045, 0.355, 1.000)',
+                          transition: 'opacity 0.4s ease-in-out, left 0.4s cubic-bezier(0.770, 0.000, 0.175, 1.000), height 0.4s cubic-bezier(0.770, 0.000, 0.175, 1.000)',
                           progressBackground: Constants.SECONDARYCOLOR7, progressForeground: Constants.PRIMARYCOLOR7, backgroundColor: Constants.TERTIERYCOLOR7 });
           break;
         case 8:
@@ -128,7 +128,7 @@ class Portfolio extends Component {
                           opacitySquare: 1, leftSquare: 0.5 * window.innerWidth, heightSquare: this.dimens,
                           opacitySquare2: 0, leftSquare2: 0.5 * window.innerWidth - this.refs.square2.clientWidth, heightSquare2: 0,
                           backgroundSquare: 'linear-gradient(to bottom, ' + Constants.PRIMARYCOLOR8 + ' 0%, rgba(255,0,0,0) 100%)',
-                          transition: 'opacity 0.3s ease-in-out, top 0.3s ease-in-out, left 0.3s ease-in-out, height 0.3s cubic-bezier(0.645, 0.045, 0.355, 1.000)',
+                          transition: 'opacity 0.4s ease-in-out, left 0.4s cubic-bezier(0.770, 0.000, 0.175, 1.000), height 0.4s cubic-bezier(0.770, 0.000, 0.175, 1.000)',
                           progressBackground: Constants.SECONDARYCOLOR8, progressForeground: Constants.PRIMARYCOLOR8, backgroundColor: Constants.TERTIERYCOLOR8 });
           break;
         case 9:
@@ -137,7 +137,7 @@ class Portfolio extends Component {
                           opacitySquare: 0, leftSquare: 0.5 * window.innerWidth - this.refs.square2.clientWidth, heightSquare: 0,
                           opacitySquare2: 1, leftSquare2: 0.5 * window.innerWidth, heightSquare2: this.dimens,
                           backgroundSquare2: 'linear-gradient(to bottom, ' + Constants.PRIMARYCOLOR9 + ' 0%, rgba(255,0,0,0) 100%)',
-                          transition: 'opacity 0.3s ease-in-out, top 0.3s ease-in-out, left 0.3s ease-in-out, height 0.3s cubic-bezier(0.645, 0.045, 0.355, 1.000)',
+                          transition: 'opacity 0.4s ease-in-out, left 0.4s cubic-bezier(0.770, 0.000, 0.175, 1.000), height 0.4s cubic-bezier(0.770, 0.000, 0.175, 1.000)',
                           progressBackground: Constants.SECONDARYCOLOR9, progressForeground: Constants.PRIMARYCOLOR9, backgroundColor: Constants.TERTIERYCOLOR9 });
           break;
         case 10:
@@ -146,7 +146,7 @@ class Portfolio extends Component {
                           opacitySquare: 1, leftSquare: 0.5 * window.innerWidth, heightSquare: this.dimens,
                           opacitySquare2: 0, leftSquare2: 0.5 * window.innerWidth - this.refs.square2.clientWidth, heightSquare2: 0,
                           backgroundSquare: 'linear-gradient(to bottom, ' + Constants.PRIMARYCOLOR10 + ' 0%, rgba(255,0,0,0) 100%)',
-                          transition: 'opacity 0.3s ease-in-out, top 0.3s ease-in-out, left 0.3s ease-in-out, height 0.3s cubic-bezier(0.645, 0.045, 0.355, 1.000)',
+                          transition: 'opacity 0.4s ease-in-out, left 0.4s cubic-bezier(0.770, 0.000, 0.175, 1.000), height 0.4s cubic-bezier(0.770, 0.000, 0.175, 1.000)',
                           progressBackground: Constants.SECONDARYCOLOR10, progressForeground: Constants.PRIMARYCOLOR10, backgroundColor: Constants.TERTIERYCOLOR10 });
           break;
       }
@@ -158,7 +158,7 @@ class Portfolio extends Component {
                           opacitySquare: 1, leftSquare: 0.5 * window.innerWidth, heightSquare: this.dimens,
                           opacitySquare2: 0, leftSquare2: 0.5 * window.innerWidth + this.refs.square2.clientWidth, heightSquare2: 0,
                           backgroundSquare: 'linear-gradient(to bottom, ' + Constants.PRIMARYCOLOR4 + ' 0%, rgba(255,0,0,0) 100%)',
-                          transition: 'opacity 0.3s ease-in-out, top 0.3s ease-in-out, left 0.3s ease-in-out, height 0.3s cubic-bezier(0.645, 0.045, 0.355, 1.000)',
+                          transition: 'opacity 0.4s ease-in-out, left 0.4s cubic-bezier(0.770, 0.000, 0.175, 1.000), height 0.4s cubic-bezier(0.770, 0.000, 0.175, 1.000)',
                           progressBackground: Constants.SECONDARYCOLOR1, progressForeground: Constants.PRIMARYCOLOR4, backgroundColor: Constants.TERTIERYCOLOR1 });
           break;
         case 5:
@@ -167,7 +167,7 @@ class Portfolio extends Component {
                           opacitySquare: 0, leftSquare: 0.5 * window.innerWidth + this.refs.square2.clientWidth, heightSquare: 0,
                           opacitySquare2: 1, leftSquare2: 0.5 * window.innerWidth, heightSquare2: this.dimens,
                           backgroundSquare2: 'linear-gradient(to bottom, ' + Constants.PRIMARYCOLOR5 + ' 0%, rgba(255,0,0,0) 100%)',
-                          transition: 'opacity 0.3s ease-in-out, top 0.3s ease-in-out, left 0.3s ease-in-out, height 0.3s cubic-bezier(0.645, 0.045, 0.355, 1.000)',
+                          transition: 'opacity 0.4s ease-in-out, left 0.4s cubic-bezier(0.770, 0.000, 0.175, 1.000), height 0.4s cubic-bezier(0.770, 0.000, 0.175, 1.000)',
                           progressBackground: Constants.SECONDARYCOLOR5, progressForeground: Constants.PRIMARYCOLOR5, backgroundColor: Constants.TERTIERYCOLOR5 });
           break;
         case 6:
@@ -176,7 +176,7 @@ class Portfolio extends Component {
                           opacitySquare: 1, leftSquare: 0.5 * window.innerWidth, heightSquare: this.dimens,
                           opacitySquare2: 0, leftSquare2: 0.5 * window.innerWidth + this.refs.square2.clientWidth, heightSquare2: 0,
                           backgroundSquare: 'linear-gradient(to bottom, ' + Constants.PRIMARYCOLOR6 + ' 0%, rgba(255,0,0,0) 100%)',
-                          transition: 'opacity 0.3s ease-in-out, top 0.3s ease-in-out, left 0.3s ease-in-out, height 0.3s cubic-bezier(0.645, 0.045, 0.355, 1.000)',
+                          transition: 'opacity 0.4s ease-in-out, left 0.4s cubic-bezier(0.770, 0.000, 0.175, 1.000), height 0.4s cubic-bezier(0.770, 0.000, 0.175, 1.000)',
                           progressBackground: Constants.SECONDARYCOLOR6, progressForeground: Constants.PRIMARYCOLOR6, backgroundColor: Constants.TERTIERYCOLOR6 });
           break;
         case 7:
@@ -185,7 +185,7 @@ class Portfolio extends Component {
                           opacitySquare: 0, leftSquare: 0.5 * window.innerWidth + this.refs.square2.clientWidth, heightSquare: 0,
                           opacitySquare2: 1, leftSquare2: 0.5 * window.innerWidth, heightSquare2: this.dimens,
                           backgroundSquare2: 'linear-gradient(to bottom, ' + Constants.PRIMARYCOLOR7 + ' 0%, rgba(255,0,0,0) 100%)',
-                          transition: 'opacity 0.3s ease-in-out, top 0.3s ease-in-out, left 0.3s ease-in-out, height 0.3s cubic-bezier(0.645, 0.045, 0.355, 1.000)',
+                          transition: 'opacity 0.4s ease-in-out, left 0.4s cubic-bezier(0.770, 0.000, 0.175, 1.000), height 0.4s cubic-bezier(0.770, 0.000, 0.175, 1.000)',
                           progressBackground: Constants.SECONDARYCOLOR7, progressForeground: Constants.PRIMARYCOLOR7, backgroundColor: Constants.TERTIERYCOLOR7 });
           break;
         case 8:
@@ -194,7 +194,7 @@ class Portfolio extends Component {
                           opacitySquare: 1, leftSquare: 0.5 * window.innerWidth, heightSquare: this.dimens,
                           opacitySquare2: 0, leftSquare2: 0.5 * window.innerWidth + this.refs.square2.clientWidth, heightSquare2: 0,
                           backgroundSquare: 'linear-gradient(to bottom, ' + Constants.PRIMARYCOLOR8 + ' 0%, rgba(255,0,0,0) 100%)',
-                          transition: 'opacity 0.3s ease-in-out, top 0.3s ease-in-out, left 0.3s ease-in-out, height 0.3s cubic-bezier(0.645, 0.045, 0.355, 1.000)',
+                          transition: 'opacity 0.4s ease-in-out, left 0.4s cubic-bezier(0.770, 0.000, 0.175, 1.000), height 0.4s cubic-bezier(0.770, 0.000, 0.175, 1.000)',
                           progressBackground: Constants.SECONDARYCOLOR8, progressForeground: Constants.PRIMARYCOLOR8, backgroundColor: Constants.TERTIERYCOLOR8 });
           break;
         case 9:
@@ -202,7 +202,7 @@ class Portfolio extends Component {
           this.setState({ arrowLeft2: left6, arrowRight2: right6, arrowOpacityLeft: 0, arrowOpacityRight: 0, arrowOpacityLeft2: 1, arrowOpacityRight2: 1,
                           opacitySquare: 0, leftSquare: 0.5 * window.innerWidth + this.refs.square2.clientWidth, heightSquare: 0,
                           opacitySquare2: 1, leftSquare2: 0.5 * window.innerWidth, heightSquare2: this.dimens,
-                          transition: 'opacity 0.3s ease-in-out, top 0.3s ease-in-out, left 0.3s ease-in-out, height 0.3s cubic-bezier(0.645, 0.045, 0.355, 1.000)',
+                          transition: 'opacity 0.4s ease-in-out, left 0.4s cubic-bezier(0.770, 0.000, 0.175, 1.000), height 0.4s cubic-bezier(0.770, 0.000, 0.175, 1.000)',
                           progressBackground: Constants.SECONDARYCOLOR9, progressForeground: Constants.PRIMARYCOLOR9, backgroundColor: Constants.TERTIERYCOLOR9 });
           break;
         case 10:

@@ -44,7 +44,8 @@ class PortfolioItem extends Component {
       leftArrow: '',
       leftArrowDark: '',
       textOpacity: 0,
-      gradientOpacity: 0
+      gradientOpacity: 0,
+      contentTransform: ''
     }
 
     this.out = this.out.bind(this);
@@ -144,7 +145,7 @@ class PortfolioItem extends Component {
               <img src={this.state.leftArrowDark} className="leftArrowDark" style={{ transform: this.state.shiftArrow, opacity: this.state.arrowOpacity2 }} />
               BACK
           </div>
-          <div className="portfolioContent" style={{ top: window.innerHeight / 2 + 100 + 'px', width: this.dimens * 2 + 'px' }} ref="portfolioContent">
+          <div className="portfolioContent" style={{ top: window.innerHeight / 2 + 100 + 'px', width: this.dimens * 2 + 'px', transform: this.state.contentTransform }} ref="portfolioContent">
             <div className="portfolioHeader" ref="content" style={{ opacity: this.state.headerOpacity, transform: this.state.headerTransform }}>
               <div className="portfolioYear" style={{ color: this.state.secondaryColor }}>{this.state.year}</div>
               <div className="portfolioTitle" style={{ color: this.state.primaryColor }}>{this.state.title}</div>

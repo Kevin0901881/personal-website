@@ -15,12 +15,12 @@ class Welcome extends Component {
 
   in() {
     setTimeout( function() {
-      this.setState({ top: '50%', opacity: 1 });
+      this.setState({ top: '50%', opacity: 1, scrollDownOpacity: 1 });
     }.bind(this), 200);
   }
 
   out() {
-    this.setState({ top: -this.refs.kevin.clientHeight + 'px', opacity: 0 });
+    this.setState({ top: -this.refs.kevin.clientHeight + 'px', opacity: 0, scrollDownOpacity: 0 });
   }
 
   render() {
@@ -31,7 +31,7 @@ class Welcome extends Component {
           <div className="kevin" ref="kevin" style={{ backgroundImage: this.state.background, top: this.state.top, opacity: this.state.opacity }}>
               KEVIN
           </div>
-          <div className="scrollDown">
+          <div className="scrollDown" ref="scrollDown" style={{ opacity: this.state.scrollDownOpacity }}>
               SCROLL DOWN
           </div>
       </div>

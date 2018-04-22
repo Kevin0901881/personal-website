@@ -105,14 +105,6 @@ html, body, #root, .App {
   z-index: 0;
 }
 
-.logo {
-  z-index: 10;
-}
-
-.menu {
-  z-index: 10;
-}
-
 .scrollDown {
   color: #FFFFFF;
   font-family: Montserrat;
@@ -128,6 +120,7 @@ html, body, #root, .App {
   -moz-user-select: none;
   -ms-user-select: none;
   animation: pulse 3s ease-out infinite;
+  transition: opacity 0.3s;
 }
 
 .leftArrow {
@@ -143,4 +136,8 @@ html, body, #root, .App {
   margin-right: 15px;
   margin-bottom: 0.5px;
   transition: transform 0.2s ease-out, opacity 0.2s ease-out;
+}
+
+.scrollbar {
+  transition: opacity 0.3s linear;
 }

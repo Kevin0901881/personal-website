@@ -68,7 +68,7 @@ class About extends Component {
                     topPortrait: this.dimens / 2 + 'px', transitionCircle: '', topText: this.height / 2 - 40 + 'px',
                     topResume: this.height + 'px', marginBottomResume: (this.height - this.dimens) / 2 + this.dimens / 6 + 'px' });
     setTimeout( function() {
-      this.setState({ topCircle: '50%', topPortrait: this.dimens / 4 + 'px', opacityCircle: 1, transitionCircle: 'top 0.8s cubic-bezier(0.645, 0.045, 0.355, 1.000), left 0.8s cubic-bezier(0.645, 0.045, 0.355, 1.000), opacity 0.6s linear' });
+      this.setState({ topCircle: '50%', topPortrait: this.dimens / 4 + 'px', opacityCircle: 1, transitionCircle: 'top 1.1s cubic-bezier(0.770, 0.000, 0.175, 1.000), left 0.9s cubic-bezier(0.645, 0.045, 0.355, 1.000), opacity 0.6s linear' });
     }.bind(this), 200);
   }
 
@@ -151,7 +151,7 @@ class About extends Component {
       this.setState({ opacityBody: 1, transformBody: 'translateY(0px)' });
     }.bind(this), 705);
     setTimeout( function() {
-      this.setState({ opacityTitle: 1, transformTitle: 'translateY(0px)' });
+      this.setState({ opacityTitle: 1, transformTitle: 'translateY(0px)', foregroundHeight: 0 });
       this.props.activateResume();
     }.bind(this), 780);
   }
@@ -162,7 +162,7 @@ class About extends Component {
 
   render() {
     return (
-      <div className="About" ref="about" style={{ display: this.props.display, opacity: this.state.opacityAbout }} onWheel={this.handleScroll}
+      <div className="About" ref="about" style={{ display: this.props.display, opacity: this.state.opacityAbout }}
            onMouseMove={(e) => { this.parallax(e) }} onScroll={(e) => { this.handleScroll() }}>
           <div className="circle" ref="circle" style={{ top: this.state.topCircle, left: this.state.leftCircle, opacity: this.state.opacityCircle, transform: this.state.transformCircle, transition: this.state.transitionCircle }}>
             <img src={portrait} className="portrait" ref="portrait" style={{ top: this.state.topPortrait, left: this.state.leftPortrait, transform: this.state.transformPortrait }}/>
