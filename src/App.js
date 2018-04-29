@@ -56,7 +56,6 @@ class App extends Component {
       } else if (this.state.page == 3 && this.scroll2 == 0 && !this.state.resumeActivated) {
         this.scroll2 = 1;
         this.setState({ page: this.state.page - 1, currentPage: this.state.currentPage - 1 });
-        this.refs.menu.updateMenu(false);
         this.refs.about.page1inPage2out();
         setTimeout( function() {
           this.scroll2 = 0;
@@ -119,7 +118,6 @@ class App extends Component {
      } else if (this.state.page == 2 && this.scroll2 == 0) {
        this.scroll2 = 1;
        this.setState({ page: this.state.page + 1, currentPage: this.state.currentPage + 1 });
-       this.refs.menu.updateMenu(true);
        this.refs.about.page2inPage1out();
        setTimeout( function() {
          this.scroll2 = 0;

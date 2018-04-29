@@ -34,7 +34,6 @@ class About extends Component {
       opacityTitle: 0,
       opacityBody: 0,
       opacityResumeButton: 0,
-      opacityResume: 0,
       transformTitle: 'translateY(50px)',
       transformBody: 'translateY(50px)',
       transformResumeButton: 'translateY(50px)',
@@ -69,7 +68,7 @@ class About extends Component {
                     topResume: this.height + 'px', marginBottomResume: (this.height - this.dimens) / 2 + this.dimens / 6 + 'px' });
     setTimeout( function() {
       this.setState({ topCircle: '50%', topPortrait: this.dimens / 4 + 'px', opacityCircle: 1, transitionCircle: 'top 1.1s cubic-bezier(0.770, 0.000, 0.175, 1.000), left 0.9s cubic-bezier(0.645, 0.045, 0.355, 1.000), opacity 0.6s linear' });
-    }.bind(this), 200);
+    }.bind(this), 300);
   }
 
   page1out() {

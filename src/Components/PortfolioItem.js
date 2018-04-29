@@ -36,9 +36,9 @@ class PortfolioItem extends Component {
       backColor: '',
       backOpacity: 0,
       headerOpacity: 0,
-      headerTransform: 'translateY(30px)',
+      headerTransform: 'translateY(60px)',
       numberOpacity: 0,
-      numberTransform: 'translateY(30px)',
+      numberTransform: 'translateY(60px)',
       numberPosition: 'fixed',
       numberTop: (window.innerHeight - this.dimens) / 2 + 'px',
       leftArrow: '',
@@ -82,10 +82,10 @@ class PortfolioItem extends Component {
       this.setState({ backOpacity: 1, portfolioItemHeight: this.refs.portfolioContent.clientHeight + window.innerHeight / 2 + 100 + 'px' });
     }.bind(this), 50);
     setTimeout( function() {
-      this.setState({ numberOpacity: 1, numberTransform: 'translateY(0px)' });
+      this.setState({ headerOpacity: 1, headerTransform: 'translateY(0px)' });
     }.bind(this), 200);
     setTimeout( function() {
-      this.setState({ headerOpacity: 1, headerTransform: 'translateY(0px)' });
+      this.setState({ numberOpacity: 1, numberTransform: 'translateY(0px)' });
     }.bind(this), 350);
     setTimeout( function() {
       this.setState({ textOpacity: 1 });
@@ -97,10 +97,10 @@ class PortfolioItem extends Component {
       this.props.itemOut();
       this.setState({ backOpacity: 0, textOpacity: 0 });
       setTimeout( function() {
-        this.setState({ headerOpacity: 0, headerTransform: 'translateY(30px)' });
+        this.setState({ headerOpacity: 0, headerTransform: 'translateY(60px)' });
       }.bind(this), 200);
       setTimeout( function() {
-        this.setState({ numberOpacity: 0, numberTransform: 'translateY(30px)', gradientOpacity: 0 });
+        this.setState({ numberOpacity: 0, numberTransform: 'translateY(60px)', gradientOpacity: 0 });
       }.bind(this), 350);
     } else {
       this.props.scrollTop(true);
@@ -108,10 +108,10 @@ class PortfolioItem extends Component {
       this.props.itemOut();
       this.setState({ textOpacity: 0 });
       setTimeout( function() {
-        this.setState({ headerOpacity: 0, headerTransform: 'translateY(30px)' });
+        this.setState({ headerOpacity: 0, headerTransform: 'translateY(60px)' });
       }.bind(this), 100);
       setTimeout( function() {
-        this.setState({ numberOpacity: 0, numberTransform: 'translateY(30px)' });
+        this.setState({ numberOpacity: 0, numberTransform: 'translateY(60px)' });
       }.bind(this), 250);
       setTimeout( function() {
         this.setState({ gradientOpacity: 0 });
