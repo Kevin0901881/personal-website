@@ -13,7 +13,7 @@ class About extends Component {
     super(props);
     this.height = window.innerHeight;
     this.width = window.innerWidth;
-    this.dimens = Constants.CENTER_SHAPE_DIMENS;
+    this.dimens = 0;
     this.state = {
       topCircle: '',
       // leftCircle: '25%',
@@ -53,15 +53,16 @@ class About extends Component {
   }
 
   parallax(e) {
-    this.setState({ transformCircle: 'translate(' + (this.dimens * -0.5 + (e.clientX * 4 / (this.width * 2))) + 'px, ' + (this.dimens * -0.5 + (e.clientY * 4 / (this.height * 2))) + 'px)',
+    this.setState({ transformCircle: 'translate(' + (this.dimens * -0.5 + (e.clientX * 5 / (this.width * 2))) + 'px, ' + (this.dimens * -0.5 + (e.clientY * 4 / (this.height * 2))) + 'px)',
                     // leftCircle: (windowWidth / 2) - (e.clientX * 4 / (windowWidth * 2)) + 'px',
-                    transformPortrait: 'translate(' + (e.clientX * 8 / (this.width * 2)) + 'px, ' + (-20 + (e.clientY * 8 / (this.height * 2))) + 'px)'
+                    transformPortrait: 'translate(' + (e.clientX * 10 / (this.width * 2)) + 'px, ' + (-20 + (e.clientY * 8 / (this.height * 2))) + 'px)'
                     // topText: (this.height * 0.31) + (e.clientY * 3 / (windowHeight * 2)) + 'px',
                     // leftText: (this.width * 0.345) + (e.clientX * 3 / (windowWidth * 2)) + 'px'
                    });
   }
 
   page1in() {
+    this.dimens = this.refs.circle.clientWidth;
     this.parallax(window.event);
     this.setState({ topCircle: this.height + this.dimens + 'px', leftPortrait: this.dimens / 3 - this.refs.portrait.clientWidth / 2 + 'px',
                     topPortrait: this.dimens / 2 + 'px', transitionCircle: '', topText: this.height / 2 - 40 + 'px',
@@ -171,7 +172,7 @@ class About extends Component {
             <Resume width={this.width} hideResume={this.hideResume} />
           </div>
           <div className="scrollbar" style={{ opacity: this.state.opacityScrollbar }}>
-            <Scrollbar background={Constants.SECONDARYCOLOR1} foregroundHeight={this.state.foregroundHeight} foregroundBackground={Constants.PRIMARYCOLOR2} />
+            <Scrollbar background={Constants.SECONDARYCOLOR1} foregroundHeight={this.state.foregroundHeight} foregroundBackground={Constants.PRIMARYCOLOR2} dimens={this.dimens} />
           </div>
           <div className="textAbout" ref="textAbout" style={{ top: this.state.topText, left: this.state.leftText, display: this.state.displayText }}>
             <div className="titleAbout" style={{ opacity: this.state.opacityTitle, transform: this.state.transformTitle }}>STUDENT - DEVELOPER - DESIGNER</div>

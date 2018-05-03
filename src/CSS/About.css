@@ -8,18 +8,12 @@
 }
 
 .circle {
-  width: 480px;
-  height: 480px;
-  -webkit-border-radius: 240px;
-  -moz-border-radius: 240px;
-  border-radius: 240px;
   position: absolute;
   background: linear-gradient(to bottom, #ff00fc 0%, #000000 100%);
   z-index: 0;
 }
 
 .portrait {
-  height: 460px;
   position: absolute;
   z-index: 0;
   transition: top 1.4s cubic-bezier(0.770, 0.000, 0.175, 1.000), left 0.9s cubic-bezier(0.645, 0.045, 0.355, 1.000);
@@ -30,8 +24,6 @@
 }
 
 .textAbout {
-  width: 900px;
-  height: auto;
   color: #ffffff;
   text-align: left;
   position: absolute;
@@ -42,11 +34,8 @@
 .titleAbout {
   position: relative;
   top: 0;
-  width: 900px;
   font-family: Montserrat;
   font-weight: 600;
-  font-size: 21px;
-  letter-spacing: 5px;
   color: inherit;
   transition: opacity 0.25s linear, transform 0.3s cubic-bezier(0.645, 0.045, 0.355, 1.000);
   -webkit-touch-callout: none;
@@ -56,14 +45,9 @@
 }
 
 .bodyAbout {
-  width: 900px;
-  height: auto;
   position: relative;
-  top: 30px;
   font-family: Catamaran;
   font-weight: 400;
-  font-size: 15.5px;
-  letter-spacing: 0.5px;
   color: inherit;
   text-align: justify;
   -webkit-touch-callout: none;
@@ -71,21 +55,13 @@
   -moz-user-select: none;
   -ms-user-select: none;
   transition: opacity 0.25s linear, transform 0.3s cubic-bezier(0.645, 0.045, 0.355, 1.000);
-  /* text-justify: inter-word;
-  word-break: break-all;
-  -webkit-hyphens: auto;
-  -moz-hyphens: auto;
-  -ms-hyphens: auto;
-  hyphens: auto; */
 }
 
 .leftColumn {
-  width: 425px;
   float: left;
 }
 
 .rightColumn {
-  width: 425px;
   float: right;
 }
 
@@ -96,14 +72,9 @@
 }
 
 .resumeButton {
-  width: 200px;
-  height: 20px;
   font-family: Montserrat;
   font-weight: 600;
-  font-size: 15px;
-  letter-spacing: 3px;
   position: absolute;
-  bottom: -85px;
   cursor: pointer;
   -webkit-touch-callout: none;
   -webkit-user-select: none;
@@ -117,17 +88,277 @@
 }
 
 .rightArrow {
-  width: 8.5px;
-  height: 10px;
-  margin-left: 15px;
-  margin-bottom: 0.5px;
   transition: transform 0.2s ease-out, opacity 0.2s ease-out;
 }
 
 .rightArrowDark {
-  width: 8.5px;
-  height: 10px;
-  margin-left: -8.5px;
-  margin-bottom: 0.5px;
   transition: transform 0.2s ease-out, opacity 0.2s ease-out;
+}
+
+@media screen and (max-height: 799px) {
+  .circle {
+    width: 410px;
+    height: 410px;
+    -webkit-border-radius: 205px;
+    -moz-border-radius: 205px;
+    border-radius: 205px;
+  }
+
+  .portrait {
+    height: 390px;
+  }
+
+  .titleAbout {
+    font-size: 17px;
+    letter-spacing: 5px;
+  }
+
+  .bodyAbout {
+    top: 28px;
+    font-size: 13.5px;
+    letter-spacing: 0.5px;
+  }
+
+  .resumeButton {
+    font-size: 12px;
+    letter-spacing: 3px;
+    bottom: -75px;
+  }
+
+  .rightArrow {
+    width: 8px;
+    height: 9px;
+    margin-left: 15px;
+  }
+
+  .rightArrowDark {
+    width: 8px;
+    height: 9px;
+    margin-left: -8px;
+  }
+}
+
+@media screen and (min-height: 800px) {
+  .circle {
+    width: 480px;
+    height: 480px;
+    -webkit-border-radius: 240px;
+    -moz-border-radius: 240px;
+    border-radius: 240px;
+  }
+
+  .portrait {
+    height: 460px;
+  }
+
+  .titleAbout {
+    font-size: 21px;
+    letter-spacing: 5px;
+  }
+
+  .bodyAbout {
+    top: 30px;
+    font-size: 15.5px;
+    letter-spacing: 0.5px;
+  }
+
+  .resumeButton {
+    font-size: 15px;
+    letter-spacing: 3px;
+    bottom: -85px;
+  }
+
+  .rightArrow {
+    width: 8.5px;
+    height: 10px;
+    margin-left: 15px;
+    margin-bottom: 0.5px;
+  }
+
+  .rightArrowDark {
+    width: 8.5px;
+    height: 10px;
+    margin-left: -8.5px;
+    margin-bottom: 0.5px;
+  }
+}
+
+@media screen and (min-height: 950px) {
+  .circle {
+    width: 590px;
+    height: 590px;
+    -webkit-border-radius: 295px;
+    -moz-border-radius: 295px;
+    border-radius: 295px;
+  }
+
+  .portrait {
+    height: 570px;
+  }
+
+  .titleAbout {
+    font-size: 26px;
+    letter-spacing: 6px;
+  }
+
+  .bodyAbout {
+    top: 40px;
+    font-size: 18px;
+    letter-spacing: 0.5px;
+  }
+
+  .resumeButton {
+    font-size: 17px;
+    letter-spacing: 4px;
+    bottom: -105px;
+  }
+
+  .rightArrow {
+    width: 8.5px;
+    height: 10px;
+    margin-left: 15px;
+    margin-bottom: 0.5px;
+  }
+
+  .rightArrowDark {
+    width: 8.5px;
+    height: 10px;
+    margin-left: -8.5px;
+    margin-bottom: 0.5px;
+  }
+}
+
+@media screen and (min-height: 1300px) {
+  .circle {
+    width: 820px;
+    height: 820px;
+    -webkit-border-radius: 410px;
+    -moz-border-radius: 410px;
+    border-radius: 410px;
+  }
+
+  .portrait {
+    height: 800px;
+  }
+
+  .titleAbout {
+    font-size: 34px;
+    letter-spacing: 8px;
+  }
+
+  .bodyAbout {
+    top: 45px;
+    font-size: 24px;
+    letter-spacing: 1.5px;
+  }
+
+  .resumeButton {
+    font-size: 24px;
+    letter-spacing: 6px;
+    bottom: -125px;
+  }
+
+  .rightArrow {
+    width: 12.5px;
+    height: auto;
+    margin-left: 20px;
+    margin-bottom: 1px;
+  }
+
+  .rightArrowDark {
+    width: 12.5px;
+    height: auto;
+    margin-left: -13.5px;
+    margin-bottom: 1px;
+  }
+}
+
+@media screen and (min-height: 1650px) {
+  .circle {
+    width: 980px;
+    height: 980px;
+    -webkit-border-radius: 490px;
+    -moz-border-radius: 490px;
+    border-radius: 490px;
+  }
+
+  .portrait {
+    height: 960px;
+  }
+
+  .titleAbout {
+    font-size: 42px;
+    letter-spacing: 12px;
+  }
+
+  .bodyAbout {
+    top: 55px;
+    font-size: 30px;
+    letter-spacing: 1.5px;
+  }
+
+  .resumeButton {
+    font-size: 30px;
+    letter-spacing: 7px;
+    bottom: -155px;
+  }
+
+  .rightArrow {
+    width: 16px;
+    height: auto;
+    margin-left: 25px;
+    margin-bottom: 1.5px;
+  }
+
+  .rightArrowDark {
+    width: 16px;
+    height: auto;
+    margin-left: -18.5px;
+    margin-bottom: 1.5px;
+  }
+}
+
+@media screen and (min-height: 2000px) {
+  .circle {
+    width: 1180px;
+    height: 1180px;
+    -webkit-border-radius: 590px;
+    -moz-border-radius: 590px;
+    border-radius: 590px;
+  }
+
+  .portrait {
+    height: 1160px;
+  }
+
+  .titleAbout {
+    font-size: 50px;
+    letter-spacing: 14px;
+  }
+
+  .bodyAbout {
+    top: 65px;
+    font-size: 36px;
+    letter-spacing: 1.5px;
+  }
+
+  .resumeButton {
+    font-size: 36px;
+    letter-spacing: 9px;
+    bottom: -185px;
+  }
+
+  .rightArrow {
+    width: 18px;
+    height: auto;
+    margin-left: 25px;
+    margin-bottom: 2px;
+  }
+
+  .rightArrowDark {
+    width: 18px;
+    height: auto;
+    margin-left: -18.5px;
+    margin-bottom: 2px;
+  }
 }

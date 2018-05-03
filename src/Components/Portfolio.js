@@ -22,10 +22,11 @@ class Portfolio extends Component {
   constructor(props) {
     super(props);
 
-    this.dimens = Constants.CENTER_SHAPE_DIMENS;
+    this.dimens = 0;
     this.height = window.innerHeight;
     this.width = window.innerWidth;
     this.itemEnabled = false;
+    this.margin = 0;
     this.state = {
       arrowOpacityLeft: 0,
       arrowOpacityRight: 0,
@@ -65,7 +66,6 @@ class Portfolio extends Component {
 
   componentDidMount() {
     window.addEventListener("resize", this.updateDimensions);
-    this.updateDimensions();
   }
 
   componentWillUnmount() {
@@ -73,6 +73,9 @@ class Portfolio extends Component {
   }
 
   in() {
+    this.dimens = this.refs.square.clientWidth;
+    this.margin = 0.22 * this.dimens;
+    this.updateDimensions();
     this.setState({ opacitySquare: 0 });
     setTimeout( function() {
       this.setState({ transition: 'opacity 0.6s linear, height 1s cubic-bezier(0.770, 0.000, 0.175, 1.000)', opacitySquare: 1,
@@ -299,7 +302,7 @@ class Portfolio extends Component {
     var scrollTop = this.refs.Portfolio.scrollTop;
     this.setState({ opacitySquare: 1 - scrollTop / 500, opacitySquare2: 1 - scrollTop / 500,
                     foregroundHeight: scrollTop / (this.refs.Portfolio.scrollHeight - this.refs.Portfolio.clientHeight) * (this.dimens / 2) });
-    if (scrollTop >= this.dimens / 2 + 140) {
+    if (scrollTop >= this.dimens / 2 + this.margin) {
       this.refs.portfolioItem.numberStateChange(false);
     } else {
       this.refs.portfolioItem.numberStateChange(true);
@@ -313,10 +316,11 @@ class Portfolio extends Component {
             <PortfolioItem primaryColor={this.state.progressForeground} secondaryColor={this.state.progressBackground}
                            tertieryColor={this.state.backgroundColor} scrollbarHeight={this.state.foregroundHeight} scrollTop={this.toTop}
                            itemOut={this.itemOut} page={this.props.page} topText={this.height - (this.height - this.dimens) / 2}
+                           dimens={this.dimens} margin={this.margin}
                            ref="portfolioItem" />
           </div>
           <div className="scrollbar" style={{ opacity: this.state.opacityScrollbar }}>
-            <Scrollbar background={this.state.progressBackground} foregroundHeight={this.state.foregroundHeight} foregroundBackground={this.state.progressForeground} />
+            <Scrollbar background={this.state.progressBackground} foregroundHeight={this.state.foregroundHeight} foregroundBackground={this.state.progressForeground} dimens={this.dimens} />
           </div>
           <img src={this.state.arrowLeft2} className="prev" ref="prev2" style={{ left: this.state.leftArrow, bottom: this.state.bottomArrow, opacity: this.state.arrowOpacityLeft2 }} />
           <img src={this.state.arrowLeft} className="prev" ref="prev" style={{ left: this.state.leftArrow, bottom: this.state.bottomArrow, opacity: this.state.arrowOpacityLeft }} />

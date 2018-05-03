@@ -6,13 +6,10 @@
 .kevin {
   font-family: Montserrat;
   font-weight: 800;
-  font-size: 12em;
-  letter-spacing: 60px;
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  line-height: 0.72em;
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
@@ -27,4 +24,52 @@
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
+}
+
+@media screen and (max-height: 799px) {
+  .kevin {
+    font-size: 10em;
+    letter-spacing: 50px;
+    line-height: 0.7em;
+  }
+}
+
+@media screen and (min-height: 800px) {
+  .kevin {
+    font-size: 12em;
+    letter-spacing: 60px;
+    line-height: 0.72em;
+  }
+}
+
+@media screen and (min-height: 950px) {
+  .kevin {
+    font-size: 14em;
+    letter-spacing: 75px;
+    line-height: 0.75em;
+  }
+}
+
+@media screen and (min-height: 1300px) {
+  .kevin {
+    font-size: 18em;
+    letter-spacing: 100px;
+    line-height: 0.8em;
+  }
+}
+
+@media screen and (min-height: 1650px) {
+  .kevin {
+    font-size: 22em;
+    letter-spacing: 120px;
+    line-height: 0.85em;
+  }
+}
+
+@media screen and (min-height: 2000px) {
+  .kevin {
+    font-size: 26em;
+    letter-spacing: 150px;
+    line-height: 0.9em;
+  }
 }

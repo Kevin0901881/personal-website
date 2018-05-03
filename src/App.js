@@ -15,6 +15,7 @@ class App extends Component {
     this.scrollPrev = 0;
     this.scroll2 = 0;
     this.currentTime = 0;
+    this.enableScroll = false;
     this.state = {
       page: 1,
       currentPage: 1,
@@ -34,6 +35,10 @@ class App extends Component {
 
   componentDidMount() {
     window.addEventListener("wheel", this.handleScroll);
+
+    setTimeout( function() {
+      this.enableScroll = true;
+    }.bind(this), 1350);
   }
 
   componentWillUnmount() {
@@ -52,7 +57,7 @@ class App extends Component {
         setTimeout( function() {
           this.scroll2 = 0;
           this.setState({ displayAbout: 'none' });
-        }.bind(this), 1100);
+        }.bind(this), 1450);
       } else if (this.state.page == 3 && this.scroll2 == 0 && !this.state.resumeActivated) {
         this.scroll2 = 1;
         this.setState({ page: this.state.page - 1, currentPage: this.state.currentPage - 1 });
@@ -104,7 +109,7 @@ class App extends Component {
        }.bind(this), 1100);
      }
    } else if (e.deltaY > 0) { // scroll down (next)
-     if (this.state.page == 1 && this.scroll2 == 0) {
+     if (this.state.page == 1 && this.scroll2 == 0 && this.enableScroll) {
        this.scroll2 = 1;
        this.setState({ page: this.state.page + 1, currentPage: this.state.currentPage + 1, displayAbout: 'block' });
        this.refs.menu.updateMenu(true);
@@ -114,7 +119,7 @@ class App extends Component {
        setTimeout( function() {
          this.scroll2 = 0;
          this.setState({ displayWelcome: 'none' });
-       }.bind(this), 1100);
+       }.bind(this), 1300);
      } else if (this.state.page == 2 && this.scroll2 == 0) {
        this.scroll2 = 1;
        this.setState({ page: this.state.page + 1, currentPage: this.state.currentPage + 1 });
@@ -155,7 +160,7 @@ class App extends Component {
            this.scrollNext--;
          }.bind(this), 400);
        }
-     } else if (this.state.currentPage == 10 && this.scroll2 == 0 && !this.state.portfolioItemActivated) {
+     } else if (this.state.currentPage == 10 && this.scroll2 == 0 && this.scrollNext == 0 && !this.state.portfolioItemActivated) {
        this.scroll2 = 1;
        this.setState({ page: this.state.page + 1, displayContact: 'block' });
        this.refs.menu.updateMenu(true);

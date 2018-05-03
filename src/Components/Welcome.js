@@ -19,22 +19,23 @@ class Welcome extends Component {
   }
 
   componentDidMount() {
+    console.log(window.innerHeight);
     this.in();
   }
 
   in() {
     setTimeout( function() {
       this.setState({ transition: '', width: this.refs.kevin.clientWidth, height: this.refs.kevin.clientHeight * 2,
-                      bottom: (window.innerHeight - this.refs.kevin.clientHeight) / 2, opacityBlock: 1, opacity: 1 });
+                      bottom: (window.innerHeight - this.refs.kevin.clientHeight) / 2 - 2, opacityBlock: 1, opacity: 1, scrollDownOpacity: 1 });
       this.setState({ transition: 'bottom 1s cubic-bezier(0.770, 0.000, 0.175, 1.000)', bottom: (window.innerHeight - 3 * this.refs.kevin.clientHeight) / 2 });
     }.bind(this), 350);
     setTimeout( function() {
-      this.setState({ move: true, transition: 'bottom 0.1s linear', scrollDownOpacity: 1 });
+      this.setState({ move: true, transition: 'bottom 0.1s linear' });
     }.bind(this), 1350);
   }
 
   out() {
-    this.setState({ transition: 'bottom 1s cubic-bezier(0.770, 0.000, 0.175, 1.000)', bottom: (window.innerHeight - this.refs.kevin.clientHeight) / 2, move: false, scrollDownOpacity: 0 });
+    this.setState({ transition: 'bottom 1s cubic-bezier(0.770, 0.000, 0.175, 1.000)', bottom: (window.innerHeight - this.refs.kevin.clientHeight) / 2 - 2, move: false, scrollDownOpacity: 0 });
     setTimeout( function() {
       this.setState({ opacity: 0, opacityBlock: 0 });
     }.bind(this), 1000);
@@ -42,7 +43,8 @@ class Welcome extends Component {
 
   render() {
     return (
-      <div className="Welcome" onMouseMove={ this.state.move ? (e) => {this.setState({ bottom: (window.innerHeight - 3 * this.refs.kevin.clientHeight) / 2 + (e.clientY * 16 / window.innerHeight) })} : null }>
+      <div className="Welcome" style={{ display: this.props.display }}
+           onMouseMove={ this.state.move ? (e) => {this.setState({ bottom: (window.innerHeight - 3 * this.refs.kevin.clientHeight) / 2 + (e.clientY * 16 / window.innerHeight) })} : null }>
           <div className="kevin" ref="kevin" style={{ backgroundImage: this.state.background, opacity: this.state.opacity, color: Constants.PRIMARYCOLOR1 }}>
               KEVIN
           </div>

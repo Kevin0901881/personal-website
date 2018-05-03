@@ -2,7 +2,6 @@
   width: inherit;
   height: auto;
   cursor: default;
-  margin-top: 25px;
   -webkit-touch-callout: none;
   -webkit-user-select: none;
   -moz-user-select: none;
@@ -10,12 +9,8 @@
 }
 
 .backResume {
-  width: 200px;
-  height: 20px;
   font-family: Montserrat;
   font-weight: 600;
-  font-size: 15px;
-  letter-spacing: 3px;
   float: right;
   cursor: pointer;
   text-align: right;
@@ -25,9 +20,80 @@
   -ms-user-select: none;
   transition: color 0.2s;
   color: #ffffff;
-  margin-right: -3px;
 }
 
 .backResume:hover {
   color: #3e3e3e;
+}
+
+@media screen and (max-height: 799px) {
+  .resume {
+    margin-top: 25px;
+  }
+
+  .backResume {
+    font-size: 12px;
+    letter-spacing: 3px;
+    margin-right: -3px;
+  }
+}
+
+@media screen and (min-height: 800px) {
+  .resume {
+    margin-top: 25px;
+  }
+
+  .backResume {
+    font-size: 15px;
+    letter-spacing: 3px;
+    margin-right: -3px;
+  }
+}
+
+@media screen and (min-height: 950px) {
+  .resume {
+    margin-top: 30px;
+  }
+
+  .backResume {
+    font-size: 17px;
+    letter-spacing: 4px;
+    margin-right: -2px;
+  }
+}
+
+@media screen and (min-height: 1300px) {
+  .resume {
+    margin-top: 35px;
+  }
+
+  .backResume {
+    font-size: 24px;
+    letter-spacing: 6px;
+    margin-right: -3px;
+  }
+}
+
+@media screen and (min-height: 1650px) {
+  .resume {
+    margin-top: 45px;
+  }
+
+  .backResume {
+    font-size: 30px;
+    letter-spacing: 7px;
+    margin-right: -3px;
+  }
+}
+
+@media screen and (min-height: 2000px) {
+  .resume {
+    margin-top: 55px;
+  }
+
+  .backResume {
+    font-size: 36px;
+    letter-spacing: 9px;
+    margin-right: -3px;
+  }
 }

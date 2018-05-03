@@ -79,26 +79,6 @@ html, body, #root, .App {
   text-align: center;
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 80px;
-}
-
-.App-header {
-  background-color: #222;
-  height: 150px;
-  padding: 20px;
-  color: white;
-}
-
-.App-title {
-  font-size: 1.5em;
-}
-
-.App-intro {
-  font-size: large;
-}
-
 .contact {
   position: absolute;
   top: 0;
@@ -109,8 +89,6 @@ html, body, #root, .App {
   color: #FFFFFF;
   font-family: Montserrat;
   font-weight: 300;
-  font-size: 11px;
-  letter-spacing: 1px;
   position: absolute;
   bottom: 35px;
   left: 50%;
@@ -124,20 +102,142 @@ html, body, #root, .App {
 }
 
 .leftArrow {
-  width: 8.5px;
-  height: 10px;
-  margin-right: -8.5px;
-  margin-bottom: 0.5px;
   transition: transform 0.2s ease-out, opacity 0.2s ease-out;
 }
 
 .leftArrowDark {
-  width: 8.5px;
-  margin-right: 15px;
-  margin-bottom: 0.5px;
   transition: transform 0.2s ease-out, opacity 0.2s ease-out;
 }
 
 .scrollbar {
   transition: opacity 0.3s linear;
+}
+
+@media screen and (max-height: 799px) {
+  .scrollDown {
+    font-size: 9px;
+    letter-spacing: 1px;
+    line-height: 0em;
+  }
+
+  .leftArrow {
+    width: 8px;
+    height: 9px;
+    margin-right: -8px;
+  }
+
+  .leftArrowDark {
+    width: 8px;
+    height: 9px;
+    margin-right: 15px;
+  }
+}
+
+@media screen and (min-height: 800px) {
+  .scrollDown {
+    font-size: 11px;
+    letter-spacing: 1px;
+  }
+
+  .leftArrow {
+    width: 8.5px;
+    height: 10px;
+    margin-right: -8.5px;
+    margin-bottom: 0.5px;
+  }
+
+  .leftArrowDark {
+    width: 8.5px;
+    height: 10px;
+    margin-right: 15px;
+    margin-bottom: 0.5px;
+  }
+}
+
+@media screen and (min-height: 950px) {
+  .scrollDown {
+    font-size: 13px;
+    letter-spacing: 1px;
+    line-height: 3em;
+  }
+
+  .leftArrow {
+    width: 8.5px;
+    height: 10px;
+    margin-right: -8.5px;
+    margin-bottom: 0.5px;
+  }
+
+  .leftArrowDark {
+    width: 8.5px;
+    height: 10px;
+    margin-right: 15px;
+    margin-bottom: 0.5px;
+  }
+}
+
+@media screen and (min-height: 1300px) {
+  .scrollDown {
+    font-size: 16px;
+    letter-spacing: 1px;
+    line-height: 4em;
+  }
+
+  .leftArrow {
+    width: 12.5px;
+    height: auto;
+    margin-right: -13.5px;
+    margin-bottom: 1px;
+  }
+
+  .leftArrowDark {
+    width: 12.5px;
+    height: auto;
+    margin-right: 20px;
+    margin-bottom: 1px;
+  }
+}
+
+@media screen and (min-height: 1650px) {
+  .scrollDown {
+    font-size: 20px;
+    letter-spacing: 1px;
+    line-height: 5em;
+  }
+
+  .leftArrow {
+    width: 16px;
+    height: auto;
+    margin-right: -18.5px;
+    margin-bottom: 1.5px;
+  }
+
+  .leftArrowDark {
+    width: 16px;
+    height: auto;
+    margin-right: 25px;
+    margin-bottom: 1.5px;
+  }
+}
+
+@media screen and (min-height: 2000px) {
+  .scrollDown {
+    font-size: 25px;
+    letter-spacing: 1px;
+    line-height: 6em;
+  }
+
+  .leftArrow {
+    width: 18px;
+    height: auto;
+    margin-right: -18.5px;
+    margin-bottom: 1.5px;
+  }
+
+  .leftArrowDark {
+    width: 18px;
+    height: auto;
+    margin-right: 25px;
+    margin-bottom: 1.5px;
+  }
 }

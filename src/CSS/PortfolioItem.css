@@ -4,15 +4,9 @@
 }
 
 .backPortfolio {
-  width: auto;
-  height: 20px;
   font-family: Montserrat;
   font-weight: 600;
-  font-size: 15px;
-  letter-spacing: 3px;
   position: fixed;
-  top: 70px;
-  left: 70px;
   cursor: pointer;
   -webkit-touch-callout: none;
   -webkit-user-select: none;
@@ -44,26 +38,17 @@
 .portfolioYear {
   font-family: Montserrat;
   font-weight: 600;
-  font-size: 17px;
-  letter-spacing: 3px;
-  margin-left: 2px;
 }
 
 .portfolioTitle {
   font-family: Montserrat;
   font-weight: 700;
-  font-size: 55px;
-  letter-spacing: 10px;
-  margin-top: 6px;
 }
 
 .portfolioDescription {
   font-family: Catamaran;
   font-weight: 400;
-  font-size: 18px;
-  letter-spacing: 0.5px;
   margin-top: 0px;
-  margin-left: 2px;
 }
 
 .portfolioContent {
@@ -75,19 +60,255 @@
 .portfolioText {
   font-family: Catamaran;
   font-weight: 400;
-  font-size: 16px;
-  letter-spacing: 0.5px;
   text-align: left;
   transition: opacity 0.3s linear;
-  margin-bottom: 555px;
 }
 
 .portfolioNumber {
   position: fixed;
   font-family: Montserrat;
   font-weight: 600;
-  font-size: 25px;
-  line-height: 25px;
-  letter-spacing: 4px;
   transition: opacity 0.3s linear, transform 0.4s cubic-bezier(0.645, 0.045, 0.355, 1.000);
+}
+
+@media screen and (max-height: 799px) {
+  .backPortfolio {
+    font-size: 12px;
+    letter-spacing: 3px;
+    top: 55px;
+    left: 55px;
+  }
+
+  .portfolioYear {
+    font-size: 15px;
+    letter-spacing: 3px;
+    margin-left: 2px;
+  }
+
+  .portfolioTitle {
+    font-size: 45px;
+    letter-spacing: 10px;
+    margin-top: 6px;
+  }
+
+  .portfolioDescription {
+    font-size: 16px;
+    letter-spacing: 0.5px;
+    margin-left: 2px;
+  }
+
+  .portfolioText {
+    font-size: 14px;
+    letter-spacing: 0.5px;
+    margin-bottom: 465px;
+  }
+
+  .portfolioNumber {
+    font-size: 22px;
+    line-height: 22px;
+    letter-spacing: 4px;
+  }
+}
+
+@media screen and (min-height: 800px) {
+  .backPortfolio {
+    font-size: 15px;
+    letter-spacing: 3px;
+    top: 70px;
+    left: 70px;
+  }
+
+  .portfolioYear {
+    font-size: 17px;
+    letter-spacing: 3px;
+    margin-left: 2px;
+  }
+
+  .portfolioTitle {
+    font-size: 55px;
+    letter-spacing: 10px;
+    margin-top: 6px;
+  }
+
+  .portfolioDescription {
+    font-size: 18px;
+    letter-spacing: 0.5px;
+    margin-left: 2px;
+  }
+
+  .portfolioText {
+    font-size: 16px;
+    letter-spacing: 0.5px;
+    margin-bottom: 555px;
+  }
+
+  .portfolioNumber {
+    font-size: 25px;
+    line-height: 25px;
+    letter-spacing: 4px;
+  }
+}
+
+@media screen and (min-height: 950px) {
+  .backPortfolio {
+    font-size: 17px;
+    letter-spacing: 4px;
+    top: 80px;
+    left: 80px;
+  }
+
+  .portfolioYear {
+    font-size: 20px;
+    letter-spacing: 4px;
+    margin-left: 2px;
+  }
+
+  .portfolioTitle {
+    font-size: 70px;
+    letter-spacing: 12px;
+    margin-top: 10px;
+  }
+
+  .portfolioDescription {
+    font-size: 21px;
+    letter-spacing: 1px;
+    margin-left: 2px;
+    margin-top: 5px;
+  }
+
+  .portfolioText {
+    font-size: 18px;
+    letter-spacing: 1px;
+    margin-bottom: 685px;
+  }
+
+  .portfolioNumber {
+    font-size: 30px;
+    line-height: 30px;
+    letter-spacing: 5px;
+    margin-top: -3px;
+  }
+}
+
+@media screen and (min-height: 1300px) {
+  .backPortfolio {
+    font-size: 24px;
+    letter-spacing: 6px;
+    top: 105px;
+    left: 105px;
+  }
+
+  .portfolioYear {
+    font-size: 28px;
+    letter-spacing: 6px;
+    margin-left: 2px;
+  }
+
+  .portfolioTitle {
+    font-size: 97px;
+    letter-spacing: 18px;
+    margin-top: 10px;
+  }
+
+  .portfolioDescription {
+    font-size: 30px;
+    letter-spacing: 0.5px;
+    margin-left: 2px;
+  }
+
+  .portfolioText {
+    font-size: 26px;
+    letter-spacing: 1px;
+    margin-bottom: 930px;
+  }
+
+  .portfolioNumber {
+    font-size: 42px;
+    letter-spacing: 8px;
+    line-height: 25px;
+    margin-top: 4px;
+    margin-left: 10px;
+  }
+}
+
+@media screen and (min-height: 1650px) {
+  .backPortfolio {
+    font-size: 30px;
+    letter-spacing: 7px;
+    top: 140px;
+    left: 140px;
+  }
+
+  .portfolioYear {
+    font-size: 36px;
+    letter-spacing: 8px;
+    margin-left: 4px;
+  }
+
+  .portfolioTitle {
+    font-size: 117px;
+    letter-spacing: 22px;
+    margin-top: 10px;
+  }
+
+  .portfolioDescription {
+    font-size: 36px;
+    letter-spacing: 2px;
+    margin-left: 4px;
+  }
+
+  .portfolioText {
+    font-size: 31px;
+    letter-spacing: 1.5px;
+    margin-bottom: 1130px;
+  }
+
+  .portfolioNumber {
+    font-size: 54px;
+    line-height: 25px;
+    letter-spacing: 10px;
+    margin-top: 7px;
+    margin-left: 20px;
+  }
+}
+
+@media screen and (min-height: 2000px) {
+  .backPortfolio {
+    font-size: 36px;
+    letter-spacing: 9px;
+    top: 140px;
+    left: 140px;
+  }
+
+  .portfolioYear {
+    font-size: 42px;
+    letter-spacing: 10px;
+    margin-left: 6px;
+  }
+
+  .portfolioTitle {
+    font-size: 140px;
+    letter-spacing: 25px;
+    margin-top: 15px;
+  }
+
+  .portfolioDescription {
+    font-size: 42px;
+    letter-spacing: 2px;
+    margin-left: 6px;
+  }
+
+  .portfolioText {
+    font-size: 36px;
+    letter-spacing: 2px;
+    margin-bottom: 1390px;
+  }
+
+  .portfolioNumber {
+    font-size: 66px;
+    line-height: 25px;
+    letter-spacing: 12px;
+    margin-top: 14px;
+    margin-left: 30px;
+  }
 }

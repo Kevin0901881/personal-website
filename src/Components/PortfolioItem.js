@@ -20,7 +20,6 @@ class PortfolioItem extends Component {
   constructor(props) {
     super(props);
 
-    this.dimens = Constants.CENTER_SHAPE_DIMENS;
     this.state = {
       portfolioItemHeight: '',
       shiftArrow: 'translateX(0px)',
@@ -40,21 +39,20 @@ class PortfolioItem extends Component {
       numberOpacity: 0,
       numberTransform: 'translateY(60px)',
       numberPosition: 'fixed',
-      numberTop: (window.innerHeight - this.dimens) / 2 + 'px',
+      numberTop: '0px',
       leftArrow: '',
       leftArrowDark: '',
       textOpacity: 0,
       gradientOpacity: 0,
       contentTransform: ''
     }
-
     this.out = this.out.bind(this);
     this.numberStateChange = this.numberStateChange.bind(this);
   }
 
   in() {
     this.setState({ primaryColor: this.props.primaryColor, secondaryColor: this.props.secondaryColor, tertieryColor: this.props.tertieryColor,
-                    backColor: this.props.primaryColor, gradientOpacity: 1 });
+                    backColor: this.props.primaryColor, gradientOpacity: 1, numberTop: (window.innerHeight - this.props.dimens) / 2 + 'px' });
     switch (this.props.page) {
       case 4:
         this.setState({ leftArrow: leftArrow, leftArrowDark: leftArrowDark });
@@ -129,9 +127,9 @@ class PortfolioItem extends Component {
 
   numberStateChange(fixed) {
     if (fixed) {
-      this.setState({ numberPosition: 'fixed', numberTop: (window.innerHeight - this.dimens) / 2 + 'px' });
+      this.setState({ numberPosition: 'fixed', numberTop: (window.innerHeight - this.props.dimens) / 2 + 'px' });
     } else {
-      this.setState({ numberPosition: 'absolute', numberTop: window.innerHeight / 2 + 140 + 'px' });
+      this.setState({ numberPosition: 'absolute', numberTop: window.innerHeight / 2 + this.props.margin + 'px' });
     }
   }
 
@@ -145,14 +143,14 @@ class PortfolioItem extends Component {
               <img src={this.state.leftArrowDark} className="leftArrowDark" style={{ transform: this.state.shiftArrow, opacity: this.state.arrowOpacity2 }} />
               BACK
           </div>
-          <div className="portfolioContent" style={{ top: window.innerHeight / 2 + 100 + 'px', width: this.dimens * 2 + 'px', transform: this.state.contentTransform }} ref="portfolioContent">
-            <div className="portfolioHeader" ref="content" style={{ opacity: this.state.headerOpacity, transform: this.state.headerTransform }}>
-              <div className="portfolioYear" style={{ color: this.state.secondaryColor }}>{this.state.year}</div>
+          <div className="portfolioContent" style={{ top: window.innerHeight / 2 + this.props.margin + 'px', width: this.props.dimens * 2 + 'px', transform: this.state.contentTransform }} ref="portfolioContent">
+            <div className="portfolioHeader" ref="header" style={{ opacity: this.state.headerOpacity, transform: this.state.headerTransform }}>
+              <div className="portfolioYear" ref="year" style={{ color: this.state.secondaryColor }}>{this.state.year}</div>
               <div className="portfolioTitle" style={{ color: this.state.primaryColor }}>{this.state.title}</div>
               <div className="portfolioDescription" style={{ color: this.state.primaryColor }}>{this.state.description}</div>
             </div>
             <div className="portfolioText" style={{ color: this.state.primaryColor, top: this.props.topText,
-                                                    marginTop: (window.innerHeight - this.dimens) / 2 + 'px', opacity: this.state.textOpacity }} ref="portfolioText">
+                                                    marginTop: (window.innerHeight - this.props.dimens) / 2 + 'px', opacity: this.state.textOpacity }} ref="portfolioText">
               Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
               labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
               nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit
@@ -160,15 +158,15 @@ class PortfolioItem extends Component {
               in culpa qui officia deserunt mollit anim id est.
             </div>
           </div>
-          <div className="portfolioNumber" ref="number" style={{ left: (window.innerWidth + this.dimens) / 2 + 20 + 'px', top: this.state.numberTop,
+          <div className="portfolioNumber" ref="number" style={{ left: (window.innerWidth + this.props.dimens) / 2 + 20 + 'px', top: this.state.numberTop,
                                                                  color: this.state.primaryColor, opacity: this.state.numberOpacity, transform: this.state.numberTransform,
                                                                  position: this.state.numberPosition }}>
             {this.state.number}
           </div>
-          <div className="portfolioGradientTop" style={{ height: (window.innerHeight - this.dimens) / 2 + 'px',
+          <div className="portfolioGradientTop" style={{ height: (window.innerHeight - this.props.dimens) / 2 + 'px',
                                                          background: 'linear-gradient(to top, rgba(255,0,0,0) 0%, ' + this.props.tertieryColor + ' 100%)',
                                                          opacity: this.state.gradientOpacity }} />
-          <div className="portfolioGradientBottom" style={{ height: (window.innerHeight - this.dimens) / 2 + 'px',
+          <div className="portfolioGradientBottom" style={{ height: (window.innerHeight - this.props.dimens) / 2 + 'px',
                                                             background: 'linear-gradient(to bottom, rgba(255,0,0,0) 0%, ' + this.props.tertieryColor + ' 100%)',
                                                             opacity: this.state.gradientOpacity }} />
       </div>

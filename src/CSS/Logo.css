@@ -1,14 +1,11 @@
 .Logo {
   z-index: 10;
   position: absolute;
-  top: 70px;
   left: 50%;
   transform: translateX(-50%);
 }
 
-.logoWhole {
-  height: 30px;
-  width: auto;
+.logoWhole, .logoWhole2, .logoPiece, .logoPiece2 {
   position: absolute;
   -webkit-touch-callout: none;
   -webkit-user-select: none;
@@ -17,35 +14,62 @@
   transition: opacity 0.4s linear;
 }
 
-.logoPiece {
-  height: 30px;
-  width: auto;
-  position: relative;
-  -webkit-touch-callout: none;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  transition: opacity 0.4s linear;
+@media screen and (max-height: 799px) {
+  .Logo {
+    top: 55px;
+  }
+
+  .logoWhole, .logoWhole2, .logoPiece, .logoPiece2 {
+    height: 25px;
+  }
 }
 
-.logoWhole2 {
-  height: 30px;
-  width: auto;
-  position: absolute;
-  -webkit-touch-callout: none;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  transition: opacity 0.4s linear;
+@media screen and (min-height: 800px) {
+  .Logo {
+    top: 70px;
+  }
+
+  .logoWhole, .logoWhole2, .logoPiece, .logoPiece2 {
+    height: 30px;
+  }
 }
 
-.logoPiece2 {
-  height: 30px;
-  width: auto;
-  position: absolute;
-  -webkit-touch-callout: none;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  transition: opacity 0.4s linear;
+@media screen and (min-height: 950px) {
+  .Logo {
+    top: 80px;
+  }
+
+  .logoWhole, .logoWhole2, .logoPiece, .logoPiece2 {
+    height: 35px;
+  }
+}
+
+@media screen and (min-height: 1300px) {
+  .Logo {
+    top: 105px;
+  }
+
+  .logoWhole, .logoWhole2, .logoPiece, .logoPiece2 {
+    height: 45px;
+  }
+}
+
+@media screen and (min-height: 1650px) {
+  .Logo {
+    top: 140px;
+  }
+
+  .logoWhole, .logoWhole2, .logoPiece, .logoPiece2 {
+    height: 58px;
+  }
+}
+
+@media screen and (min-height: 2000px) {
+  .Logo {
+    top: 165px;
+  }
+
+  .logoWhole, .logoWhole2, .logoPiece, .logoPiece2 {
+    height: 70px;
+  }
 }

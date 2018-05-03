@@ -9,7 +9,6 @@
 }
 
 .prev {
-  width: 10px;
   position: absolute;
   -webkit-touch-callout: none;
   -webkit-user-select: none;
@@ -19,7 +18,6 @@
 }
 
 .next {
-  width: 10px;
   position: absolute;
   -webkit-touch-callout: none;
   -webkit-user-select: none;
@@ -29,8 +27,6 @@
 }
 
 .square {
-  width: 480px;
-  height: 480px;
   position: fixed;
   transform: translateX(-50%);
   z-index: 0;
@@ -48,7 +44,6 @@
 }
 
 .progressBarBackground {
-  height: 1px;
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
@@ -60,4 +55,118 @@
   position: relative;
   left: 0px;
   transition: width 0.4s ease-in-out, background 0.4s linear;
+}
+
+@media screen and (max-height: 799px) {
+  .prev {
+    width: 8px;
+  }
+
+  .next {
+    width: 8px;
+  }
+
+  .square {
+    width: 410px;
+    height: 410px;
+  }
+
+  .progressBarBackground {
+    height: 1px;
+  }
+}
+
+@media screen and (min-height: 800px) {
+  .prev {
+    width: 10px;
+  }
+
+  .next {
+    width: 10px;
+  }
+
+  .square {
+    width: 480px;
+    height: 480px;
+  }
+
+  .progressBarBackground {
+    height: 1px;
+  }
+}
+
+@media screen and (min-height: 950px) {
+  .prev {
+    width: 12px;
+  }
+
+  .next {
+    width: 12px;
+  }
+
+  .square {
+    width: 590px;
+    height: 590px;
+  }
+
+  .progressBarBackground {
+    height: 1px;
+  }
+}
+
+@media screen and (min-height: 1300px) {
+  .prev {
+    width: 16px;
+  }
+
+  .next {
+    width: 16px;
+  }
+
+  .square {
+    width: 820px;
+    height: 820px;
+  }
+
+  .progressBarBackground {
+    height: 2px;
+  }
+}
+
+@media screen and (min-height: 1650px) {
+  .prev {
+    width: 20px;
+  }
+
+  .next {
+    width: 20px;
+  }
+
+  .square {
+    width: 980px;
+    height: 980px;
+  }
+
+  .progressBarBackground {
+    height: 2px;
+  }
+}
+
+@media screen and (min-height: 2000px) {
+  .prev {
+    width: 24px;
+  }
+
+  .next {
+    width: 24px;
+  }
+
+  .square {
+    width: 1180px;
+    height: 1180px;
+  }
+
+  .progressBarBackground {
+    height: 3px;
+  }
 }
