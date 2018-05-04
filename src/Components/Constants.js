@@ -4,7 +4,6 @@
 // TERTIERYCOLOR = the background color of a page
 
 const Constants = {
-  CENTER_SHAPE_DIMENS: 480,
   PRIMARYCOLOR1: '#5cd9b1',
   SECONDARYCOLOR1: '#3e3e3e', // same for pages 1, 2, 3, 4
   TERTIERYCOLOR1: '#000000', // same for pages 1, 2, 3, 4

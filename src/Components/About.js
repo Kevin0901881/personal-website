@@ -14,6 +14,7 @@ class About extends Component {
     this.height = window.innerHeight;
     this.width = window.innerWidth;
     this.dimens = 0;
+    this.resumeActivated = false;
     this.state = {
       topCircle: '',
       // leftCircle: '25%',
@@ -48,8 +49,17 @@ class About extends Component {
       foregroundHeight: 0
     };
 
+    this.updateDimensions = this.updateDimensions.bind(this);
     this.hideResume = this.hideResume.bind(this);
     this.handleScroll = this.handleScroll.bind(this);
+  }
+
+  componentDidMount() {
+    window.addEventListener("resize", this.updateDimensions);
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener("resize", this.updateDimensions);
   }
 
   parallax(e) {
@@ -106,6 +116,9 @@ class About extends Component {
   }
 
   page2in() {
+    this.height = window.innerHeight;
+    this.width = window.innerWidth;
+    this.dimens = this.refs.circle.clientWidth;
     setTimeout( function() {
       this.setState({ topCircle: '50%', topPortrait: this.dimens / 4 + 'px',
                       topText: this.height / 2 - 40 + 'px', opacityAbout: 1 });
@@ -117,13 +130,14 @@ class About extends Component {
                     topText: -this.refs.textAbout.clientHeight - this.dimens / 2 + 'px', opacityAbout: 0 });
   }
 
-  page2out2() {
-    this.setState({ topCircle: this.height + this.dimens + 'px', topPortrait: this.height * 0.3 + 'px',
-                    topText: this.refs.textAbout.clientHeight + this.dimens / 2 + 'px', opacityAbout: 0 });
-  }
+  // page2out2() {
+  //   this.setState({ topCircle: this.height + this.dimens + 'px', topPortrait: this.height * 0.3 + 'px',
+  //                   topText: this.refs.textAbout.clientHeight + this.dimens / 2 + 'px', opacityAbout: 0 });
+  // }
 
   showResume() {
     this.props.activateResume();
+    this.resumeActivated = true;
     this.setState({ opacityTitle: 0, transformTitle: 'translateY(-50px)' });
     setTimeout( function() {
       this.setState({ opacityBody: 0, transformBody: 'translateY(-50px)' });
@@ -140,6 +154,7 @@ class About extends Component {
   }
 
   hideResume() {
+    this.resumeActivated = false;
     this.setState({ opacityResume: 0, topResume: this.height + 'px', opacityScrollbar: 0 });
     setTimeout( function() {
       this.setState({ displayText: 'block', displayResume: 'none', opacityResumeButton: 0, transformResumeButton: 'translateY(-50px)' });
@@ -158,6 +173,27 @@ class About extends Component {
 
   handleScroll() {
     this.setState({ foregroundHeight: this.refs.about.scrollTop / (this.refs.about.scrollHeight - this.refs.about.clientHeight) * (this.dimens / 2) });
+  }
+
+  updateDimensions() {
+    this.height = window.innerHeight;
+    this.width = window.innerWidth;
+    this.dimens = this.refs.circle.clientWidth;
+    if (this.props.page == 2 || this.props.page == 3) {
+      if (this.resumeActivated) {
+        this.setState({ topCircle: '50%', leftPortrait: this.dimens / 3 - this.refs.portrait.clientWidth / 2 + 'px',
+                        topPortrait: this.dimens / 4 + 'px', topText: this.height / 2 - 40 + 'px', topResume: (this.height - this.dimens) / 2 + 'px',
+                        marginBottomResume: (this.height - this.dimens) / 2 + this.dimens / 6 + 'px',
+                        leftText: this.width * 0.345 + 'px', bodyWidth: this.width * 0.5625 + 'px', colWidth: this.width * 0.2656 + 'px' });
+      } else {
+        this.setState({ topCircle: '50%', leftPortrait: this.dimens / 3 - this.refs.portrait.clientWidth / 2 + 'px',
+                        topPortrait: this.dimens / 4 + 'px', topText: this.height / 2 - 40 + 'px', topResume: this.height + 'px',
+                        marginBottomResume: (this.height - this.dimens) / 2 + this.dimens / 6 + 'px',
+                        leftText: this.width * 0.345 + 'px', bodyWidth: this.width * 0.5625 + 'px', colWidth: this.width * 0.2656 + 'px' });
+      }
+    } else {
+      this.setState({ leftText: this.width * 0.345 + 'px', bodyWidth: this.width * 0.5625 + 'px', colWidth: this.width * 0.2656 + 'px' });
+    }
   }
 
   render() {

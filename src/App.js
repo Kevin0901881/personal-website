@@ -76,7 +76,7 @@ class App extends Component {
           this.scroll2 = 0;
           this.setState({ displayPortfolio: 'none' });
         }.bind(this), 1100);
-      } else if (this.state.page >= 5 && this.state.page <= 10 && !this.state.portfolioItemActivated) {
+      } else if (this.state.page >= 5 && this.state.page <= 10 && !this.state.portfolioItemActivated && this.scroll2 == 0) {
         this.setState({ page: this.state.page - 1 });
         this.scrollPrev++;
         if (this.scrollPrev > 1) {
@@ -376,11 +376,11 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-          <Welcome className="welcome" display={this.state.displayWelcome} ref="welcome" />
-          <About className="about" display={this.state.displayAbout} activateResume={this.activateResume} ref="about" />
+          <Welcome className="welcome" display={this.state.displayWelcome} page={this.state.page} ref="welcome" />
+          <About className="about" display={this.state.displayAbout} activateResume={this.activateResume} page={this.state.page} ref="about" />
           <Portfolio className="portfolio" page={this.state.page} currentPage={this.state.portfolioPage} display={this.state.displayPortfolio}
                      activatePortfolioItem={this.activatePortfolioItem} ref="portfolio" />
-          <Contact className="contact" ref="contact" display={this.state.displayContact} />
+          <Contact className="contact" ref="contact" display={this.state.displayContact} page={this.state.page} />
           <Logo className="logo" page={this.state.currentPage} ref="logo" />
           <Menu className="menu" page={this.state.page} currentPage={this.state.currentPage} ref="menu" />
       </div>

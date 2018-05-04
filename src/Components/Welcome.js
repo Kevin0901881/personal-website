@@ -16,11 +16,16 @@ class Welcome extends Component {
       transition: '',
       move: false
     };
+    this.updateDimensions = this.updateDimensions.bind(this);
   }
 
   componentDidMount() {
-    console.log(window.innerHeight);
     this.in();
+    window.addEventListener("resize", this.updateDimensions);
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener("resize", this.updateDimensions);
   }
 
   in() {
@@ -39,6 +44,11 @@ class Welcome extends Component {
     setTimeout( function() {
       this.setState({ opacity: 0, opacityBlock: 0 });
     }.bind(this), 1000);
+  }
+
+  updateDimensions() {
+    this.setState({ width: this.refs.kevin.clientWidth, height: this.refs.kevin.clientHeight * 2,
+                    bottom: (window.innerHeight - 3 * this.refs.kevin.clientHeight) / 2 });
   }
 
   render() {

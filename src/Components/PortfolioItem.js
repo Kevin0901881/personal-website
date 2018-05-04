@@ -46,8 +46,18 @@ class PortfolioItem extends Component {
       gradientOpacity: 0,
       contentTransform: ''
     }
+
+    this.updateDimensions = this.updateDimensions.bind(this);
     this.out = this.out.bind(this);
     this.numberStateChange = this.numberStateChange.bind(this);
+  }
+
+  componentDidMount() {
+    window.addEventListener("resize", this.updateDimensions);
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener("resize", this.updateDimensions);
   }
 
   in() {
@@ -131,6 +141,10 @@ class PortfolioItem extends Component {
     } else {
       this.setState({ numberPosition: 'absolute', numberTop: window.innerHeight / 2 + this.props.margin + 'px' });
     }
+  }
+
+  updateDimensions() {
+    this.setState({ numberTop: (window.innerHeight - this.props.dimens) / 2 + 'px' });
   }
 
   render() {

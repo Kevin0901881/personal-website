@@ -76,7 +76,12 @@ class Portfolio extends Component {
     this.dimens = this.refs.square.clientWidth;
     this.margin = 0.22 * this.dimens;
     this.updateDimensions();
-    this.setState({ opacitySquare: 0 });
+    this.setState({ opacitySquare: 0, transition: '', heightSquare: '0px', heightSquare2: '0px',
+                    leftArrow: (this.width - this.dimens) / 4 - 0.5 * this.refs.prev.clientWidth,
+                    bottomArrow: 0.5 * (this.height - this.refs.prev.clientHeight),
+                    bottomProgress: (this.height - this.dimens) / 4,
+                    widthProgress: 0.5 * this.dimens,
+                    bottomSquare: 0.5 * (this.height - this.dimens) });
     setTimeout( function() {
       this.setState({ transition: 'opacity 0.6s linear, height 1s cubic-bezier(0.770, 0.000, 0.175, 1.000)', opacitySquare: 1,
                       bottomSquare: 0.5 * (this.height - this.dimens) + 'px', bottomProgress: (this.height - this.dimens) / 4,
@@ -99,55 +104,55 @@ class Portfolio extends Component {
           this.setState({ progressBackground: Constants.SECONDARYCOLOR1, progressForeground: Constants.PRIMARYCOLOR4, backgroundColor: Constants.TERTIERYCOLOR1 });
           break;
         case 5:
-          this.setState({ transition: '', leftSquare2: 0.5 * window.innerWidth + this.dimens });
+          this.setState({ transition: '', leftSquare2: 0.5 * this.width + this.dimens });
           this.setState({ arrowLeft: left1, arrowRight: right1, arrowLeft2: left2, arrowRight2: right2, arrowOpacityLeft: 0, arrowOpacityRight: 0, arrowOpacityLeft2: 1, arrowOpacityRight2: 1,
-                          opacitySquare: 0, leftSquare: 0.5 * window.innerWidth - this.refs.square2.clientWidth, heightSquare: 0,
-                          opacitySquare2: 1, leftSquare2: 0.5 * window.innerWidth, heightSquare2: this.dimens,
+                          opacitySquare: 0, leftSquare: 0.5 * this.width - this.refs.square2.clientWidth, heightSquare: 0,
+                          opacitySquare2: 1, leftSquare2: 0.5 * this.width, heightSquare2: this.dimens,
                           backgroundSquare2: 'linear-gradient(to bottom, ' + Constants.PRIMARYCOLOR5 + ' 0%, rgba(255,0,0,0) 100%)',
                           transition: 'opacity 0.4s ease-in-out, left 0.4s cubic-bezier(0.770, 0.000, 0.175, 1.000), height 0.4s cubic-bezier(0.770, 0.000, 0.175, 1.000)',
                           progressBackground: Constants.SECONDARYCOLOR5, progressForeground: Constants.PRIMARYCOLOR5, backgroundColor: Constants.TERTIERYCOLOR5 });
           break;
         case 6:
-          this.setState({ transition: '', leftSquare: 0.5 * window.innerWidth + this.dimens });
+          this.setState({ transition: '', leftSquare: 0.5 * this.width + this.dimens });
           this.setState({ arrowLeft: left3, arrowRight: right3, arrowOpacityLeft: 1, arrowOpacityRight: 1, arrowOpacityLeft2: 0, arrowOpacityRight2: 0,
-                          opacitySquare: 1, leftSquare: 0.5 * window.innerWidth, heightSquare: this.dimens,
-                          opacitySquare2: 0, leftSquare2: 0.5 * window.innerWidth - this.refs.square2.clientWidth, heightSquare2: 0,
+                          opacitySquare: 1, leftSquare: 0.5 * this.width, heightSquare: this.dimens,
+                          opacitySquare2: 0, leftSquare2: 0.5 * this.width - this.refs.square2.clientWidth, heightSquare2: 0,
                           backgroundSquare: 'linear-gradient(to bottom, ' + Constants.PRIMARYCOLOR6 + ' 0%, rgba(255,0,0,0) 100%)',
                           transition: 'opacity 0.4s ease-in-out, left 0.4s cubic-bezier(0.770, 0.000, 0.175, 1.000), height 0.4s cubic-bezier(0.770, 0.000, 0.175, 1.000)',
                           progressBackground: Constants.SECONDARYCOLOR6, progressForeground: Constants.PRIMARYCOLOR6, backgroundColor: Constants.TERTIERYCOLOR6 });
           break;
         case 7:
-          this.setState({ transition: '', leftSquare2: 0.5 * window.innerWidth + this.refs.square2.clientWidth });
+          this.setState({ transition: '', leftSquare2: 0.5 * this.width + this.refs.square2.clientWidth });
           this.setState({ arrowLeft2: left4, arrowRight2: right4, arrowOpacityLeft: 0, arrowOpacityRight: 0, arrowOpacityLeft2: 1, arrowOpacityRight2: 1,
-                          opacitySquare: 0, leftSquare: 0.5 * window.innerWidth - this.refs.square2.clientWidth, heightSquare: 0,
-                          opacitySquare2: 1, leftSquare2: 0.5 * window.innerWidth, heightSquare2: this.dimens,
+                          opacitySquare: 0, leftSquare: 0.5 * this.width - this.refs.square2.clientWidth, heightSquare: 0,
+                          opacitySquare2: 1, leftSquare2: 0.5 * this.width, heightSquare2: this.dimens,
                           backgroundSquare2: 'linear-gradient(to bottom, ' + Constants.PRIMARYCOLOR7 + ' 0%, rgba(255,0,0,0) 100%)',
                           transition: 'opacity 0.4s ease-in-out, left 0.4s cubic-bezier(0.770, 0.000, 0.175, 1.000), height 0.4s cubic-bezier(0.770, 0.000, 0.175, 1.000)',
                           progressBackground: Constants.SECONDARYCOLOR7, progressForeground: Constants.PRIMARYCOLOR7, backgroundColor: Constants.TERTIERYCOLOR7 });
           break;
         case 8:
-          this.setState({ transition: '', leftSquare: 0.5 * window.innerWidth + this.dimens });
+          this.setState({ transition: '', leftSquare: 0.5 * this.width + this.dimens });
           this.setState({ arrowLeft: left5, arrowRight: right5, arrowOpacityLeft: 1, arrowOpacityRight: 1, arrowOpacityLeft2: 0, arrowOpacityRight2: 0,
-                          opacitySquare: 1, leftSquare: 0.5 * window.innerWidth, heightSquare: this.dimens,
-                          opacitySquare2: 0, leftSquare2: 0.5 * window.innerWidth - this.refs.square2.clientWidth, heightSquare2: 0,
+                          opacitySquare: 1, leftSquare: 0.5 * this.width, heightSquare: this.dimens,
+                          opacitySquare2: 0, leftSquare2: 0.5 * this.width - this.refs.square2.clientWidth, heightSquare2: 0,
                           backgroundSquare: 'linear-gradient(to bottom, ' + Constants.PRIMARYCOLOR8 + ' 0%, rgba(255,0,0,0) 100%)',
                           transition: 'opacity 0.4s ease-in-out, left 0.4s cubic-bezier(0.770, 0.000, 0.175, 1.000), height 0.4s cubic-bezier(0.770, 0.000, 0.175, 1.000)',
                           progressBackground: Constants.SECONDARYCOLOR8, progressForeground: Constants.PRIMARYCOLOR8, backgroundColor: Constants.TERTIERYCOLOR8 });
           break;
         case 9:
-          this.setState({ transition: '', leftSquare2: 0.5 * window.innerWidth + this.refs.square2.clientWidth });
+          this.setState({ transition: '', leftSquare2: 0.5 * this.width + this.refs.square2.clientWidth });
           this.setState({ arrowLeft2: left6, arrowRight2: right6, arrowOpacityLeft: 0, arrowOpacityRight: 0, arrowOpacityLeft2: 1, arrowOpacityRight2: 1,
-                          opacitySquare: 0, leftSquare: 0.5 * window.innerWidth - this.refs.square2.clientWidth, heightSquare: 0,
-                          opacitySquare2: 1, leftSquare2: 0.5 * window.innerWidth, heightSquare2: this.dimens,
+                          opacitySquare: 0, leftSquare: 0.5 * this.width - this.refs.square2.clientWidth, heightSquare: 0,
+                          opacitySquare2: 1, leftSquare2: 0.5 * this.width, heightSquare2: this.dimens,
                           backgroundSquare2: 'linear-gradient(to bottom, ' + Constants.PRIMARYCOLOR9 + ' 0%, rgba(255,0,0,0) 100%)',
                           transition: 'opacity 0.4s ease-in-out, left 0.4s cubic-bezier(0.770, 0.000, 0.175, 1.000), height 0.4s cubic-bezier(0.770, 0.000, 0.175, 1.000)',
                           progressBackground: Constants.SECONDARYCOLOR9, progressForeground: Constants.PRIMARYCOLOR9, backgroundColor: Constants.TERTIERYCOLOR9 });
           break;
         case 10:
-          this.setState({ transition: '', leftSquare: 0.5 * window.innerWidth + this.dimens });
+          this.setState({ transition: '', leftSquare: 0.5 * this.width + this.dimens });
           this.setState({ arrowLeft: left7, arrowRight: right7, arrowOpacityLeft: 1, arrowOpacityRight: 0, arrowOpacityLeft2: 0, arrowOpacityRight2: 0,
-                          opacitySquare: 1, leftSquare: 0.5 * window.innerWidth, heightSquare: this.dimens,
-                          opacitySquare2: 0, leftSquare2: 0.5 * window.innerWidth - this.refs.square2.clientWidth, heightSquare2: 0,
+                          opacitySquare: 1, leftSquare: 0.5 * this.width, heightSquare: this.dimens,
+                          opacitySquare2: 0, leftSquare2: 0.5 * this.width - this.refs.square2.clientWidth, heightSquare2: 0,
                           backgroundSquare: 'linear-gradient(to bottom, ' + Constants.PRIMARYCOLOR10 + ' 0%, rgba(255,0,0,0) 100%)',
                           transition: 'opacity 0.4s ease-in-out, left 0.4s cubic-bezier(0.770, 0.000, 0.175, 1.000), height 0.4s cubic-bezier(0.770, 0.000, 0.175, 1.000)',
                           progressBackground: Constants.SECONDARYCOLOR10, progressForeground: Constants.PRIMARYCOLOR10, backgroundColor: Constants.TERTIERYCOLOR10 });
@@ -156,55 +161,55 @@ class Portfolio extends Component {
     } else {
       switch (this.props.currentPage) {
         case 4:
-          this.setState({ transition: '', leftSquare: 0.5 * window.innerWidth - this.dimens });
+          this.setState({ transition: '', leftSquare: 0.5 * this.width - this.dimens });
           this.setState({ arrowLeft: left1, arrowRight: right1, arrowOpacityLeft: 0, arrowOpacityRight: 1, arrowOpacityLeft2: 0, arrowOpacityRight2: 0,
-                          opacitySquare: 1, leftSquare: 0.5 * window.innerWidth, heightSquare: this.dimens,
-                          opacitySquare2: 0, leftSquare2: 0.5 * window.innerWidth + this.refs.square2.clientWidth, heightSquare2: 0,
+                          opacitySquare: 1, leftSquare: 0.5 * this.width, heightSquare: this.dimens,
+                          opacitySquare2: 0, leftSquare2: 0.5 * this.width + this.refs.square2.clientWidth, heightSquare2: 0,
                           backgroundSquare: 'linear-gradient(to bottom, ' + Constants.PRIMARYCOLOR4 + ' 0%, rgba(255,0,0,0) 100%)',
                           transition: 'opacity 0.4s ease-in-out, left 0.4s cubic-bezier(0.770, 0.000, 0.175, 1.000), height 0.4s cubic-bezier(0.770, 0.000, 0.175, 1.000)',
                           progressBackground: Constants.SECONDARYCOLOR1, progressForeground: Constants.PRIMARYCOLOR4, backgroundColor: Constants.TERTIERYCOLOR1 });
           break;
         case 5:
-          this.setState({ transition: '', leftSquare2: 0.5 * window.innerWidth - this.refs.square2.clientWidth });
+          this.setState({ transition: '', leftSquare2: 0.5 * this.width - this.refs.square2.clientWidth });
           this.setState({ arrowLeft2: left2, arrowRight2: right2, arrowOpacityLeft: 0, arrowOpacityRight: 0, arrowOpacityLeft2: 1, arrowOpacityRight2: 1,
-                          opacitySquare: 0, leftSquare: 0.5 * window.innerWidth + this.refs.square2.clientWidth, heightSquare: 0,
-                          opacitySquare2: 1, leftSquare2: 0.5 * window.innerWidth, heightSquare2: this.dimens,
+                          opacitySquare: 0, leftSquare: 0.5 * this.width + this.refs.square2.clientWidth, heightSquare: 0,
+                          opacitySquare2: 1, leftSquare2: 0.5 * this.width, heightSquare2: this.dimens,
                           backgroundSquare2: 'linear-gradient(to bottom, ' + Constants.PRIMARYCOLOR5 + ' 0%, rgba(255,0,0,0) 100%)',
                           transition: 'opacity 0.4s ease-in-out, left 0.4s cubic-bezier(0.770, 0.000, 0.175, 1.000), height 0.4s cubic-bezier(0.770, 0.000, 0.175, 1.000)',
                           progressBackground: Constants.SECONDARYCOLOR5, progressForeground: Constants.PRIMARYCOLOR5, backgroundColor: Constants.TERTIERYCOLOR5 });
           break;
         case 6:
-          this.setState({ transition: '', leftSquare: 0.5 * window.innerWidth - this.dimens });
+          this.setState({ transition: '', leftSquare: 0.5 * this.width - this.dimens });
           this.setState({ arrowLeft: left3, arrowRight: right3, arrowOpacityLeft: 1, arrowOpacityRight: 1, arrowOpacityLeft2: 0, arrowOpacityRight2: 0,
-                          opacitySquare: 1, leftSquare: 0.5 * window.innerWidth, heightSquare: this.dimens,
-                          opacitySquare2: 0, leftSquare2: 0.5 * window.innerWidth + this.refs.square2.clientWidth, heightSquare2: 0,
+                          opacitySquare: 1, leftSquare: 0.5 * this.width, heightSquare: this.dimens,
+                          opacitySquare2: 0, leftSquare2: 0.5 * this.width + this.refs.square2.clientWidth, heightSquare2: 0,
                           backgroundSquare: 'linear-gradient(to bottom, ' + Constants.PRIMARYCOLOR6 + ' 0%, rgba(255,0,0,0) 100%)',
                           transition: 'opacity 0.4s ease-in-out, left 0.4s cubic-bezier(0.770, 0.000, 0.175, 1.000), height 0.4s cubic-bezier(0.770, 0.000, 0.175, 1.000)',
                           progressBackground: Constants.SECONDARYCOLOR6, progressForeground: Constants.PRIMARYCOLOR6, backgroundColor: Constants.TERTIERYCOLOR6 });
           break;
         case 7:
-          this.setState({ transition: '', leftSquare2: 0.5 * window.innerWidth - this.refs.square2.clientWidth });
+          this.setState({ transition: '', leftSquare2: 0.5 * this.width - this.refs.square2.clientWidth });
           this.setState({ arrowLeft2: left4, arrowRight2: right4, arrowOpacityLeft: 0, arrowOpacityRight: 0, arrowOpacityLeft2: 1, arrowOpacityRight2: 1,
-                          opacitySquare: 0, leftSquare: 0.5 * window.innerWidth + this.refs.square2.clientWidth, heightSquare: 0,
-                          opacitySquare2: 1, leftSquare2: 0.5 * window.innerWidth, heightSquare2: this.dimens,
+                          opacitySquare: 0, leftSquare: 0.5 * this.width + this.refs.square2.clientWidth, heightSquare: 0,
+                          opacitySquare2: 1, leftSquare2: 0.5 * this.width, heightSquare2: this.dimens,
                           backgroundSquare2: 'linear-gradient(to bottom, ' + Constants.PRIMARYCOLOR7 + ' 0%, rgba(255,0,0,0) 100%)',
                           transition: 'opacity 0.4s ease-in-out, left 0.4s cubic-bezier(0.770, 0.000, 0.175, 1.000), height 0.4s cubic-bezier(0.770, 0.000, 0.175, 1.000)',
                           progressBackground: Constants.SECONDARYCOLOR7, progressForeground: Constants.PRIMARYCOLOR7, backgroundColor: Constants.TERTIERYCOLOR7 });
           break;
         case 8:
-          this.setState({ transition: '', leftSquare: 0.5 * window.innerWidth - this.dimens });
+          this.setState({ transition: '', leftSquare: 0.5 * this.width - this.dimens });
           this.setState({ arrowLeft: left5, arrowRight: right5, arrowOpacityLeft: 1, arrowOpacityRight: 1, arrowOpacityLeft2: 0, arrowOpacityRight2: 0,
-                          opacitySquare: 1, leftSquare: 0.5 * window.innerWidth, heightSquare: this.dimens,
-                          opacitySquare2: 0, leftSquare2: 0.5 * window.innerWidth + this.refs.square2.clientWidth, heightSquare2: 0,
+                          opacitySquare: 1, leftSquare: 0.5 * this.width, heightSquare: this.dimens,
+                          opacitySquare2: 0, leftSquare2: 0.5 * this.width + this.refs.square2.clientWidth, heightSquare2: 0,
                           backgroundSquare: 'linear-gradient(to bottom, ' + Constants.PRIMARYCOLOR8 + ' 0%, rgba(255,0,0,0) 100%)',
                           transition: 'opacity 0.4s ease-in-out, left 0.4s cubic-bezier(0.770, 0.000, 0.175, 1.000), height 0.4s cubic-bezier(0.770, 0.000, 0.175, 1.000)',
                           progressBackground: Constants.SECONDARYCOLOR8, progressForeground: Constants.PRIMARYCOLOR8, backgroundColor: Constants.TERTIERYCOLOR8 });
           break;
         case 9:
-          this.setState({ transition: '', leftSquare2: 0.5 * window.innerWidth - this.dimens });
+          this.setState({ transition: '', leftSquare2: 0.5 * this.width - this.dimens });
           this.setState({ arrowLeft2: left6, arrowRight2: right6, arrowOpacityLeft: 0, arrowOpacityRight: 0, arrowOpacityLeft2: 1, arrowOpacityRight2: 1,
-                          opacitySquare: 0, leftSquare: 0.5 * window.innerWidth + this.refs.square2.clientWidth, heightSquare: 0,
-                          opacitySquare2: 1, leftSquare2: 0.5 * window.innerWidth, heightSquare2: this.dimens,
+                          opacitySquare: 0, leftSquare: 0.5 * this.width + this.refs.square2.clientWidth, heightSquare: 0,
+                          opacitySquare2: 1, leftSquare2: 0.5 * this.width, heightSquare2: this.dimens,
                           transition: 'opacity 0.4s ease-in-out, left 0.4s cubic-bezier(0.770, 0.000, 0.175, 1.000), height 0.4s cubic-bezier(0.770, 0.000, 0.175, 1.000)',
                           progressBackground: Constants.SECONDARYCOLOR9, progressForeground: Constants.PRIMARYCOLOR9, backgroundColor: Constants.TERTIERYCOLOR9 });
           break;
@@ -216,12 +221,19 @@ class Portfolio extends Component {
   }
 
   updateDimensions() {
+    this.dimens = this.refs.square.clientWidth;
+    this.height = window.innerHeight;
+    this.width = window.innerWidth;
     this.setState({ leftArrow: (this.width - this.dimens) / 4 - 0.5 * this.refs.prev.clientWidth,
        bottomArrow: 0.5 * (this.height - this.refs.prev.clientHeight),
        bottomProgress: (this.height - this.dimens) / 4,
        widthProgress: 0.5 * this.dimens,
-       bottomSquare: 0.5 * (this.height - this.dimens),
-       leftSquare: 0.5 * this.width, leftSquare2: 0.5 * this.width });
+       bottomSquare: 0.5 * (this.height - this.dimens) });
+    if (this.props.currentPage == 4 || this.props.currentPage == 6 || this.props.currentPage == 8 || this.props.currentPage == 10 ) {
+      this.setState({ leftSquare: 0.5 * this.width, leftSquare2: 0.5 * this.width + this.dimens, heightSquare: this.dimens + 'px' });
+    } else {
+      this.setState({ leftSquare: 0.5 * this.width + this.dimens, leftSquare2: 0.5 * this.width, heightSquare2: this.dimens + 'px' });
+    }
   }
 
   itemIn() {
