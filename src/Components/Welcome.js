@@ -31,9 +31,12 @@ class Welcome extends Component {
   in() {
     setTimeout( function() {
       this.setState({ transition: '', width: this.refs.kevin.clientWidth, height: this.refs.kevin.clientHeight * 2,
-                      bottom: (window.innerHeight - this.refs.kevin.clientHeight) / 2 - 2, opacityBlock: 1, opacity: 1, scrollDownOpacity: 1 });
+                      bottom: (window.innerHeight - this.refs.kevin.clientHeight) / 2 - 2, opacityBlock: 1, opacity: 1 });
       this.setState({ transition: 'bottom 1s cubic-bezier(0.770, 0.000, 0.175, 1.000)', bottom: (window.innerHeight - 3 * this.refs.kevin.clientHeight) / 2 });
     }.bind(this), 350);
+    setTimeout( function() {
+      this.setState({ scrollDownOpacity: 1 });
+    }.bind(this), 1250);
     setTimeout( function() {
       this.setState({ move: true, transition: 'bottom 0.1s linear' });
     }.bind(this), 1350);

@@ -27,9 +27,19 @@ class Logo extends Component {
       logoPiece: logoPieceWelcome,
       logoWhole2: logoWholeAbout,
       logoPiece2: logoPieceAbout,
-      opacity: 1,
+      opacity: 0,
       opacity2: 0
     }
+  }
+
+  componentDidMount() {
+    this.in();
+  }
+
+  in() {
+    setTimeout( function() {
+      this.setState({ opacity: 1 });
+    }.bind(this), 1250);
   }
 
   updateLogo(next) {

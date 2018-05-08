@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
+import Loader from './Components/Loader.js';
 import Logo from './Components/Logo.js';
 import Menu from './Components/Menu.js';
 import Welcome from './Components/Welcome.js';
@@ -25,7 +26,8 @@ class App extends Component {
       displayPortfolio: 'none',
       displayContact: 'none',
       resumeActivated: false,
-      portfolioItemActivated: false
+      portfolioItemActivated: false,
+      loading: true
     }
     this.handleScroll = this.handleScroll.bind(this);
     this.activateResume = this.activateResume.bind(this);
@@ -37,8 +39,13 @@ class App extends Component {
     window.addEventListener("wheel", this.handleScroll);
 
     setTimeout( function() {
+      this.refs.loader.out();
+    }.bind(this), 1850);
+
+    setTimeout( function() {
+      this.setState({ loading: false });
       this.enableScroll = true;
-    }.bind(this), 1350);
+    }.bind(this), 2000);
   }
 
   componentWillUnmount() {
@@ -374,17 +381,27 @@ class App extends Component {
   // }
 
   render() {
-    return (
-      <div className="App">
-          <Welcome className="welcome" display={this.state.displayWelcome} page={this.state.page} ref="welcome" />
-          <About className="about" display={this.state.displayAbout} activateResume={this.activateResume} page={this.state.page} ref="about" />
-          <Portfolio className="portfolio" page={this.state.page} currentPage={this.state.portfolioPage} display={this.state.displayPortfolio}
-                     activatePortfolioItem={this.activatePortfolioItem} ref="portfolio" />
-          <Contact className="contact" ref="contact" display={this.state.displayContact} page={this.state.page} />
-          <Logo className="logo" page={this.state.currentPage} ref="logo" />
-          <Menu className="menu" page={this.state.page} currentPage={this.state.currentPage} ref="menu" />
-      </div>
-    );
+    const { loading } = this.state;
+
+    if(loading) {
+      return (
+        <div className="Loading">
+            <Loader ref="loader" />
+        </div>
+      );
+    } else {
+      return (
+        <div className="App">
+            <Welcome className="welcome" display={this.state.displayWelcome} page={this.state.page} ref="welcome" />
+            <About className="about" display={this.state.displayAbout} activateResume={this.activateResume} page={this.state.page} ref="about" />
+            <Portfolio className="portfolio" page={this.state.page} currentPage={this.state.portfolioPage} display={this.state.displayPortfolio}
+                       activatePortfolioItem={this.activatePortfolioItem} ref="portfolio" />
+            <Contact className="contact" ref="contact" display={this.state.displayContact} page={this.state.page} />
+            <Logo className="logo" page={this.state.currentPage} ref="logo" />
+            <Menu className="menu" page={this.state.page} currentPage={this.state.currentPage} ref="menu" />
+        </div>
+      );
+    }
   }
 }
 
