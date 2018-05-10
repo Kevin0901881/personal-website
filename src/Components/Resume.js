@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import '../CSS/Resume.css';
 import leftArrow from '../Images/left_arrow.png'
 import leftArrowDark from '../Images/left_arrow_dark.png'
-import resume from '../Images/resume.png'
+import resume from '../Images/resume.jpg'
 
 class Resume extends Component {
   constructor(props) {

@@ -36,16 +36,20 @@ class App extends Component {
   }
 
   componentDidMount() {
+    console.log(window.innerHeight);
     window.addEventListener("wheel", this.handleScroll);
 
     setTimeout( function() {
       this.refs.loader.out();
-    }.bind(this), 1850);
+    }.bind(this), 2350);
 
     setTimeout( function() {
       this.setState({ loading: false });
+    }.bind(this), 2500);
+
+    setTimeout( function() {
       this.enableScroll = true;
-    }.bind(this), 2000);
+    }.bind(this), 4000);
   }
 
   componentWillUnmount() {
@@ -53,7 +57,7 @@ class App extends Component {
   }
 
   handleScroll(e) {
-    if (e.deltaY < 0) { // scroll up (prev)
+    if (e.deltaY < 0 && !this.state.portfolioItemActivated && !this.state.resumeActivated) { // scroll up (prev)
       if (this.state.page == 2 && this.scroll2 == 0) {
         this.scroll2 = 1;
         this.setState({ page: this.state.page - 1, currentPage: this.state.currentPage - 1, displayWelcome: 'block' });
@@ -65,14 +69,14 @@ class App extends Component {
           this.scroll2 = 0;
           this.setState({ displayAbout: 'none' });
         }.bind(this), 1450);
-      } else if (this.state.page == 3 && this.scroll2 == 0 && !this.state.resumeActivated) {
+      } else if (this.state.page == 3 && this.scroll2 == 0) {
         this.scroll2 = 1;
         this.setState({ page: this.state.page - 1, currentPage: this.state.currentPage - 1 });
         this.refs.about.page1inPage2out();
         setTimeout( function() {
           this.scroll2 = 0;
         }.bind(this), 1100);
-      } else if (this.state.page == 4 && this.scroll2 == 0 && this.scrollPrev == 0 && !this.state.portfolioItemActivated) {
+      } else if (this.state.page == 4 && this.scroll2 == 0 && this.scrollPrev == 0) {
         this.scroll2 = 1;
         this.setState({ page: this.state.page - 1, currentPage: this.state.currentPage - 1, displayAbout: 'block' });
         this.refs.menu.updateMenu(false);
@@ -83,28 +87,16 @@ class App extends Component {
           this.scroll2 = 0;
           this.setState({ displayPortfolio: 'none' });
         }.bind(this), 1100);
-      } else if (this.state.page >= 5 && this.state.page <= 10 && !this.state.portfolioItemActivated && this.scroll2 == 0) {
+      } else if (this.state.page >= 5 && this.state.page <= 10 && this.scroll2 == 0 && this.scrollNext == 0 && this.scrollPrev == 0) {
         this.setState({ page: this.state.page - 1 });
         this.scrollPrev++;
-        if (this.scrollPrev > 1) {
-          setTimeout( function() {
-            this.scrollPrev--;
-            this.currentTime = Date.now();
-            this.setState({ currentPage: this.state.currentPage - 1, portfolioPage: this.state.portfolioPage - 1 });
-            this.refs.portfolio.updateScene(false);
-            this.refs.menu.updateMenu(false);
-            this.refs.logo.updateLogo(false);
-          }.bind(this), 400 * (this.scrollPrev - 1) - (Date.now() - this.currentTime));
-        } else {
-          this.currentTime = Date.now();
-          this.setState({ currentPage: this.state.currentPage - 1, portfolioPage: this.state.portfolioPage - 1 });
-          this.refs.portfolio.updateScene(false);
-          this.refs.menu.updateMenu(false);
-          this.refs.logo.updateLogo(false);
-          setTimeout( function() {
-            this.scrollPrev--;
-          }.bind(this), 400);
-        }
+        this.setState({ currentPage: this.state.currentPage - 1, portfolioPage: this.state.portfolioPage - 1 });
+        this.refs.portfolio.updateScene(false);
+        this.refs.menu.updateMenu(false);
+        this.refs.logo.updateLogo(false);
+        setTimeout( function() {
+          this.scrollPrev = 0;
+        }.bind(this), 400);
       } else if (this.state.currentPage == 11 && this.scroll2 == 0) {
        this.scroll2 = 1;
        this.setState({ page: this.state.page - 1, currentPage: this.state.currentPage - 1 });
@@ -115,7 +107,7 @@ class App extends Component {
          this.setState({ displayContact: 'none' });
        }.bind(this), 1100);
      }
-   } else if (e.deltaY > 0) { // scroll down (next)
+   } else if (e.deltaY > 0 && !this.state.portfolioItemActivated && !this.state.resumeActivated) { // scroll down (next)
      if (this.state.page == 1 && this.scroll2 == 0 && this.enableScroll) {
        this.scroll2 = 1;
        this.setState({ page: this.state.page + 1, currentPage: this.state.currentPage + 1, displayAbout: 'block' });
@@ -134,7 +126,7 @@ class App extends Component {
        setTimeout( function() {
          this.scroll2 = 0;
        }.bind(this), 1100);
-     } else if (this.state.page == 3 && this.scroll2 == 0 && !this.state.resumeActivated) {
+     } else if (this.state.page == 3 && this.scroll2 == 0) {
        this.scroll2 = 1;
        this.setState({ currentPage: this.state.currentPage + 1, displayPortfolio: 'block' });
        this.refs.menu.updateMenu(true);
@@ -145,29 +137,17 @@ class App extends Component {
          this.scroll2 = 0;
          this.setState({ displayAbout: 'none', page: this.state.page + 1 });
        }.bind(this), 1100);
-     } else if (this.state.page >= 4 && this.state.page <= 9 && !this.state.portfolioItemActivated) {
+     } else if (this.state.page >= 4 && this.state.page <= 9 && this.scrollNext == 0 && this.scrollPrev == 0) {
        this.setState({ page: this.state.page + 1 });
-       this.scrollNext++;
-       if (this.scrollNext > 1) {
-         setTimeout( function() {
-           this.scrollNext--;
-           this.currentTime = Date.now();
-           this.setState({ currentPage: this.state.currentPage + 1, portfolioPage: this.state.portfolioPage + 1 });
-           this.refs.portfolio.updateScene(true);
-           this.refs.menu.updateMenu(true);
-           this.refs.logo.updateLogo(true);
-         }.bind(this), 400 * (this.scrollNext - 1) - (Date.now() - this.currentTime));
-       } else {
-         this.currentTime = Date.now();
-         this.setState({ currentPage: this.state.currentPage + 1, portfolioPage: this.state.portfolioPage + 1 });
-         this.refs.portfolio.updateScene(true);
-         this.refs.menu.updateMenu(true);
-         this.refs.logo.updateLogo(true);
-         setTimeout( function() {
-           this.scrollNext--;
-         }.bind(this), 400);
-       }
-     } else if (this.state.currentPage == 10 && this.scroll2 == 0 && this.scrollNext == 0 && !this.state.portfolioItemActivated) {
+       this.scrollNext = 1;
+       this.setState({ currentPage: this.state.currentPage + 1, portfolioPage: this.state.portfolioPage + 1 });
+       this.refs.portfolio.updateScene(true);
+       this.refs.menu.updateMenu(true);
+       this.refs.logo.updateLogo(true);
+       setTimeout( function() {
+         this.scrollNext = 0;
+       }.bind(this), 400);
+     } else if (this.state.currentPage == 10 && this.scroll2 == 0 && this.scrollNext == 0) {
        this.scroll2 = 1;
        this.setState({ page: this.state.page + 1, displayContact: 'block' });
        this.refs.menu.updateMenu(true);

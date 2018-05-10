@@ -39,7 +39,7 @@ class Welcome extends Component {
     }.bind(this), 1250);
     setTimeout( function() {
       this.setState({ move: true, transition: 'bottom 0.1s linear' });
-    }.bind(this), 1350);
+    }.bind(this), 1400);
   }
 
   out() {

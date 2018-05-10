@@ -11,13 +11,14 @@ class Loader extends Component {
   }
 
   out() {
-    this.setState({ opacity: 0 });
+    this.setState({ opacity: 0, opacityBeta: 0 });
   }
 
   render() {
     return (
       <div className="Loader">
-          <img src={logoWhole} className="logoWholeLoader" ref="logo" style={{ opacity: this.state.opacity }} />
+          <img src={logoWhole} className="logoWholeLoader" style={{ opacity: this.state.opacity }} />
+          <div className="beta" style={{ opacity: this.state.opacityBeta }}>BETA</div>
       </div>
     );
   }
