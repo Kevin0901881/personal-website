@@ -239,7 +239,7 @@ class Portfolio extends Component {
   itemIn() {
     this.itemEnabled = true;
     this.setState({ arrowOpacityLeft: 0, arrowOpacityLeft2: 0, arrowOpacityRight: 0, arrowOpacityRight2: 0, opacityProgress: 0, displayPortfolioItem: 'block',
-                    cursorSquare: 'default', transition: 'opacity 0.1s linear' });
+                    cursorSquare: 'default' });
     this.refs.portfolioItem.in();
     this.props.activatePortfolioItem();
     setTimeout( function() {
@@ -340,11 +340,15 @@ class Portfolio extends Component {
           <div className="square" ref="square2" style={{ background: this.state.backgroundSquare2, opacity: this.state.opacitySquare2, bottom: this.state.bottomSquare,
                                                          left: this.state.leftSquare2, transition: this.state.transition, height: this.state.heightSquare2,
                                                          cursor: this.state.cursorSquare }}
-               onClick={() => { if (!this.itemEnabled) this.itemIn() }} />
+               onClick={() => { if (!this.itemEnabled) this.itemIn() }}
+               onMouseEnter={() => { this.setState({ transition: 'opacity 0.4s ease-in-out, left 0.4s cubic-bezier(0.770, 0.000, 0.175, 1.000), height 0.4s cubic-bezier(0.770, 0.000, 0.175, 1.000)', opacitySquare2: 0.5 }) }}
+               onMouseLeave={() => { this.setState({ opacitySquare2: 1 }) }} />
           <div className="square" ref="square" style={{ background: this.state.backgroundSquare, opacity: this.state.opacitySquare, bottom: this.state.bottomSquare,
                                                         left: this.state.leftSquare, transition: this.state.transition, height: this.state.heightSquare,
                                                         cursor: this.state.cursorSquare }}
-               onClick={() => { if (!this.itemEnabled) this.itemIn() }} />
+               onClick={() => { if (!this.itemEnabled) this.itemIn() }}
+               onMouseEnter={() => { this.setState({ transition: 'opacity 0.4s ease-in-out, left 0.4s cubic-bezier(0.770, 0.000, 0.175, 1.000), height 0.4s cubic-bezier(0.770, 0.000, 0.175, 1.000)', opacitySquare: 0.5 }) }}
+               onMouseLeave={() => { this.setState({ opacitySquare: 1 }) }} />
           {/* <div className="squareRight" ref="squareRight" style={{ background: this.state.backgroundSquareRight }} /> */}
           <img src={this.state.arrowRight2} className="next" ref="next2" style={{ right: this.state.leftArrow, bottom: this.state.bottomArrow, opacity: this.state.arrowOpacityRight2 }} />
           <img src={this.state.arrowRight} className="next" ref="next" style={{ right: this.state.leftArrow, bottom: this.state.bottomArrow, opacity: this.state.arrowOpacityRight }} />
