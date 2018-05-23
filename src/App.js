@@ -27,7 +27,8 @@ class App extends Component {
       displayContact: 'none',
       resumeActivated: false,
       portfolioItemActivated: false,
-      loading: true
+      loading: true,
+      scrollDownOpacity: 0
     }
     this.handleScroll = this.handleScroll.bind(this);
     this.activateResume = this.activateResume.bind(this);
@@ -41,15 +42,16 @@ class App extends Component {
 
     setTimeout( function() {
       this.refs.loader.out();
-    }.bind(this), 2350);
+    }.bind(this), 3350);
 
     setTimeout( function() {
       this.setState({ loading: false });
-    }.bind(this), 2500);
+    }.bind(this), 3500);
 
     setTimeout( function() {
+      this.setState({ scrollDownOpacity: 1 });
       this.enableScroll = true;
-    }.bind(this), 4000);
+    }.bind(this), 5000);
   }
 
   componentWillUnmount() {
@@ -78,7 +80,7 @@ class App extends Component {
         }.bind(this), 1100);
       } else if (this.state.page == 4 && this.scroll2 == 0 && this.scrollPrev == 0) {
         this.scroll2 = 1;
-        this.setState({ page: this.state.page - 1, currentPage: this.state.currentPage - 1, displayAbout: 'block' });
+        this.setState({ page: this.state.page - 1, currentPage: this.state.currentPage - 1, displayAbout: 'block', scrollDownOpacity: 1 });
         this.refs.menu.updateMenu(false);
         this.refs.about.page2in();
         this.refs.portfolio.out();
@@ -128,7 +130,7 @@ class App extends Component {
        }.bind(this), 1100);
      } else if (this.state.page == 3 && this.scroll2 == 0) {
        this.scroll2 = 1;
-       this.setState({ currentPage: this.state.currentPage + 1, displayPortfolio: 'block' });
+       this.setState({ currentPage: this.state.currentPage + 1, displayPortfolio: 'block', scrollDownOpacity: 0 });
        this.refs.menu.updateMenu(true);
        this.refs.about.page2out();
        this.refs.portfolio.in();
@@ -379,6 +381,9 @@ class App extends Component {
             <Contact className="contact" ref="contact" display={this.state.displayContact} page={this.state.page} />
             <Logo className="logo" page={this.state.currentPage} ref="logo" />
             <Menu className="menu" page={this.state.page} currentPage={this.state.currentPage} ref="menu" />
+            <div className="scrollDown" ref="scrollDown" style={{ opacity: this.state.scrollDownOpacity }}>
+              SCROLL DOWN
+            </div>
         </div>
       );
     }

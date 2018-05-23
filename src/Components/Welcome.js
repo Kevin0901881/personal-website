@@ -8,7 +8,6 @@ class Welcome extends Component {
     this.state = {
       background: 'linear-gradient(to bottom, ' + Constants.PRIMARYCOLOR1 + ' 0%, rgba(255,0,0,0) ' + 81 + '%)',
       opacity: 0,
-      scrollDownOpacity: 0,
       opacityBlock: 1,
       width: 0,
       height: 0,
@@ -35,7 +34,6 @@ class Welcome extends Component {
       this.setState({ transition: 'bottom 1s cubic-bezier(0.770, 0.000, 0.175, 1.000)', bottom: (window.innerHeight - 3 * this.refs.kevin.clientHeight) / 2 });
     }.bind(this), 350);
     setTimeout( function() {
-      this.setState({ scrollDownOpacity: 1 });
     }.bind(this), 1250);
     setTimeout( function() {
       this.setState({ move: true, transition: 'bottom 0.1s linear' });
@@ -43,7 +41,7 @@ class Welcome extends Component {
   }
 
   out() {
-    this.setState({ transition: 'bottom 1s cubic-bezier(0.770, 0.000, 0.175, 1.000)', bottom: (window.innerHeight - this.refs.kevin.clientHeight) / 2 - 2, move: false, scrollDownOpacity: 0 });
+    this.setState({ transition: 'bottom 1s cubic-bezier(0.770, 0.000, 0.175, 1.000)', bottom: (window.innerHeight - this.refs.kevin.clientHeight) / 2 - 2, move: false });
     setTimeout( function() {
       this.setState({ opacity: 0, opacityBlock: 0 });
     }.bind(this), 1000);
@@ -63,9 +61,6 @@ class Welcome extends Component {
           </div>
           <div className="darkBlock" style={{ width: this.state.width, height: this.state.height, bottom: this.state.bottom, transition: this.state.transition,
                                               opacity: this.state.opacity, background: 'linear-gradient(to top, #000000 50%, rgba(255,0,0,0) 100%)' }} />
-          <div className="scrollDown" ref="scrollDown" style={{ opacity: this.state.scrollDownOpacity }}>
-              SCROLL DOWN
-          </div>
       </div>
     );
   }

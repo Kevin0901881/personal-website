@@ -62,18 +62,20 @@ class About extends Component {
     window.removeEventListener("resize", this.updateDimensions);
   }
 
-  parallax(e) {
-    this.setState({ transformCircle: 'translate(' + (this.dimens * -0.5 + (e.clientX * 5 / (this.width * 2))) + 'px, ' + (this.dimens * -0.5 + (e.clientY * 4 / (this.height * 2))) + 'px)',
-                    // leftCircle: (windowWidth / 2) - (e.clientX * 4 / (windowWidth * 2)) + 'px',
-                    transformPortrait: 'translate(' + (e.clientX * 10 / (this.width * 2)) + 'px, ' + (-20 + (e.clientY * 8 / (this.height * 2))) + 'px)'
-                    // topText: (this.height * 0.31) + (e.clientY * 3 / (windowHeight * 2)) + 'px',
-                    // leftText: (this.width * 0.345) + (e.clientX * 3 / (windowWidth * 2)) + 'px'
-                   });
+  parallax() {
+    window.addEventListener('onMouseMove', (e) => {
+      this.setState({ transformCircle: 'translate(' + (this.dimens * -0.5 + (e.clientX * 5 / (this.width * 2))) + 'px, ' + (this.dimens * -0.5 + (e.clientY * 4 / (this.height * 2))) + 'px)',
+                      // leftCircle: (windowWidth / 2) - (e.clientX * 4 / (windowWidth * 2)) + 'px',
+                      transformPortrait: 'translate(' + (e.clientX * 10 / (this.width * 2)) + 'px, ' + (-20 + (e.clientY * 8 / (this.height * 2))) + 'px)'
+                      // topText: (this.height * 0.31) + (e.clientY * 3 / (windowHeight * 2)) + 'px',
+                      // leftText: (this.width * 0.345) + (e.clientX * 3 / (windowWidth * 2)) + 'px'
+                     });
+    })
   }
 
   page1in() {
     this.dimens = this.refs.circle.clientWidth;
-    this.parallax(window.event);
+    this.parallax();
     this.setState({ topCircle: this.height + this.dimens + 'px', leftPortrait: this.dimens / 3 - this.refs.portrait.clientWidth / 2 + 'px',
                     topPortrait: this.dimens / 2 + 'px', transitionCircle: '', topText: this.height / 2 - 40 + 'px',
                     topResume: this.height + 'px', marginBottomResume: (this.height - this.dimens) / 2 + this.dimens / 6 + 'px' });
@@ -219,6 +221,8 @@ class About extends Component {
                     nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit
                     esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt
                     in culpa qui officia deserunt mollit anim id est.
+                    I'm Kevin Li, a student at University of Waterloo, currently pursuing a Bachelor of Computing
+                    and Financial Management. I've got a passion for technology and design.
                 </div>
                 <div className="rightColumn" style={{ width: this.state.colWidth, opacity: this.state.opacityRight }}>
                     Et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas
